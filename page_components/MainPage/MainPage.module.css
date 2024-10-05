@@ -1,0 +1,18 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	justify-items: center;
+}
+
+.versionText {
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+
+	margin-right: 5% !important;
+
+	color: var(--white) !important;
+
+	font-weight: 600 !important;
+}

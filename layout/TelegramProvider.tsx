@@ -22,7 +22,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
     if (app) {
       app.ready();
       setWebApp(app);
-      app.BackButton.hide();
+      app.expand();
       app.setHeaderColor('#1A1A1A');
     }
   }, [router, dispatch]);

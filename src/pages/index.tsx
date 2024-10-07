@@ -8,10 +8,6 @@ import { useEffect } from "react";
 
 function Main(): JSX.Element {
   const { router, dispatch, webApp, tgUser } = useSetup();
-
-  if (webApp) {
-      webApp.expand();
-  }
   
   useEffect(() => {
     if (tgUser) {

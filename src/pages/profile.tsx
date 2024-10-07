@@ -9,7 +9,6 @@ import { getUser } from '../../helpers/user.helper';
 function Profile(): JSX.Element {
     const { router, dispatch, webApp, tgUser } = useSetup();
 
-
     useEffect(() => {
         if (tgUser) {
             getUser({

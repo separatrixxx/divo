@@ -1,12 +1,11 @@
 import styles from './MainPage.module.css';
-import { Toaster } from 'react-hot-toast';
-import { useRouter } from 'next/router';
 import { useSetup } from '../../hooks/useSetup';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Spinner } from '../../components/Common/Spinner/Spinner';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { ByBlock } from '../../components/Common/ByBlock/ByBlock';
 import { ModelsList } from '../../components/MainComponents/ModelsList/ModelsList';
+import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 
 
 export const MainPage = (): JSX.Element => {
@@ -28,6 +27,7 @@ export const MainPage = (): JSX.Element => {
                 : 
                     <>
                         <ModelsList />
+                        <Navbar />
                     </>
             }
         </div>

@@ -4,13 +4,11 @@ import { ModelsItem } from '../ModelsItem/ModelsItem';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
 import { ModelItem } from '../../../interfaces/models.interface';
-import { Spinner } from '../../Common/Spinner/Spinner';
 import { LoadingDots } from '../../Common/LoadingDots/LoadingDots';
 
 
 export const ModelsList = (): JSX.Element => {
     const { models } = useSetup();
-    console.log(models.result.models.length)
 
     const limit = 6;
     const [displayedModels, setDisplayedModels] = useState<ModelItem[]>(models.result.models.slice(0, limit));

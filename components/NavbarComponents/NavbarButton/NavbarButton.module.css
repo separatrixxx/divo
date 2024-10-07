@@ -1,0 +1,27 @@
+.navbarButton {
+	display: grid;
+
+	width: fit-content;
+	height: fit-content;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+	justify-items: center;
+	gap: 7px;
+}
+
+.navbarButton:hover,
+.navbarButton:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.navbarButtonIcon {
+	height: 25px;
+	fill: var(--white);
+}
+
+.navbarButtonText {
+	color: var(--white) !important;
+}

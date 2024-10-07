@@ -29,7 +29,7 @@ function Main(): JSX.Element {
         <title>{setLocale(router.locale).divo}</title>
         <meta name='description' content={setLocale(router.locale).divo} />
         <meta property='og:title' content={setLocale(router.locale).divo} />
-        <meta name='og:description' content={setLocale(router.locale).divo} />
+        <meta property='og:description' content={setLocale(router.locale).divo} />
         <meta charSet="utf-8" />
       </Head>
       <MainPage />

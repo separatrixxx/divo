@@ -3,7 +3,8 @@
 .xl,
 .l,
 .m,
-.s {
+.s,
+.xs {
 	width: fit-content;
 	margin: 0;
 
@@ -44,6 +45,11 @@
 	font-style: normal;
 }
 
+.xs {
+	font-size: 18px;
+	font-style: normal;
+}
+
 @media (max-width: 580px) {
 	.xxxl {
 		font-size: 50px;
@@ -67,5 +73,9 @@
 
 	.s {
 		font-size: 16px;
+	}
+
+	.xs {
+		font-size: 12px;
 	}
 }

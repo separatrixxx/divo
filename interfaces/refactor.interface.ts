@@ -1,4 +1,4 @@
-import { IWebApp } from "../types/telegram";
+import { IWebApp, ITelegramUser } from "../types/telegram";
 
 
 export interface ErrorArguments {
@@ -8,4 +8,8 @@ export interface ErrorArguments {
 
 export interface BaseArguments extends ErrorArguments {
     dispatch: any,
+}
+
+export interface GetUserArguments extends BaseArguments {
+    tgUser: ITelegramUser | undefined,
 }

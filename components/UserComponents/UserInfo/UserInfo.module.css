@@ -1,0 +1,12 @@
+.userInfo {
+	display: grid;
+
+	width: calc(100% - 20px);
+	margin-bottom: 100px;
+	padding: 10px;
+	gap: 10px;
+}
+
+.userInfo > h1 {
+	color: var(--white);
+}

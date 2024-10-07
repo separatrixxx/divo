@@ -6,7 +6,18 @@ export const en = {
     error404: "Page not found, 404 error",
     error500: "Server failure, error 500",
     main_title: "The web application works only in our tg bot",
+    model: "Model",
+    tasks: "Tasks",
+    profile: "Profile",
     errors: {
+        get_user_error: "An error occurred while retrieving user information",
+        user_not_found_error: "First, register in the bot",
         get_models_error: "An error occurred while retrieving models",
     },
+    id: "ID",
+    award: "Award",
+    views: "Views",
+    votes: "Votes",
+    coins: "Coins",
+    votes_left: "Votes left",
 };

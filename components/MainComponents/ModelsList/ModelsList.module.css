@@ -2,6 +2,7 @@
 	display: grid;
 
 	width: calc(100% - 20px);
+	margin-bottom: 100px;
 	padding: 10px;
 	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
 	gap: 10px;

@@ -6,7 +6,7 @@ import { setLocale } from "./locale.helper";
 
 
 export async function getModels(args: BaseArguments) {
-    const { router, webApp, dispatch } = args;
+    const { router, dispatch, webApp } = args;
 
     try {
         const { data : response }: AxiosResponse<ModelsInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +

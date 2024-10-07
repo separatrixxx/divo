@@ -1,0 +1,42 @@
+.navbar {
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+
+	display: grid;
+	align-items: center;
+
+	width: 100%;
+	height: fit-content;
+	padding: 15px 0;
+
+	background: rgba(26, 26, 26, 0.95);
+	grid-template-columns: 1fr auto 1fr;
+	justify-items: center;
+}
+
+.navbarLogoButtonDiv {
+	position: relative;
+
+	display: grid;
+
+	width: 70px;
+	height: 100%;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.navbarLogoButtonDiv:hover,
+.navbarLogoButtonDiv:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.navbarLogoButton {
+	position: absolute;
+	top: -70%;
+
+	width: 70px;
+}

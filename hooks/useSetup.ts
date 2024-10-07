@@ -9,6 +9,7 @@ export const useSetup = () => {
     const dispatch = useDispatch();
     const { webApp, tgUser } = useTelegram();
 
+    const user = useSelector((state: AppState) => state.user.user);
     const models = useSelector((state: AppState) => state.models.models);
 
     return {
@@ -16,6 +17,7 @@ export const useSetup = () => {
         dispatch,
         webApp,
         tgUser,
+        user,
         models,
     };
 };

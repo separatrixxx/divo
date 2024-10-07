@@ -9,7 +9,11 @@ import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 
 
 export const MainPage = (): JSX.Element => {
-    const { tgUser, models } = useSetup();
+    const { webApp, tgUser, models } = useSetup();
+
+    if (webApp) {
+        webApp?.BackButton.hide();
+    }
 
     return (
         <div className={styles.wrapper}>

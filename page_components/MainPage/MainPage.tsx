@@ -11,10 +11,6 @@ import { ByBlock } from '../../components/Common/ByBlock/ByBlock';
 export const MainPage = (): JSX.Element => {
     const { webApp, tgUser } = useSetup();
 
-    if (webApp) {
-        webApp?.BackButton.hide();
-    }
-
     return (
         <div className={styles.wrapper}>
             {

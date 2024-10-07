@@ -66,6 +66,7 @@ export interface IWebApp {
     show: () => void,
     hide: () => void,
   },
+  setHeaderColor: (color: string) => void,
   onEvent: (eventType: string, eventHandler: () => void) => void,
   expand: () => void,
   showPopup: (params: IPopUpParams, callback?: (buttonId: string) => void) => void,

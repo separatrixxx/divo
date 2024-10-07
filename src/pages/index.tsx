@@ -2,6 +2,8 @@ import { MainPage } from "../../page_components/MainPage/MainPage";
 import Head from 'next/head';
 import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
+import { getModels } from "../../helpers/models.helper";
+import { useEffect } from "react";
 
 
 function Main(): JSX.Element {
@@ -10,6 +12,16 @@ function Main(): JSX.Element {
   if (webApp) {
       webApp.expand();
   }
+  
+  useEffect(() => {
+    if (tgUser) {
+      getModels({
+        router: router,
+        webApp: webApp,
+        dispatch: dispatch,
+      });
+    }
+  }, [router, tgUser, webApp, dispatch]);
 
   return (
     <>

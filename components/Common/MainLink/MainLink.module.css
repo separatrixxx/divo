@@ -11,10 +11,13 @@
 }
 
 .mainTitle {
+	padding-bottom: 5px;
+
 	transition-duration: 300ms;
 	text-align: center;
 
 	color: var(--white) !important;
+	border-bottom: 1px solid var(--white);
 
 	font-weight: 600 !important;
 }
@@ -43,5 +46,10 @@
 @media (max-width: 580px) {
 	.link {
 		margin: 0 20px;
+	}
+
+	.logo {
+		width: 80px;
+		height: 80px;
 	}
 }

@@ -1,11 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
+import modelsSlice from "../models/modelsSlice";
 
 
 const makeStore = () =>
   configureStore({
     reducer: {
-
+      models: modelsSlice,
     },
     devTools: true,
 });

@@ -22,13 +22,20 @@
 }
 
 .coins {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 
 	font-weight: 600;
 }
 
-.userId {
+.userId,
+.statsDiv,
+.refsButtonsDiv {
+	display: grid;
+
 	width: 95%;
+}
+
+.userId {
 	padding: 10px;
 
 	cursor: pointer;
@@ -49,4 +56,33 @@
 
 .userInfo > h1 {
 	color: var(--white);
+}
+
+.divider {
+	width: 100%;
+	margin: 10px 0;
+
+	background: var(--darkLight);
+}
+
+.refsTitle {
+	color: var(--white) !important;
+
+	font-weight: 600 !important;
+}
+
+.statsDiv {
+	justify-items: center;
+
+	padding: 10px;
+	grid-template-columns: auto auto;
+
+	border-radius: 7px;
+	background: rgba(255, 255, 255, 0.07);
+}
+
+.refsButtonsDiv {
+	width: calc(95% + 20px);
+	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+	gap: 10px;
 }

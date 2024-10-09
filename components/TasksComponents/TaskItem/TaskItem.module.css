@@ -1,0 +1,31 @@
+.taskItem {
+	display: grid;
+	align-items: center;
+
+	width: calc(95% - 20px);
+	height: auto;
+	padding: 0 10px;
+	gap: 10px;
+	justify-items: left;
+}
+
+.tag {
+	margin-left: -5px;
+	padding: 5px 10px;
+
+	color: var(--white);
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.07);
+
+	font-weight: 600;
+}
+
+.name {
+	color: var(--white);
+
+	font-weight: 600;
+}
+
+.award {
+	color: var(--darkLight);
+}

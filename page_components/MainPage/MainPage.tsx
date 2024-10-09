@@ -7,33 +7,21 @@ import { ByBlock } from '../../components/Common/ByBlock/ByBlock';
 import { ModelsList } from '../../components/MainComponents/ModelsList/ModelsList';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { SortingBar } from '../../components/MainComponents/SortingBar/SortingBar';
-import { useEffect, useState } from 'react';
 
 
 export const MainPage = (): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
-
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const { webApp, tgUser, user, models } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.hide();
     }
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, [webApp]);
-
 
     return (
         <div className={styles.wrapper}>
             {
                 !tgUser ?
                     <MainLink />
-                    : isLoading ?
+                    : user.status !== 'success' ?
                         <>
                             <Spinner />
                             <Htag tag='s' className={styles.versionText}>

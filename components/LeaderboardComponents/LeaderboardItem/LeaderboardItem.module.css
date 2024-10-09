@@ -42,9 +42,12 @@
 	gap: 7px;
 }
 
-.leaderboardInfoDiv > h1,
-.votesStat > h1 {
+.leaderboardInfoDiv > h1 {
 	color: var(--white) !important;
+}
+
+.votesStat > h1 {
+	color: var(--darkLight) !important;
 }
 
 .votesStat {
@@ -58,5 +61,5 @@
 
 .burnIcon {
 	width: 10px;
-	fill: var(--white);
+	fill: var(--darkLight);
 }

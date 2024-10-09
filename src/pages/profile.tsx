@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
 import { useEffect } from 'react';
-import { getUser } from '../../helpers/user.helper';
+import { getCoinsInfo, getRefs, getUser } from '../../helpers/user.helper';
 
 
 function Profile(): JSX.Element {
@@ -12,6 +12,20 @@ function Profile(): JSX.Element {
     useEffect(() => {
         if (tgUser) {
             getUser({
+                router: router,
+                webApp: webApp,
+                dispatch: dispatch,
+                tgUser: tgUser,
+            });
+
+            getRefs({
+                router: router,
+                webApp: webApp,
+                dispatch: dispatch,
+                tgUser: tgUser,
+            });
+
+            getCoinsInfo({
                 router: router,
                 webApp: webApp,
                 dispatch: dispatch,

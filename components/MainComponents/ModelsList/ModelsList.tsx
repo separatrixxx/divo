@@ -6,20 +6,17 @@ import { useEffect, useState } from 'react';
 import { ModelItem } from '../../../interfaces/models.interface';
 import { LoadingDots } from '../../Common/LoadingDots/LoadingDots';
 import { Spinner } from '../../Common/Spinner/Spinner';
+import { Htag } from '../../Common/Htag/Htag';
+import { setLocale } from '../../../helpers/locale.helper';
+import { filterModels } from '../../../helpers/filter.helper';
 
 
 export const ModelsList = (): JSX.Element => {
-    const { models } = useSetup();
+    const { tgUser, models, sort } = useSetup();
 
     const limit = 6;
-    const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
+    const [displayedModels, setDisplayedModels] = useState<ModelItem[]>(models.result.models.slice(0, limit));
     const [ref, inView] = useInView();
-
-    useEffect(() => {
-        if (models.status === 'success') {
-            setDisplayedModels(models.result.models.slice(0, limit));
-        }
-    }, [models]);
 
     useEffect(() => {
         if (inView && displayedModels.length < models.result.models.length) {
@@ -28,22 +25,30 @@ export const ModelsList = (): JSX.Element => {
         }
     }, [inView, models, displayedModels]);
 
+    if (models.status !== 'success') {
+        <div className={styles.modelsList}>
+            <Spinner />
+        </div>
+    }
+
+    if (filterModels(sort, models.result.models).length === 0) {
+        return (
+            <Htag tag='m' className={styles.noModelsFound}>
+                {setLocale(tgUser?.language_code).no_models_found}
+            </Htag>
+        );
+    }
+
     return (
         <>
             <div className={styles.modelsList}>
-                {
-                    models.status === 'success' ?
-                        <>
-                            {displayedModels.map(m => (
-                                <ModelsItem key={m.id} id={m.id} random_photo={m.random_photo}
-                                    user_voted={m.user_voted} />
-                            ))}
-                        </>
-                    : <Spinner />
-                }
+                {filterModels(sort, displayedModels).map(m => (
+                    <ModelsItem key={m.id} id={m.id} random_photo={m.random_photo}
+                        user_voted={m.user_voted} photo_index={m.photo_index} />
+                ))}
             </div>
             {
-                models.result.models.length !== displayedModels.length && models.status === 'success' ?
+                models.result.models.length !== displayedModels.length ?
                     <div ref={ref} className={styles.loadingIndicator}>
                         <LoadingDots />
                     </div>

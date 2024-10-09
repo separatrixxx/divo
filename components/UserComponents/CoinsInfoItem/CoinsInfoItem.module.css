@@ -1,0 +1,14 @@
+.coinsInfoItem {
+	display: grid;
+	gap: 5px;
+}
+
+.coinsAmount {
+	color: var(--white) !important;
+
+	font-weight: 600;
+}
+
+.date {
+	color: var(--darkLight) !important;
+}

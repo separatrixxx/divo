@@ -9,6 +9,14 @@
 	justify-items: center;
 }
 
+.noModelsFound {
+	margin-top: 20px;
+
+	color: var(--white);
+
+	font-weight: 600;
+}
+
 .loadingIndicator {
 	display: grid;
 

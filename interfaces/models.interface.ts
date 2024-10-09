@@ -13,7 +13,7 @@ export interface ModelsInterface {
 export interface ModelItem {
     id: string,
     random_photo: string,
-    view_count?: number,
+    photo_index: number,
     user_voted: boolean,
 }
 
@@ -29,4 +29,6 @@ export interface ModelByIdItem {
     voted_users_count: number,
     default_award: number,
     view_count: number,
+    picked_photo: string,
+    other_photos: string[],
 }

@@ -4,21 +4,29 @@ import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
 import { getModels } from "../../helpers/models.helper";
 import { useEffect } from "react";
+import { getUser } from "../../helpers/user.helper";
 
 
 function Main(): JSX.Element {
-  const { router, dispatch, webApp, tgUser, sort } = useSetup();
-  
+  const { router, dispatch, webApp, tgUser } = useSetup();
+
   useEffect(() => {
     if (tgUser) {
-      getModels(sort, {
+      getUser({
+        router: router,
+        webApp: webApp,
+        dispatch: dispatch,
+        tgUser: tgUser,
+      });
+
+      getModels({
         router: router,
         dispatch: dispatch,
         webApp: webApp,
         tgUser: tgUser,
       });
     }
-  }, [sort, router, tgUser, webApp, dispatch]);
+  }, [router, tgUser, webApp, dispatch]);
 
   return (
     <>

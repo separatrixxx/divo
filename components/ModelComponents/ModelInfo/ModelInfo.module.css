@@ -38,8 +38,9 @@
 
 .statsDiv {
 	display: grid;
-	justify-items: center;
 
 	width: 100%;
-	grid-template-columns: auto auto auto;
+	height: auto;
+	justify-items: center;
+	grid-template-columns: auto auto;
 }

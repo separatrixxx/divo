@@ -6,7 +6,7 @@ import { setLeaderboard, setLeaderboardDefault } from "../features/leaderboard/l
 
 
 export async function getLeaderboard(args: BaseArguments) {
-    const { router, dispatch, webApp, tgUser } = args;
+    const { dispatch, webApp, tgUser } = args;
 
     try {
         dispatch(setLeaderboardDefault());

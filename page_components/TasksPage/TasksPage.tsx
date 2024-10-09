@@ -4,10 +4,12 @@ import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { setLocale } from '../../helpers/locale.helper';
+import { Spinner } from '../../components/Common/Spinner/Spinner';
+import { TasksList } from '../../components/TasksComponents/TasksList/TasksList';
 
 
 export const TasksPage = (): JSX.Element => {
-    const { router, webApp, tgUser } = useSetup();
+    const { router, webApp, tgUser, tasks } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.show();
@@ -22,11 +24,16 @@ export const TasksPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
+                : tasks.status !== 'success' ?
+                    <>
+                        <Spinner />
+                    </>
                 :
                     <>
                         <Htag tag='xl' className={styles.tasksTitle}>
                             {setLocale(tgUser.language_code).tasks}
                         </Htag>
+                        <TasksList />
                         <Navbar />
                     </>
             }

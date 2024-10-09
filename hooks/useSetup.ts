@@ -13,6 +13,9 @@ export const useSetup = () => {
     const models = useSelector((state: AppState) => state.models.models);
     const sort = useSelector((state: AppState) => state.sort.sort);
     const leaderboard = useSelector((state: AppState) => state.leaderboard.leaderboard);
+    const refs = useSelector((state: AppState) => state.refs.refs);
+    const coinsInfo = useSelector((state: AppState) => state.coinsInfo.coinsInfo);
+    const tasks = useSelector((state: AppState) => state.tasks.tasks);
 
     return {
         router,
@@ -23,5 +26,8 @@ export const useSetup = () => {
         models,
         sort,
         leaderboard,
+        refs,
+        coinsInfo,
+        tasks,
     };
 };

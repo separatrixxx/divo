@@ -4,6 +4,9 @@ import userSlice from "../user/userSlice";
 import modelsSlice from "../models/modelsSlice";
 import sortSlice from "../sort/sortSlice";
 import leaderboardSlice from "../leaderboard/leaderboardSlice";
+import refsSlice from "../refs/refsSlice";
+import coinsInfoSlice from "../coinsInfo/coinsInfoSlice";
+import tasksSlice from "../tasks/tasksSlice";
 
 
 const makeStore = () =>
@@ -13,6 +16,9 @@ const makeStore = () =>
       models: modelsSlice,
       sort: sortSlice,
       leaderboard: leaderboardSlice,
+      refs: refsSlice,
+      coinsInfo: coinsInfoSlice,
+      tasks: tasksSlice,
     },
     devTools: true,
   });

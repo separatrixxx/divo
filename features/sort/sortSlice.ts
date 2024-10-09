@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Sort } from '../../interfaces/models.interface';
 
 
 interface SortState {
-    sort: Sort;
+    sort: 'all' | 'voted' | 'not_voted';
 }
 
 const initialState: SortState = {
-    sort: 'random',
+    sort: 'all',
 };
 
 export const sortSlice = createSlice({
@@ -15,7 +14,7 @@ export const sortSlice = createSlice({
     initialState,
     reducers: {
         toggleSort: (state) => {
-            state.sort = state.sort === 'random' ? 'popularity' : 'random';
+            state.sort = state.sort === 'all' ? 'voted' : (state.sort === 'voted' ? 'not_voted' :'all');
         },
     },
 });

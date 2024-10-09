@@ -1,0 +1,9 @@
+.leaderboardList {
+	display: grid;
+
+	width: calc(100% - 20px);
+	margin-bottom: 100px;
+	padding: 10px;
+	gap: 20px;
+	justify-items: center;
+}

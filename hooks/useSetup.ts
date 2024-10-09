@@ -11,6 +11,8 @@ export const useSetup = () => {
 
     const user = useSelector((state: AppState) => state.user.user);
     const models = useSelector((state: AppState) => state.models.models);
+    const sort = useSelector((state: AppState) => state.sort.sort);
+    const leaderboard = useSelector((state: AppState) => state.leaderboard.leaderboard);
 
     return {
         router,
@@ -19,5 +21,7 @@ export const useSetup = () => {
         tgUser,
         user,
         models,
+        sort,
+        leaderboard,
     };
 };

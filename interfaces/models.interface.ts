@@ -1,10 +1,12 @@
+export type Sort = 'popularity' | 'random';
+
 export interface ModelsInterface {
     status: string,
     result: {
         models: ModelItem[],
         page: number,
         per_page: number,
-        sort_by: 'popularity' | 'random',
+        sort_by: Sort,
     }
 }
 
@@ -12,6 +14,7 @@ export interface ModelItem {
     id: string,
     random_photo: string,
     view_count?: number,
+    user_voted: boolean,
 }
 
 export interface ModelByIdInterface {

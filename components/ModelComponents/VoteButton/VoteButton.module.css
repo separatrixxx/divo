@@ -1,0 +1,89 @@
+.voteButton {
+	position: relative;
+
+	display: grid;
+	align-items: center;
+
+	width: 100%;
+	height: 30px;
+	padding: 10px 0;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 7px;
+	background: rgba(255, 255, 255, 0.07);
+	justify-items: center;
+}
+
+.voteButton:hover,
+.voteButton:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.isVotedButton {
+	cursor: default;
+	filter: brightness(1) !important;
+}
+
+.buttonDiv {
+	display: grid;
+	align-items: center;
+
+	width: fit-content;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
+}
+
+.voteIcon {
+	fill: var(--white);
+
+	height: 20px;
+}
+
+.isVoted {
+	fill: var(--voted);
+}
+
+.text {
+	user-select: none;
+
+	color: var(--white) !important;
+
+	font-weight: 500;
+}
+
+.spinner {
+	width: 20px;
+	height: 20px;
+
+	animation: spin 1s linear infinite;
+
+	border: 5px solid var(--dark);
+	border-top: 4px solid var(--white);
+	border-radius: 50%;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.iconWrapper {
+	position: absolute;
+	z-index: 100;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.logoIcon {
+	width: 50px;
+	height: 50px !important;
+
+	transition: transform 0.5s ease;
+}

@@ -4,3 +4,12 @@
 	width: 100%;
 	justify-items: center;
 }
+
+.tasksTitle {
+	margin: 20px 0 10px 20px !important;
+
+	color: var(--white) !important;
+
+	font-weight: 600 !important;
+	justify-self: left;
+}

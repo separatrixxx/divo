@@ -7,17 +7,18 @@ import { useEffect } from "react";
 
 
 function Main(): JSX.Element {
-  const { router, dispatch, webApp, tgUser } = useSetup();
+  const { router, dispatch, webApp, tgUser, sort } = useSetup();
   
   useEffect(() => {
     if (tgUser) {
-      getModels({
+      getModels(sort, {
         router: router,
-        webApp: webApp,
         dispatch: dispatch,
+        webApp: webApp,
+        tgUser: tgUser,
       });
     }
-  }, [router, tgUser, webApp, dispatch]);
+  }, [sort, router, tgUser, webApp, dispatch]);
 
   return (
     <>

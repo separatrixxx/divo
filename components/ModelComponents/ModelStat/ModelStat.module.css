@@ -1,0 +1,25 @@
+.modelStat {
+	display: grid;
+	align-items: center;
+
+	width: fit-content;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
+}
+
+.eyeIcon,
+.burnIcon {
+	fill: var(--white);
+}
+
+.eyeIcon {
+	height: 15px;
+}
+
+.burnIcon {
+	width: 15px;
+}
+
+.statText {
+	color: var(--white);
+}

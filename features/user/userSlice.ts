@@ -3,15 +3,15 @@ import { UserInterface } from '../../interfaces/user.interface';
 
 
 const userData: UserInterface = {
-    status: '',
-    result: {
-        user_id: 0,
-        refferal_id: null,
-        user_data: {},
-        coins: 0,
-        total_available_votes: 0,
-        remaining_votes: 0,
-    }
+  status: '',
+  result: {
+    user_id: 0,
+    refferal_id: null,
+    user_data: {},
+    coins: 0,
+    total_available_votes: 0,
+    remaining_votes: 0,
+  }
 };
 
 export const userSlice = createSlice({
@@ -21,10 +21,10 @@ export const userSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-        state.user = action.payload
+      state.user = action.payload
     },
     setUserDefault: (state) => {
-        state.user = userData
+      state.user = userData
     },
   },
 });

@@ -1,0 +1,62 @@
+.leaderboardItem {
+	display: grid;
+	overflow: hidden;
+	align-items: center;
+
+	width: calc(95% - 20px);
+	height: auto;
+	padding: 0 10px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 7px;
+	grid-template-columns: auto 1fr auto;
+	gap: 30px;
+}
+
+.leaderboardItem:hover,
+.leaderboardItem:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.isVotedIcon {
+	width: 20px;
+	fill: var(--dark);
+}
+
+.isVoted {
+	fill: var(--voted);
+}
+
+.position {
+	color: var(--white);
+
+	font-weight: 600;
+}
+
+.leaderboardInfoDiv {
+	display: grid;
+	gap: 7px;
+}
+
+.leaderboardInfoDiv > h1,
+.votesStat > h1 {
+	color: var(--white) !important;
+}
+
+.votesStat {
+	display: grid;
+	align-items: center;
+
+	width: fit-content;
+	grid-template-columns: auto 1fr;
+	gap: 7px;
+}
+
+.burnIcon {
+	width: 10px;
+	fill: var(--white);
+}

@@ -4,40 +4,42 @@
 	width: calc(100% - 20px);
 	margin-bottom: 100px;
 	padding: 10px;
-	gap: 10px;
-}
-
-.photoDiv {
-	display: grid;
-	overflow: hidden;
-	align-items: center;
-
-	width: 100%;
-	height: 75vh;
-
-	transition-duration: 300ms;
-
+	gap: 20px;
 	justify-items: center;
-
-	background: red;
 }
 
-.photoDiv:hover,
-.photoDiv:active {
+.infoDiv {
+	display: grid;
+
+	width: 95%;
+	gap: 20px;
+	justify-items: center;
+}
+
+.modelId {
+	width: 95%;
+	padding: 10px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+	text-align: center;
+
+	color: var(--white);
+	border-radius: 7px;
+	background: rgba(255, 255, 255, 0.07);
+}
+
+.modelId:hover,
+.modelId:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	filter: brightness(0.9);
 }
 
-.modelsItemPhoto {
+.statsDiv {
+	display: grid;
+	justify-items: center;
+
 	width: 100%;
-	height: 100%;
-
-	object-fit: cover;
-
-	background: rgba(255, 255, 255, 0.05);
-}
-
-.modelInfo > h1 {
-	color: var(--white);
+	grid-template-columns: auto auto auto;
 }

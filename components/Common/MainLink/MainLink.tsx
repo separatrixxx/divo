@@ -4,10 +4,11 @@ import { setLocale } from '../../../helpers/locale.helper';
 import { Htag } from '../Htag/Htag';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSetup } from '../../../hooks/useSetup';
 
 
 export const MainLink = (): JSX.Element => {
-    const router = useRouter();
+    const { router, tgUser } = useSetup();
     
     return (
         <Link href='' target='_blank' className={styles.link}>

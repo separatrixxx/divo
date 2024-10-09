@@ -7,15 +7,15 @@ import Link from 'next/link';
 
 
 export const Navbar = (): JSX.Element => {
-    const { router } = useSetup();
+    const { tgUser } = useSetup();
 
     return (
         <nav className={styles.navbar}>
-            <NavbarButton type='tasks' text={setLocale(router.locale).tasks} link='/tasks' />
-            <Link href='/' className={styles.navbarLogoButtonDiv}>
+            <NavbarButton type='tasks' text={setLocale(tgUser?.language_code).tasks} link='/tasks' />
+            <Link href='/' aria-label='navbar main link' className={styles.navbarLogoButtonDiv}>
                 <Logo className={styles.navbarLogoButton} />
             </Link>
-            <NavbarButton type='profile' text={setLocale(router.locale).profile} link='/profile' />
+            <NavbarButton type='profile' text={setLocale(tgUser?.language_code).profile} link='/profile' />
         </nav>
     );
 };

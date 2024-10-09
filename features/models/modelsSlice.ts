@@ -3,13 +3,13 @@ import { ModelsInterface } from '../../interfaces/models.interface';
 
 
 const modelsData: ModelsInterface = {
-    status: '',
-    result: {
-        models: [],
-        page: 1,
-        per_page: 1,
-        sort_by: 'popularity',
-    }
+  status: '',
+  result: {
+    models: [],
+    page: 1,
+    per_page: 1,
+    sort_by: 'popularity',
+  }
 };
 
 export const modelsSlice = createSlice({
@@ -19,11 +19,14 @@ export const modelsSlice = createSlice({
   },
   reducers: {
     setModels: (state, action) => {
-        state.models = action.payload
+      state.models = action.payload
+    },
+    setModelsDefault: (state) => {
+      state.models = modelsData
     },
   },
 });
 
-export const { setModels } = modelsSlice.actions;
+export const { setModels, setModelsDefault } = modelsSlice.actions;
 
 export default modelsSlice.reducer;

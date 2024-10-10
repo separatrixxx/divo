@@ -60,7 +60,7 @@
 	border-radius: 9999px;
 	outline: 11px solid rgba(0, 0, 0, 0.7);
 	outline-offset: -1px;
-	clip-path: ellipse(300% 27% at 50% 0%);
+	clip-path: ellipse(200% 33% at 50% 0%);
 }
 
 .navbarLogoButtonDiv:hover .navbarLogoButton,

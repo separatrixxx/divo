@@ -1,0 +1,33 @@
+.friendsInfo {
+	display: grid;
+
+	width: calc(95% - 20px);
+	margin-bottom: 110px;
+	padding: 10px;
+	gap: 20px;
+	justify-items: center;
+}
+
+.statsDiv,
+.friendsButtonsDiv {
+	display: grid;
+
+	width: 95%;
+}
+
+.statsDiv {
+	padding: 15px 10px;
+
+	border-radius: 7px;
+	outline: 1px solid var(--darkLight);
+	outline-offset: -1px;
+	justify-items: center;
+
+	grid-template-columns: auto auto;
+}
+
+.friendsButtonsDiv {
+	width: calc(95% + 20px);
+	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+	gap: 10px;
+}

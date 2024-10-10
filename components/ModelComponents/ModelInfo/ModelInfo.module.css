@@ -2,8 +2,8 @@
 	display: grid;
 
 	width: calc(100% - 20px);
-	margin-bottom: 100px;
-	padding: 10px;
+	margin-bottom: 110px;
+	padding: 20px 10px 10px 10px;
 	gap: 20px;
 	justify-items: center;
 }
@@ -16,31 +16,18 @@
 	justify-items: center;
 }
 
-.modelId {
-	width: 95%;
-	padding: 10px;
-
-	cursor: pointer;
-	transition-duration: 300ms;
-	text-align: center;
-
-	color: var(--white);
-	border-radius: 7px;
-	background: rgba(255, 255, 255, 0.07);
-}
-
-.modelId:hover,
-.modelId:active {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	filter: brightness(0.9);
-}
-
 .statsDiv {
+	position: relative;
+
 	display: grid;
 
 	width: 100%;
 	height: auto;
+	padding: 15px 0;
+
+	border-radius: 7px;
+	outline: 1px solid var(--darkLight);
+	outline-offset: -1px;
 	justify-items: center;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto;
 }

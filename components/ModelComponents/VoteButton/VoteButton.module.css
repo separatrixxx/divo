@@ -12,7 +12,8 @@
 	transition-duration: 300ms;
 
 	border-radius: 7px;
-	background: rgba(255, 255, 255, 0.07);
+	outline: 1px solid var(--darkLight);
+	outline-offset: -1px;
 	justify-items: center;
 }
 
@@ -20,12 +21,14 @@
 .voteButton:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	filter: brightness(0.9);
+	outline-color: var(--primary);
 }
 
 .isVotedButton {
 	cursor: default;
 	filter: none !important;
+
+	outline-color: var(--primary);
 }
 
 .buttonDiv {
@@ -44,7 +47,7 @@
 }
 
 .isVoted {
-	fill: var(--voted);
+	fill: var(--primary);
 }
 
 .text {
@@ -52,17 +55,17 @@
 
 	color: var(--white) !important;
 
-	font-weight: 500;
+	font-weight: 300;
 }
 
 .spinner {
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 
 	animation: spin 1s linear infinite;
 
-	border: 5px solid var(--dark);
-	border-top: 4px solid var(--white);
+	border: 1px solid var(--dark);
+	border-top: 1px solid var(--white);
 	border-radius: 50%;
 }
 

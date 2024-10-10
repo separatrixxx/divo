@@ -9,8 +9,8 @@ export async function getModels(args: BaseArguments) {
     const { dispatch, webApp, tgUser } = args;
 
     try {
-        const { data : response }: AxiosResponse<ModelsInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            `/api/models/?page=1&per_page=100&user_id=${tgUser?.id}`, 
+        const { data: response }: AxiosResponse<ModelsInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+            `/api/models/?page=1&per_page=100&user_id=${tgUser?.id}`,
             {
                 headers: {
                     'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
@@ -19,14 +19,14 @@ export async function getModels(args: BaseArguments) {
 
         dispatch(setModels(response));
     } catch (err: any) {
-        webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_models_error); 
+        webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_models_error);
 
         console.log(err);
     }
 }
 
 export async function voteForModel(args: VotingArguments) {
-    const { webApp, tgUser, modelId, setIsLoading, setIsVoted, setPotentialReward, setAward, handleClick } = args;
+    const { webApp, tgUser, modelId, setIsLoading, setIsVoted, setAward, setRaffleVisible, handleClick } = args;
 
     setIsLoading(true);
 
@@ -41,14 +41,14 @@ export async function voteForModel(args: VotingArguments) {
         ).then((r: any) => {
             setIsLoading(false);
             setIsVoted(true);
+            setRaffleVisible(true);
             handleClick();
 
-            setPotentialReward(r.data.result.potential_reward);
             setAward(r.data.result.coins_awarded);
         });
     } catch (err: any) {
         setIsLoading(false);
-        webApp?.showAlert(setLocale(tgUser?.language_code).errors.voting_error); 
+        webApp?.showAlert(setLocale(tgUser?.language_code).errors.voting_error);
 
         console.log(err);
     }

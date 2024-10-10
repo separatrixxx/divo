@@ -1,12 +1,24 @@
 .coinsInfoItem {
 	display: grid;
-	gap: 5px;
+	gap: 10px;
+}
+
+.event {
+	margin-left: -5px;
+	padding: 5px 10px;
+
+	color: var(--white);
+	border-radius: 5px;
+	outline: 1px solid var(--primary);
+	outline-offset: -1px;
+
+	font-weight: 400;
 }
 
 .coinsAmount {
 	color: var(--white) !important;
 
-	font-weight: 600;
+	font-weight: 400;
 }
 
 .date {

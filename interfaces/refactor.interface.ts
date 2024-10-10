@@ -15,7 +15,7 @@ export interface VotingArguments extends Omit<BaseArguments, 'dispatch'> {
     modelId: string,
     setIsLoading: (e: boolean) => void,
     setIsVoted: (e: boolean) => void,
-    setPotentialReward: (e: number) => void,
     setAward: (e: number) => void,
+    setRaffleVisible: (e: boolean) => void,
     handleClick: () => void,
 }

@@ -25,7 +25,11 @@
 }
 
 .active > svg {
-	fill: var(--voted) !important;
+	fill: var(--primary) !important;
+}
+
+.active > h1 {
+	font-weight: 400;
 }
 
 .eyeIcon {
@@ -39,6 +43,8 @@
 .statText,
 .tooltip > h1 {
 	color: var(--white);
+
+	font-weight: 200 !important;
 }
 
 .tooltip {

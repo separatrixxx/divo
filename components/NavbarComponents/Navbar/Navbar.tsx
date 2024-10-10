@@ -11,11 +11,13 @@ export const Navbar = (): JSX.Element => {
 
     return (
         <nav className={styles.navbar}>
-            <NavbarButton type='tasks' text={setLocale(tgUser?.language_code).tasks} link='/tasks' />
-            <Link href='/' aria-label='navbar main link' className={styles.navbarLogoButtonDiv}>
+            <NavbarButton type='main' text={setLocale(tgUser?.language_code).main} link='/' />
+            <NavbarButton type='collection' text={setLocale(tgUser?.language_code).collection} link='/collection' />
+            <Link href='/profile' aria-label='navbar main link' className={styles.navbarLogoButtonDiv}>
                 <Logo className={styles.navbarLogoButton} />
             </Link>
-            <NavbarButton type='profile' text={setLocale(tgUser?.language_code).profile} link='/profile' />
+            <NavbarButton type='friends' text={setLocale(tgUser?.language_code).friends} link='/friends' />
+            <NavbarButton type='tasks' text={setLocale(tgUser?.language_code).tasks} link='/tasks' />
         </nav>
     );
 };

@@ -1,23 +1,26 @@
 .byBlock {
 	position: absolute;
 	bottom: 20px;
+	left: 50%;
 
 	display: grid;
 	align-items: center;
 	align-self: end;
 
 	height: auto;
+
+	transform: translateX(-50%);
 	justify-items: center;
 }
 
 .byBanana {
 	transition-duration: 300ms;
 
-	color: var(--tg-theme-subtitle-text-color);
+	color: var(--dark);
 }
 
 .darkColor {
-	color: var(--white) !important;
+	color: var(--darkLight) !important;
 }
 
 .byBanana:active {

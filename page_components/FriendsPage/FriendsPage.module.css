@@ -1,0 +1,15 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	justify-items: center;
+}
+
+.friedsTitle {
+	margin: 20px 0 10px 20px !important;
+
+	color: var(--white) !important;
+
+	font-weight: 400 !important;
+	justify-self: left;
+}

@@ -14,7 +14,8 @@ export const CoinsInfoList = (): JSX.Element => {
                 coinsInfo.result.length > 0 ?
                     <div className={styles.coinsInfoList}>
                         {coinsInfo.result.map((c, i) => (
-                            <CoinsInfoItem key={i} timestamp={c.timestamp} coins_amount={c.coins_amount} />
+                            <CoinsInfoItem key={i} event_by={c.event_by} timestamp={c.timestamp}
+                                coins_amount={c.coins_amount} />
                         ))}
                     </div>
                 :

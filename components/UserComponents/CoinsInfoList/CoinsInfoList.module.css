@@ -2,7 +2,7 @@
 	display: grid;
 
 	width: calc(95% + 20px);
-	gap: 10px;
+	gap: 20px;
 }
 
 .noCoinsInfo {

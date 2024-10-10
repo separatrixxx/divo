@@ -39,18 +39,23 @@
 	transition-duration: 300ms;
 
 	color: var(--white) !important;
-	border-bottom: 1px solid var(--white);
+	border-bottom: 1px solid var(--primary);
 
-	font-weight: 500 !important;
+	font-weight: 400 !important;
 }
 
-.errorBlock > h1:hover,
-.errorBlock > h1:active,
 .logo:hover,
 .logo:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	filter: brightness(0.9);
+}
+
+.errorBlock > h1:hover,
+.errorBlock > h1:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary) !important;
 }
 
 @media (max-width: 580px) {

@@ -8,6 +8,6 @@ export interface VoteButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
     remainingVotes: number,
     setIsLoading: (e: boolean) => void,
     setIsVoted: (e: boolean) => void,
-    setPotentialReward: (e: number) => void,
     setAward: (e: number) => void,
+    setRaffleVisible: (e: boolean) => void,
 }

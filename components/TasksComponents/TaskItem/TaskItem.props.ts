@@ -5,4 +5,7 @@ export interface TaskItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     name: string,
     tag: string,
     award: number,
+    current: number,
+    target: number,
+    isCompleted?: boolean,
 }

@@ -6,11 +6,11 @@ import { Htag } from '../../components/Common/Htag/Htag';
 import { ByBlock } from '../../components/Common/ByBlock/ByBlock';
 import { ModelsList } from '../../components/MainComponents/ModelsList/ModelsList';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
-import { SortingBar } from '../../components/MainComponents/SortingBar/SortingBar';
+import { setLocale } from '../../helpers/locale.helper';
 
 
 export const MainPage = (): JSX.Element => {
-    const { webApp, tgUser, user, models } = useSetup();
+    const { webApp, tgUser, user } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.hide();
@@ -29,10 +29,12 @@ export const MainPage = (): JSX.Element => {
                             </Htag>
                             <ByBlock color='dark' />
                         </>
-                        :
+                    :
                         <>
-                            <SortingBar />
-                            <ModelsList />
+                            <Htag tag='xl' className={styles.balance}>
+                                {user.result.coins.toLocaleString('en-US') + ' ' + setLocale(tgUser.language_code).token}
+                            </Htag>
+                            <ModelsList type='all' />
                             <Navbar />
                         </>
             }

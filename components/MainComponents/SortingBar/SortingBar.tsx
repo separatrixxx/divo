@@ -6,10 +6,12 @@ import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { toggleSort } from '../../../features/sort/sortSlice';
 import Link from 'next/link';
+import { numFormat } from '../../../helpers/format.helper';
+import { ModelStat } from '../../ModelComponents/ModelStat/ModelStat';
 
 
 export const SortingBar = (): JSX.Element => {
-    const { dispatch, tgUser, sort } = useSetup();
+    const { dispatch, tgUser, user, sort } = useSetup();
 
     return (
         <div className={styles.sortingBar}>
@@ -22,9 +24,11 @@ export const SortingBar = (): JSX.Element => {
                         : (sort === 'voted' ? 'voted_models' : 'not_voted_models')]}
                 </Htag>
             </div>
-            <Link href='leaderboard' aria-label='leaderboard link' className={styles.leaderboardLink}>
+            {/* <Link href='leaderboard' aria-label='leaderboard link' className={styles.leaderboardLink}>
                 <LeaderboardIcon />
-            </Link>
+            </Link> */}
+            <ModelStat type='coin' stat={numFormat(user.result.coins)}
+                tooltip={setLocale(tgUser?.language_code).tooltips.your_balance} isActive={true} />
         </div>
     );
 };

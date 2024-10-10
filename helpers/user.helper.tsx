@@ -25,7 +25,7 @@ export async function getUser(args: BaseArguments) {
     } catch (err: any) {
         if (err.response && err.response.data.error_message === 'User not found') {
             webApp?.showAlert(setLocale(tgUser?.language_code).errors.user_not_found_error, async function() {
-                router.push('/');
+                webApp.close();
             }); 
         } else {
             webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_user_error, async function() {

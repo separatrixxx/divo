@@ -1,0 +1,55 @@
+.taskButton {
+	position: relative;
+
+	display: grid;
+	align-items: center;
+
+	width: fit-content;
+	height: fit-content;
+	padding: 10px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 7px;
+	outline: 1px solid var(--darkLight);
+	outline-offset: -1px;
+	justify-items: center;
+}
+
+.taskButton:hover,
+.taskButton:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	outline-color: var(--primary);
+}
+
+.text {
+	user-select: none;
+
+	color: var(--white) !important;
+
+	font-weight: 400;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.spinner {
+	position: absolute;
+
+	width: 10px;
+	height: 10px;
+
+	animation: spin 1s linear infinite;
+
+	border: 1px solid var(--dark);
+	border-top: 1px solid var(--white);
+	border-radius: 50%;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

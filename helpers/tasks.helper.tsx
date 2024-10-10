@@ -15,8 +15,8 @@ export async function getTasks(args: BaseArguments) {
     dispatch(setTasksDefault());
 
     try {
-        const { data : response }: AxiosResponse<TasksInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/tasks/get_user_tasks?user_id=' + tgUser?.id, 
+        const { data: response }: AxiosResponse<TasksInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+            '/api/tasks/get_user_tasks?user_id=' + tgUser?.id,
             {
                 headers: {
                     'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
@@ -25,9 +25,34 @@ export async function getTasks(args: BaseArguments) {
 
         dispatch(setTasks(response));
     } catch (err: any) {
-        webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_tasks_error, async function() {
+        webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_tasks_error, async function () {
             router.push('/');
-        }); 
+        });
+
+        console.log(err);
+    }
+}
+
+export async function checkTasks(args: BaseArguments) {
+    const { router, dispatch, webApp, tgUser } = args;
+
+    try {
+        // const { data: response }: AxiosResponse<TasksInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+        //     '/api/tasks/get_user_tasks?user_id=' + tgUser?.id,
+        //     {
+        //         headers: {
+        //             'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
+        //         },
+        //     });
+
+        getTasks({
+            router: router,
+            webApp: webApp,
+            dispatch: dispatch,
+            tgUser: tgUser,
+        });
+    } catch (err: any) {
+        webApp?.showAlert(setLocale(tgUser?.language_code).errors.check_task_error);
 
         console.log(err);
     }

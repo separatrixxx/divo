@@ -7,6 +7,7 @@ export interface UserInterface {
         coins: number,
         total_available_votes: number,
         remaining_votes: number,
+        potential_reward: number,
     }
 }
 

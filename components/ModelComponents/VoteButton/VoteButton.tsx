@@ -12,7 +12,7 @@ import cn from 'classnames';
 
 
 export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsLoading, setIsVoted,
-    setPotentialReward, setAward }: VoteButtonProps): JSX.Element => {
+    setAward, setRaffleVisible }: VoteButtonProps): JSX.Element => {
     const { router, webApp, tgUser } = useSetup();
 
     const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -58,14 +58,14 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
                     modelId: modelId,
                     setIsLoading: setIsLoading,
                     setIsVoted: setIsVoted,
-                    setPotentialReward: setPotentialReward,
                     setAward: setAward,
+                    setRaffleVisible: setRaffleVisible,
                     handleClick: handleClick,
                 });
             }
         }}>
             {
-                !isLoading ? (
+                !isLoading ? 
                     <div className={styles.buttonDiv}>
                         <BurnIcon className={cn(styles.voteIcon, {
                             [styles.isVoted]: isVoted,
@@ -95,7 +95,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
                                 : <></>
                         }
                     </div>
-                ) : <div className={styles.spinner} />
+                : <div className={styles.spinner} />
             }
         </div>
     );

@@ -1,3 +1,4 @@
+import { ModelsListProps } from './ModelsList.props';
 import styles from './ModelsList.module.css';
 import { useSetup } from '../../../hooks/useSetup';
 import { ModelsItem } from '../ModelsItem/ModelsItem';
@@ -11,8 +12,8 @@ import { filterModels } from '../../../helpers/filter.helper';
 import { Spinner } from '../../Common/Spinner/Spinner';
 
 
-export const ModelsList = (): JSX.Element => {
-    const { tgUser, models, sort } = useSetup();
+export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
+    const { tgUser, models } = useSetup();
     const limit = 10;
 
     const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
@@ -24,17 +25,17 @@ export const ModelsList = (): JSX.Element => {
 
     useEffect(() => {
         if (models.status === 'success') {
-            const allModels = filterModels(sort, models.result.models);
+            const allModels = filterModels(type, models.result.models);
             const modelsToDisplay = allModels.slice(0, limit * currentPage);
             setDisplayedModels(modelsToDisplay);
         }
-    }, [models, sort, currentPage]);
+    }, [models, type, currentPage]);
 
     useEffect(() => {
         if (inView && displayedModels.length < models.result.models.length) {
             setCurrentPage(prevPage => prevPage + 1);
         }
-    }, [inView]);
+    }, [inView, models.result.models.length, displayedModels.length]);
 
     if (models.status !== 'success') {
         return (
@@ -44,7 +45,7 @@ export const ModelsList = (): JSX.Element => {
         );
     }
 
-    if (filterModels(sort, models.result.models).length === 0) {
+    if (filterModels(type, models.result.models).length === 0) {
         return (
             <Htag tag='m' className={styles.noModelsFound}>
                 {setLocale(tgUser?.language_code).no_models_found}
@@ -66,7 +67,7 @@ export const ModelsList = (): JSX.Element => {
                 ))}
             </div>
             {
-                filterModels(sort, models.result.models).length !== displayedModels.length ?
+                filterModels(type, models.result.models).length !== displayedModels.length ?
                     <div ref={ref} className={styles.loadingIndicator}>
                         <LoadingDots />
                     </div>

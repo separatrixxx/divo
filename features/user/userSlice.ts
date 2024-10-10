@@ -11,6 +11,7 @@ const userData: UserInterface = {
     coins: 0,
     total_available_votes: 0,
     remaining_votes: 0,
+    potential_reward: 0,
   }
 };
 

@@ -6,11 +6,14 @@ import { setLocale } from '../../../helpers/locale.helper';
 import { useSetup } from '../../../hooks/useSetup';
 
 
-export const CoinsInfoItem = ({ timestamp, coins_amount }: CoinsInfoItemProps): JSX.Element => {
+export const CoinsInfoItem = ({ event_by, timestamp, coins_amount }: CoinsInfoItemProps): JSX.Element => {
     const { tgUser } = useSetup();
 
     return (
         <div className={styles.coinsInfoItem}>
+            <Htag tag='xs' className={styles.event}>
+                {setLocale(tgUser?.language_code).events[event_by as 'voting']}
+            </Htag>
             <Htag tag='m' className={styles.coinsAmount}>
                 {'+' + coins_amount + ' ' + setLocale(tgUser?.language_code).token}
             </Htag>

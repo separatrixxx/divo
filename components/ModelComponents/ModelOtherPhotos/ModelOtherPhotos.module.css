@@ -2,7 +2,7 @@
 	display: grid;
 
 	width: 95%;
-	grid-template-columns: repeat(3, calc(33.333% - 10px));
+	grid-template-columns: repeat(3, auto);
 	gap: 10px;
 	justify-items: center;
 }

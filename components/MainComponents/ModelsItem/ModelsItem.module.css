@@ -23,8 +23,8 @@
 }
 
 .isVoted {
-	outline: 2px solid var(--voted);
-	outline-offset: -2px;
+	outline: 1px solid var(--primary);
+	outline-offset: -1px;
 }
 
 .burnIcon {
@@ -33,7 +33,7 @@
 	left: 15px;
 
 	height: 30px;
-	fill: var(--voted);
+	fill: var(--primary);
 }
 
 .modelsItemPhoto {

@@ -2,8 +2,7 @@
 	display: grid;
 
 	width: calc(95% - 20px);
-	margin-top: 20px;
-	margin-bottom: 100px;
+	margin: 10px 0 110px 0;
 	padding: 10px;
 	gap: 20px;
 	justify-items: center;
@@ -21,68 +20,32 @@
 	justify-items: center;
 }
 
-.coins {
-	margin-bottom: 10px;
+.username {
+	padding: 10px 20px;
 
-	font-weight: 600;
-}
+	color: var(--white) !important;
 
-.userId,
-.statsDiv,
-.refsButtonsDiv {
-	display: grid;
-
-	width: 95%;
-}
-
-.userId {
-	padding: 10px;
-
-	cursor: pointer;
-	transition-duration: 300ms;
-	text-align: center;
-
-	color: var(--white);
 	border-radius: 7px;
-	background: rgba(255, 255, 255, 0.07);
+	outline: 1px solid var(--primary);
+	outline-offset: -1px;
 }
 
-.userId:hover,
-.userId:active {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	filter: brightness(0.9);
-}
-
-.userInfo > h1 {
+.coins {
 	color: var(--white);
+
+	font-weight: 400;
 }
 
 .divider {
 	width: 100%;
+	height: 0.5px;
 	margin: 10px 0;
 
 	background: var(--darkLight);
 }
 
-.refsTitle {
+.coinsInfoTitle {
 	color: var(--white) !important;
 
-	font-weight: 600 !important;
-}
-
-.statsDiv {
-	justify-items: center;
-
-	padding: 10px;
-	grid-template-columns: auto auto;
-
-	border-radius: 7px;
-	background: rgba(255, 255, 255, 0.07);
-}
-
-.refsButtonsDiv {
-	width: calc(95% + 20px);
-	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-	gap: 10px;
+	font-weight: 400 !important;
 }

@@ -17,9 +17,9 @@
 	text-align: center;
 
 	color: var(--white) !important;
-	border-bottom: 1px solid var(--white);
+	border-bottom: 1px solid var(--primary);
 
-	font-weight: 600 !important;
+	font-weight: 400 !important;
 }
 
 .logo {
@@ -34,13 +34,16 @@
 	justify-items: center;
 }
 
-.mainTitle:hover,
-.mainTitle:active,
 .logo:hover,
 .logo:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	filter: brightness(0.9);
+}
+
+.mainTitle:hover,
+.mainTitle:active {
+	color: var(--primary) !important;
 }
 
 @media (max-width: 580px) {

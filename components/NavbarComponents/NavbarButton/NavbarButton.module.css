@@ -17,7 +17,7 @@
 	filter: brightness(0.9);
 }
 
-.navbarButtonIcon {
+.navbarButtonIcon > svg {
 	height: 20px;
 	fill: var(--white);
 }
@@ -26,4 +26,12 @@
 	user-select: none;
 
 	color: var(--white) !important;
+}
+
+.active > .navbarButtonIcon > svg {
+	fill: var(--primary);
+}
+
+.active > .navbarButtonText {
+	color: var(--primary) !important;
 }

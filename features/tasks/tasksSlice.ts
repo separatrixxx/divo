@@ -9,10 +9,7 @@ const tasksData: TasksInterface = {
             active: [],
             completed: [],
         },
-        completion_status: {
-            completed_tasks: [],
-            tasks_checked: 0,
-        }
+        completion_status: [],
     }
 };
 

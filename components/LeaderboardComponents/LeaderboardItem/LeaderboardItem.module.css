@@ -28,13 +28,13 @@
 }
 
 .isVoted {
-	fill: var(--voted);
+	fill: var(--primary);
 }
 
 .position {
 	color: var(--white);
 
-	font-weight: 600;
+	font-weight: 400;
 }
 
 .leaderboardInfoDiv {

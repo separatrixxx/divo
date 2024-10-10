@@ -1,4 +1,8 @@
 .raffle {
+	position: absolute;
+	z-index: 10;
+	top: -200%;
+
 	display: grid;
 	align-items: center;
 
@@ -23,14 +27,24 @@
 	border-radius: 7px;
 	background-color: var(--dark);
 
-	font-weight: 600;
+	font-weight: 400;
 	place-items: center;
 }
 
 .highlighted {
-	border-color: var(--voted);
+	border-color: var(--primary);
 }
 
 .target {
-	color: var(--voted);
+	color: var(--primary);
+}
+
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
+}
+
+.blink {
+	animation: blink 0.3s ease-in-out infinite;
 }

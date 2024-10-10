@@ -5,10 +5,7 @@ export interface TasksInterface {
             active: TaskItemInterface[],
             completed: TaskItemInterface[],
         },
-        completion_status: {
-            completed_tasks: TaskItemInterface[],
-            tasks_checked: number,
-        }
+        completion_status: TaskItemInterface[]
     }
 }
 
@@ -21,4 +18,8 @@ export interface TaskItemInterface {
     task_start?: string,
     task_end?: string,
     timestamp_complete?: string,
+    progress: {
+        current: number,
+        target: number,
+    }
 }

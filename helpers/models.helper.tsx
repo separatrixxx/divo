@@ -26,7 +26,7 @@ export async function getModels(args: BaseArguments) {
 }
 
 export async function voteForModel(args: VotingArguments) {
-    const { webApp, tgUser, modelId, handleClick, setIsLoading, setIsVoted } = args;
+    const { webApp, tgUser, modelId, setIsLoading, setIsVoted, setPotentialReward, setAward, handleClick } = args;
 
     setIsLoading(true);
 
@@ -38,11 +38,14 @@ export async function voteForModel(args: VotingArguments) {
                     'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
                 },
             }
-        ).then(() => {
-                setIsLoading(false);
-                setIsVoted(true);
-                handleClick();
-            });
+        ).then((r: any) => {
+            setIsLoading(false);
+            setIsVoted(true);
+            handleClick();
+
+            setPotentialReward(r.data.result.potential_reward);
+            setAward(r.data.result.coins_awarded);
+        });
     } catch (err: any) {
         setIsLoading(false);
         webApp?.showAlert(setLocale(tgUser?.language_code).errors.voting_error); 

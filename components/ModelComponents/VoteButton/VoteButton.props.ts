@@ -5,6 +5,9 @@ export interface VoteButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
     modelId: string,
     isLoading?: boolean,
     isVoted: boolean,
+    remainingVotes: number,
     setIsLoading: (e: boolean) => void,
     setIsVoted: (e: boolean) => void,
+    setPotentialReward: (e: number) => void,
+    setAward: (e: number) => void,
 }

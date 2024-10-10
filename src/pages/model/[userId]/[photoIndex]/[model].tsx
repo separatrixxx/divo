@@ -1,10 +1,10 @@
-import { ModelPage } from "../../../page_components/ModelPage/ModelPage";
+import { ModelPage } from "../../../../../page_components/ModelPage/ModelPage";
 import Head from "next/head";
 import { GetServerSideProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
-import { useSetup } from "../../../hooks/useSetup";
-import { setLocale } from "../../../helpers/locale.helper";
-import { ModelByIdInterface } from "../../../interfaces/models.interface";
+import { useSetup } from "../../../../../hooks/useSetup";
+import { setLocale } from "../../../../../helpers/locale.helper";
+import { ModelByIdInterface } from "../../../../../interfaces/models.interface";
 
 
 function Model({ model }: ModelProps): JSX.Element {
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps<ModelProps> = async ({ param
     }
     try {
         const { data: model }: AxiosResponse<ModelByIdInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/model?model_id=' + params.model,
+            `/api/model?model_id=${params.model}&user_id=${params.userId}&photo_index=${params.photoIndex}`,
             {
                 headers: {
                     'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,

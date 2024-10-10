@@ -5,30 +5,43 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
 import { ModelItem } from '../../../interfaces/models.interface';
 import { LoadingDots } from '../../Common/LoadingDots/LoadingDots';
-import { Spinner } from '../../Common/Spinner/Spinner';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { filterModels } from '../../../helpers/filter.helper';
+import { Spinner } from '../../Common/Spinner/Spinner';
 
 
 export const ModelsList = (): JSX.Element => {
     const { tgUser, models, sort } = useSetup();
+    const limit = 10;
 
-    const limit = 6;
-    const [displayedModels, setDisplayedModels] = useState<ModelItem[]>(models.result.models.slice(0, limit));
-    const [ref, inView] = useInView();
+    const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.5,
+    });
+
+    useEffect(() => {
+        if (models.status === 'success') {
+            const allModels = filterModels(sort, models.result.models);
+            const modelsToDisplay = allModels.slice(0, limit * currentPage);
+            setDisplayedModels(modelsToDisplay);
+        }
+    }, [models, sort, currentPage]);
 
     useEffect(() => {
         if (inView && displayedModels.length < models.result.models.length) {
-            const nextModels = models.result.models.slice(displayedModels.length, displayedModels.length + limit);
-            setDisplayedModels(prevModels => [...prevModels, ...nextModels]);
+            setCurrentPage(prevPage => prevPage + 1);
         }
-    }, [inView, models, displayedModels]);
+    }, [inView]);
 
     if (models.status !== 'success') {
-        <div className={styles.modelsList}>
-            <Spinner />
-        </div>
+        return (
+            <div className={styles.modelsList}>
+                <Spinner />
+            </div>
+        );
     }
 
     if (filterModels(sort, models.result.models).length === 0) {
@@ -42,17 +55,22 @@ export const ModelsList = (): JSX.Element => {
     return (
         <>
             <div className={styles.modelsList}>
-                {filterModels(sort, displayedModels).map(m => (
-                    <ModelsItem key={m.id} id={m.id} random_photo={m.random_photo}
-                        user_voted={m.user_voted} photo_index={m.photo_index} />
+                {displayedModels.map((m) => (
+                    <ModelsItem 
+                        key={m.id} 
+                        id={m.id} 
+                        random_photo={m.random_photo}
+                        photo_index={m.photo_index} 
+                        user_voted={m.user_voted} 
+                    />
                 ))}
             </div>
             {
-                models.result.models.length !== displayedModels.length ?
+                filterModels(sort, models.result.models).length !== displayedModels.length ?
                     <div ref={ref} className={styles.loadingIndicator}>
                         <LoadingDots />
                     </div>
-                    : <></>
+                : <></>
             }
         </>
     );

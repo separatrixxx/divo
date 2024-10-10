@@ -13,7 +13,9 @@ export interface BaseArguments extends ErrorArguments {
 
 export interface VotingArguments extends Omit<BaseArguments, 'dispatch'> {
     modelId: string,
-    handleClick: () => void,
     setIsLoading: (e: boolean) => void,
     setIsVoted: (e: boolean) => void,
+    setPotentialReward: (e: number) => void,
+    setAward: (e: number) => void,
+    handleClick: () => void,
 }

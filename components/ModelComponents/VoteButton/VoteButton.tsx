@@ -11,7 +11,8 @@ import { voteForModel } from '../../../helpers/models.helper';
 import cn from 'classnames';
 
 
-export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVoted }: VoteButtonProps): JSX.Element => {
+export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsLoading, setIsVoted,
+    setPotentialReward, setAward }: VoteButtonProps): JSX.Element => {
     const { router, webApp, tgUser } = useSetup();
 
     const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -35,7 +36,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVot
             x: Math.random() * maxDistance - maxDistance / 2,
             y: -(Math.random() * maxDistance),
             rotate: getRandomRotation(),
-            transition: { 
+            transition: {
                 duration: flightDuration,
                 type: 'spring',
                 stiffness: 150,
@@ -47,9 +48,9 @@ export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVot
 
     return (
         <div className={cn(styles.voteButton, {
-            [styles.isVotedButton]: isVoted,
+            [styles.isVotedButton]: isVoted || remainingVotes <= 0,
         })} onClick={() => {
-            if (!isVoted) {
+            if (!isVoted && remainingVotes > 0) {
                 voteForModel({
                     router: router,
                     webApp: webApp,
@@ -57,6 +58,8 @@ export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVot
                     modelId: modelId,
                     setIsLoading: setIsLoading,
                     setIsVoted: setIsVoted,
+                    setPotentialReward: setPotentialReward,
+                    setAward: setAward,
                     handleClick: handleClick,
                 });
             }
@@ -68,7 +71,13 @@ export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVot
                             [styles.isVoted]: isVoted,
                         })} />
                         <Htag tag='m' className={styles.text}>
-                            {isVoted ? setLocale(tgUser?.language_code).you_already_voted : setLocale(tgUser?.language_code).vote}
+                            {
+                                isVoted ?
+                                    setLocale(tgUser?.language_code).you_already_voted
+                                : remainingVotes > 0 ?
+                                    setLocale(tgUser?.language_code).vote
+                                : setLocale(tgUser?.language_code).you_have_no_votes_left
+                            }
                         </Htag>
                         {
                             isClicked ?
@@ -83,7 +92,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, setIsLoading, setIsVot
                                         <LogoIcon className={styles.logoIcon} />
                                     </motion.div>
                                 ))
-                            : <></>
+                                : <></>
                         }
                     </div>
                 ) : <div className={styles.spinner} />

@@ -3,12 +3,15 @@ import { ModelItem } from '../../../interfaces/models.interface';
 import Image from 'next/image';
 import Link from 'next/link';
 import BurnIcon from './burn.svg';
+import { useSetup } from '../../../hooks/useSetup';
 import cn from 'classnames';
 
 
-export const ModelsItem = ({ id, random_photo, user_voted }: ModelItem): JSX.Element => {
+export const ModelsItem = ({ id, random_photo, photo_index, user_voted }: ModelItem): JSX.Element => {
+    const { tgUser } = useSetup();
+
     return (
-        <Link href={'/model/' + id} aria-label='model link' className={cn(styles.modelsItem, {
+        <Link href={`/model/${tgUser?.id}/${photo_index}/${id}`} aria-label='model link' className={cn(styles.modelsItem, {
             [styles.isVoted]: user_voted,
         })}>
             {

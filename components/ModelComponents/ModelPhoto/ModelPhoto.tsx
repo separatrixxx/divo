@@ -7,7 +7,6 @@ import { useState } from 'react';
 export const ModelPhoto = ({ id, photo }: ModelPhotoProps): JSX.Element => {
     const [rotation, setRotation] = useState({ rotateX: 0, rotateY: 0 });
     const [isDragging, setIsDragging] = useState(false);
-
     const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
 
     const handleMove = (dx: number, dy: number) => {
@@ -39,23 +38,25 @@ export const ModelPhoto = ({ id, photo }: ModelPhotoProps): JSX.Element => {
             x: e.touches[0].clientX,
             y: e.touches[0].clientY,
         });
-
+        setIsDragging(true);
         document.body.style.overflow = 'hidden';
     };
 
     const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-        const dx = e.touches[0].clientX - touchStart.x;
-        const dy = e.touches[0].clientY - touchStart.y;
-        handleMove(dx, dy);
-        setTouchStart({
-            x: e.touches[0].clientX,
-            y: e.touches[0].clientY,
-        });
+        if (isDragging) {
+            const dx = e.touches[0].clientX - touchStart.x;
+            const dy = e.touches[0].clientY - touchStart.y;
+            handleMove(dx, dy);
+            setTouchStart({
+                x: e.touches[0].clientX,
+                y: e.touches[0].clientY,
+            });
+        }
     };
 
     const handleTouchEnd = () => {
+        setIsDragging(false);
         setRotation({ rotateX: 0, rotateY: 0 });
-
         document.body.style.overflow = '';
     };
 

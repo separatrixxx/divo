@@ -29,6 +29,8 @@ export interface ModelByIdItem {
     voted_users_count: number,
     default_award: number,
     view_count: number,
-    picked_photo: string,
-    other_photos: string[],
+    picked_photo: number,
+    picked_photo_url: string,
+    potential_reward?: number,
+    award?: number,
 }

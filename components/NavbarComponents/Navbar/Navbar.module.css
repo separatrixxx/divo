@@ -38,7 +38,32 @@
 
 .navbarLogoButton {
 	position: absolute;
+	z-index: 1;
 	top: -80%;
 
 	width: 70px;
+
+	border-radius: 9999px;
+}
+
+.navbarLogoButtonDiv::before {
+	position: absolute;
+	z-index: 0;
+	top: -80%;
+	left: 0;
+
+	width: 70px;
+	height: 70px;
+
+	content: '';
+
+	border-radius: 9999px;
+	outline: 11px solid rgba(0, 0, 0, 0.7);
+	outline-offset: -1px;
+	clip-path: ellipse(300% 26% at 50% 0%);
+}
+
+.navbarLogoButtonDiv:hover .navbarLogoButton,
+.navbarLogoButtonDiv:active .navbarLogoButton {
+	filter: none;
 }

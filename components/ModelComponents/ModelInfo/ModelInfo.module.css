@@ -42,5 +42,5 @@
 	width: 100%;
 	height: auto;
 	justify-items: center;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto auto auto;
 }

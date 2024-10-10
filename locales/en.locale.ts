@@ -37,4 +37,13 @@ export const en = {
     token: "DIVO",
     active: "Active",
     completed: "Completed",
+    you_have_no_votes_left: "You have no votes left",
+    tooltips: {
+        total_views: 'Total views',
+        total_referrals: 'Total referrals',
+        your_award: 'Your award',
+        potential_reward: 'Potential reward',
+        coins_from_referrals: 'Coins from  referrals',
+        remaining_votes: 'Remaining votes',
+    },
 };

@@ -37,4 +37,13 @@ export const ru = {
     token: "DIVO",
     active: "Активные",
     completed: "Завершённые",
+    you_have_no_votes_left: "У вас не осталось голосов",
+    tooltips: {
+        total_views: 'Всего просмотров',
+        total_referrals: 'Всего рефералов',
+        your_award: 'Ваша награда',
+        potential_reward: 'Потенциальное вознаграждение',
+        coins_from_referrals: 'Монет от рефералов',
+        remaining_votes: 'Осталось голосов',
+    },
 };

@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { LeaderboardItemInterface } from '../../../interfaces/leaderboard.interface';
 import { Htag } from '../../Common/Htag/Htag';
 import BurnIcon from './burn.svg';
+import { useSetup } from '../../../hooks/useSetup';
 import cn from 'classnames';
 
 
 export const LeaderboardItem = ({ position, model_id, total_votes, voted_by_user }: LeaderboardItemInterface): JSX.Element => {
+    const { tgUser } = useSetup();
+
     return (
-        <Link href={'/model/' + model_id} aria-label='model link' className={styles.leaderboardItem}>
+        <Link href={`/model/${tgUser?.id}/0/${model_id}`} aria-label='model link' className={styles.leaderboardItem}>
             <Htag tag='l' className={styles.position}>
                 {position}
             </Htag>

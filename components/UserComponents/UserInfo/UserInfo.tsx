@@ -30,14 +30,17 @@ export const UserInfo = (): JSX.Element => {
             <Htag tag='s' className={styles.userId} onClick={() => copyToClipboard(String(user.result.user_id))}>
                 {user.result.user_id}
             </Htag>
-            <ModelStat type='burn' stat={user.result.remaining_votes + '/' + user.result.total_available_votes} />
+            <ModelStat type='burn' stat={user.result.remaining_votes + '/' + user.result.total_available_votes}
+                tooltip={setLocale(tgUser?.language_code).tooltips.remaining_votes} />
             <hr className={styles.divider} />
             <Htag tag='xl' className={styles.refsTitle}>
                 {setLocale(tgUser?.language_code).referrals}
             </Htag>
             <div className={styles.statsDiv}>
-                <ModelStat type='refs' stat={numFormat(refs.result.referral_info.referral_count)} />
-                <ModelStat type='coin' stat={numFormat(refs.result.referral_info.referrals_total_coins)} />
+                <ModelStat type='refs' stat={numFormat(refs.result.referral_info.referral_count)}
+                    tooltip={setLocale(tgUser?.language_code).tooltips.total_referrals} />
+                <ModelStat type='coin' stat={numFormat(refs.result.referral_info.referrals_total_coins)}
+                    tooltip={setLocale(tgUser?.language_code).tooltips.coins_from_referrals} />
             </div>
             <div className={styles.refsButtonsDiv}>
                 <Button text={setLocale(tgUser?.language_code).copy_link}

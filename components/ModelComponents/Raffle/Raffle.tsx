@@ -58,14 +58,11 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
     return (
         <div className={styles.raffle}>
             {potentionalReward?.map((number, index) => (
-                <div
-                    key={index}
-                    className={cn(styles.cell, {
-                        [styles.highlighted]: highlightedIndex === index,
-                        [styles.target]: !isAnimating && number === target,
-                        [styles.blink]: isBlinking && number === target,
-                    })}
-                >
+                <div key={index} className={cn(styles.cell, {
+                    [styles.highlighted]: highlightedIndex === index,
+                    [styles.target]: !isAnimating && number === target,
+                    [styles.blink]: isBlinking && number === target,
+                })}>
                     {number}
                 </div>
             ))}

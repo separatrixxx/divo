@@ -1,7 +1,7 @@
 .raffle {
 	position: absolute;
 	z-index: 10;
-	top: -200%;
+	top: -70%;
 
 	display: grid;
 	align-items: center;
@@ -20,7 +20,7 @@
 	display: grid;
 
 	width: 100%;
-	height: 75px;
+	height: 70px;
 
 	color: var(--white);
 	border: 2px solid transparent;

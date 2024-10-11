@@ -5,15 +5,30 @@ import { setLocale } from '../../../helpers/locale.helper';
 import Image from 'next/image';
 import { ModelStat } from '../../ModelComponents/ModelStat/ModelStat';
 import { CoinsInfoList } from '../CoinsInfoList/CoinsInfoList';
+import { Spinner } from '../../Common/Spinner/Spinner';
 
 
 export const UserInfo = (): JSX.Element => {
     const { tgUser, user } = useSetup();
 
+    const setName = () => {
+        if (tgUser?.username) {
+            return tgUser?.username;
+        } else if (tgUser?.first_name && tgUser?.last_name) {
+            return tgUser?.first_name + ' ' + tgUser?.last_name;
+        }
+
+        return tgUser?.first_name;
+    }
+
+    if (user.status !== 'success') {
+        return <Spinner />
+    }
+
     return (
         <div className={styles.userInfo}>
             <Htag tag='m' className={styles.username}>
-                {tgUser?.username}
+                {setName()}
             </Htag>
             <Image className={styles.logo} draggable='false'
                 loader={() => '/logo.svg'}

@@ -1,0 +1,33 @@
+.friendsItem {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 1fr auto;
+
+	align-items: center;
+}
+
+.friendsItemBalance {
+	color: var(--white) !important;
+
+	font-weight: 400;
+}
+
+.friendsItemId {
+	display: grid;
+	align-items: center;
+
+	height: fit-content;
+	padding: 7px 12px;
+
+	color: var(--white);
+	border-radius: 5px;
+	outline: 1px solid var(--primary);
+	outline-offset: -1px;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
+}
+
+.friendIcon {
+	width: 12px;
+	fill: var(--white);
+}

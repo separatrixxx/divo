@@ -22,10 +22,6 @@ export const ProfilePage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                : user.status !== 'success' ?
-                    <>
-                        <Spinner />
-                    </>
                 :
                     <>
                         <UserInfo />

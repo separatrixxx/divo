@@ -3,6 +3,7 @@
 
 	width: 100%;
 	justify-items: center;
+	gap: 20px;
 }
 
 .versionText {
@@ -18,7 +19,7 @@
 }
 
 .balance {
-	margin: 20px 0 15px 0 !important;
+	margin-top: 20px !important;
 	padding: 10px 20px;
 
 	color: var(--white) !important;

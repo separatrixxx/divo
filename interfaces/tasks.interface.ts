@@ -23,3 +23,13 @@ export interface TaskItemInterface {
         target: number,
     }
 }
+
+export interface CheckTaskInterface {
+    status: string,
+    result: {
+        tasks_status: {
+            status: string,
+            message: string,
+        }
+    }
+}

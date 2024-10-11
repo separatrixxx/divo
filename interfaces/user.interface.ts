@@ -18,9 +18,15 @@ export interface RefsInterface {
             referral_count: number,
             referrals_total_coins: number,
             user_coins: number,
+            referrals: RefItem[],
         },
         referral_link: string,
     }
+}
+
+export interface RefItem {
+    id: string,
+    balance: number,
 }
 
 export interface CoinsInfoInterface {

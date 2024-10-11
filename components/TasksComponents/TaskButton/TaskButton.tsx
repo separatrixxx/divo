@@ -4,9 +4,11 @@ import { Htag } from '../../Common/Htag/Htag';
 import cn from 'classnames';
 
 
-export const TaskButton = ({ text, isLoading, setIsLoading, onClick }: TaskButtonProps): JSX.Element => {
+export const TaskButton = ({ text, isLoading, isCompleted, onClick }: TaskButtonProps): JSX.Element => {
     return (
-        <div className={styles.taskButton} onClick={onClick}>
+        <div className={cn(styles.taskButton, {
+            [styles.completed]: isCompleted,
+        })} onClick={!isCompleted ? onClick : () => {}}>
             <Htag tag='xs' className={cn(styles.text, {
                 [styles.hidden]: isLoading,
             })}>

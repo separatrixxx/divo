@@ -24,16 +24,14 @@ export const CollectionPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                    : models.status !== 'success' ?
-                        <Spinner />
-                    :
-                        <>
-                            <Htag tag='xl' className={styles.collectionTitle}>
-                                {setLocale(tgUser.language_code).collection}
-                            </Htag>
-                            <ModelsList type='collection' />
-                            <Navbar />
-                        </>
+                :
+                    <>
+                        <Htag tag='xl' className={styles.collectionTitle}>
+                            {setLocale(tgUser.language_code).collection}
+                        </Htag>
+                        <ModelsList type='collection' />
+                        <Navbar />
+                    </>
             }
         </div>
     );

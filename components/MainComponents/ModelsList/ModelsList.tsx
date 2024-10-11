@@ -13,7 +13,7 @@ import { Spinner } from '../../Common/Spinner/Spinner';
 
 
 export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
-    const { tgUser, models } = useSetup();
+    const { tgUser, user, models } = useSetup();
     const limit = 10;
 
     const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
@@ -24,12 +24,12 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     });
 
     useEffect(() => {
-        if (models.status === 'success') {
+        if (models.status === 'success' || user.status !== 'success') {
             const allModels = filterModels(type, models.result.models);
             const modelsToDisplay = allModels.slice(0, limit * currentPage);
             setDisplayedModels(modelsToDisplay);
         }
-    }, [models, type, currentPage]);
+    }, [models, user.status, type, currentPage]);
 
     useEffect(() => {
         if (inView && displayedModels.length < models.result.models.length) {
@@ -38,11 +38,7 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     }, [inView, models.result.models.length, displayedModels.length]);
 
     if (models.status !== 'success') {
-        return (
-            <div className={styles.modelsList}>
-                <Spinner />
-            </div>
-        );
+        return <Spinner />
     }
 
     if (filterModels(type, models.result.models).length === 0) {
@@ -54,18 +50,16 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     }
 
     return (
-        <>
-            <div className={styles.modelsList}>
-                {displayedModels.map((m) => (
-                    <ModelsItem 
-                        key={m.id} 
-                        id={m.id} 
-                        random_photo={m.random_photo}
-                        photo_index={m.photo_index} 
-                        user_voted={m.user_voted} 
-                    />
-                ))}
-            </div>
+        <div className={styles.modelsList}>
+            {displayedModels.map((m) => (
+                <ModelsItem
+                    key={m.id}
+                    id={m.id}
+                    random_photo={m.random_photo}
+                    photo_index={m.photo_index}
+                    user_voted={m.user_voted}
+                />
+            ))}
             {
                 filterModels(type, models.result.models).length !== displayedModels.length ?
                     <div ref={ref} className={styles.loadingIndicator}>
@@ -73,6 +67,6 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
                     </div>
                 : <></>
             }
-        </>
+        </div>
     );
 };

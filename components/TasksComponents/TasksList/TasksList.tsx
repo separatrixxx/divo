@@ -3,10 +3,15 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { TaskItem } from '../TaskItem/TaskItem';
+import { Spinner } from '../../Common/Spinner/Spinner';
 
 
 export const TasksList = (): JSX.Element => {
     const { tgUser, tasks } = useSetup();
+
+    if (tasks.status !== 'success') {
+        return <Spinner />
+    }
 
     return (
         <>
@@ -14,7 +19,7 @@ export const TasksList = (): JSX.Element => {
                 tasks.result.tasks.active.length > 0 || tasks.result.tasks.completed.length ?
                     <div className={styles.tasksList}>
                         {tasks.result.tasks.active.map(t => (
-                            <TaskItem key={t.id} id={t.id} name={t.name} tag={t.tag} award={t.award}
+                            <TaskItem key={t.id} taskId={t.id} name={t.name} tag={t.tag} award={t.award}
                                 current={t.progress.current} target={t.progress.target} />
                         ))}
                         {
@@ -23,7 +28,7 @@ export const TasksList = (): JSX.Element => {
                             : <></>
                         }
                         {tasks.result.tasks.completed.map(t => (
-                            <TaskItem key={t.id} id={t.id} name={t.name} tag={t.tag} award={t.award} isCompleted={true}
+                            <TaskItem key={t.id} name={t.name} tag={t.tag} award={t.award} isCompleted={true}
                                 current={t.progress.current} target={t.progress.target} />
                         ))}
                     </div>

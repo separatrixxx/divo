@@ -5,12 +5,13 @@ import { useSetup } from '../../../hooks/useSetup';
 import { setLocale } from '../../../helpers/locale.helper';
 import { TaskButton } from '../TaskButton/TaskButton';
 import { useState } from 'react';
-import cn from 'classnames';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { checkTasks } from '../../../helpers/tasks.helper';
+import BurnIcon from './burn.svg';
+import cn from 'classnames';
 
 
-export const TaskItem = ({ name, tag, award, current, target, isCompleted }: TaskItemProps): JSX.Element => {
+export const TaskItem = ({ taskId, name, tag, award, current, target, isCompleted }: TaskItemProps): JSX.Element => {
     const { router, dispatch, webApp, tgUser } = useSetup();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -26,26 +27,30 @@ export const TaskItem = ({ name, tag, award, current, target, isCompleted }: Tas
                 {
                     !isCompleted ?
                         <ProgressBar current={current} target={target} />
-                    : <></>
+                        : <></>
                 }
                 <Htag tag='s' className={styles.name}>
                     {name}
                 </Htag>
                 <Htag tag='xs' className={styles.award}>
-                    {'+' + award + ' ' + setLocale(tgUser?.language_code).token}
+                    {'+' + award + ' ' + setLocale(tgUser?.language_code).token + ' | +1'}
+                    <BurnIcon className={styles.burnIcon} />
                 </Htag>
             </div>
-            {
-                !isCompleted ?
-                    <TaskButton text={setLocale(tgUser?.language_code).check} isLoading={isLoading}
-                        setIsLoading={setIsLoading} onClick={() => checkTasks({
-                            router: router,
-                            webApp: webApp,
-                            dispatch: dispatch,
-                            tgUser: tgUser,
-                        })} />
-                    : <></>
-            }
+            <TaskButton text={setLocale(tgUser?.language_code)[isCompleted ? 'completed' : 'check']}
+                isLoading={isLoading} isCompleted={isCompleted} onClick={() => {
+                    if (!isCompleted && taskId) {
+                        checkTasks(
+                            {
+                                router: router,
+                                webApp: webApp,
+                                dispatch: dispatch,
+                                tgUser: tgUser,
+                                taskId: taskId,
+                                setIsLoading: setIsLoading,
+                            });
+                    }
+                }} />
         </div>
     );
 };

@@ -18,8 +18,6 @@
 
 .completed {
 	filter: brightness(0.5);
-	grid-template-columns: auto;
-	gap: 0;
 }
 
 .tag {
@@ -40,5 +38,16 @@
 }
 
 .award {
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	align-items: center !important;
+
 	color: var(--darkLight);
+	gap: 3px;
+}
+
+.burnIcon {
+	width: 8px;
+	fill: var(--darkLight);
 }

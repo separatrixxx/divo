@@ -11,9 +11,10 @@ import { ModelOtherPhotos } from '../ModelOtherPhotos/ModelOtherPhotos';
 import { numFormat } from '../../../helpers/format.helper';
 import { setLocale } from '../../../helpers/locale.helper';
 import { Raffle } from '../Raffle/Raffle';
+import { Spinner } from '../../Common/Spinner/Spinner';
 
 
-export const ModelInfo = ({ modelInfo }: ModelInfoProps): JSX.Element => {
+export const ModelInfo = ({ status, modelInfo }: ModelInfoProps): JSX.Element => {
     const { tgUser, user, models } = useSetup();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -24,6 +25,10 @@ export const ModelInfo = ({ modelInfo }: ModelInfoProps): JSX.Element => {
     const [award, setAward] = useState<number | undefined>(modelInfo.award);
     const [raffleVisible, setRaffleVisible] = useState<boolean>(false);
 
+    if (status !== 'success') {
+        return <Spinner />
+    }
+
     return (
         <div className={styles.modelInfo}>
             <div className={styles.infoDiv}>
@@ -33,8 +38,8 @@ export const ModelInfo = ({ modelInfo }: ModelInfoProps): JSX.Element => {
                 {
                     isVoted ?
                         <div className={styles.statsDiv}>
-                            <Raffle target={award} default_award={modelInfo.default_award} isVisible={raffleVisible}
-                                setIsVisible={setRaffleVisible} />
+                            <Raffle target={award} potentionalReward={modelInfo.potential_award?.reverse()}
+                                isVisible={raffleVisible} setIsVisible={setRaffleVisible} />
                             <ModelStat type='eye' stat={numFormat(modelInfo.view_count)}
                                 tooltip={setLocale(tgUser?.language_code).tooltips.total_views} />
                             <ModelStat type='coin' stat={award ? numFormat(award) : '?'}

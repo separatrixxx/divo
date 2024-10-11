@@ -45,6 +45,8 @@
 }
 
 .coinsInfoTitle {
+	justify-self: left;
+
 	color: var(--white) !important;
 
 	font-weight: 400 !important;

@@ -9,6 +9,7 @@ const refsData: RefsInterface = {
         referral_count: 0,
         referrals_total_coins: 0,
         user_coins: 0,
+        referrals: [],
     },
     referral_link: '',
   }

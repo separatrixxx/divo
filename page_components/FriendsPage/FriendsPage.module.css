@@ -6,10 +6,19 @@
 }
 
 .friedsTitle {
-	margin: 20px 0 10px 20px !important;
+	margin: 20px 0 0 20px !important;
 
 	color: var(--white) !important;
 
 	font-weight: 400 !important;
+	justify-self: left;
+}
+
+.friedsDescription {
+	max-width: 80%;
+	margin: 5px 0 20px 20px !important;
+
+	color: var(--darkLight) !important;
+
 	justify-self: left;
 }

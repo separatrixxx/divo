@@ -24,10 +24,6 @@ export const TasksPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                : tasks.status !== 'success' ?
-                    <>
-                        <Spinner />
-                    </>
                 :
                     <>
                         <Htag tag='xl' className={styles.tasksTitle}>

@@ -36,6 +36,12 @@
 	opacity: 0;
 }
 
+.completed {
+	cursor: default;
+
+	outline-color: var(--darkLight) !important;
+}
+
 .spinner {
 	position: absolute;
 

@@ -23,11 +23,9 @@ export const ModelPage = ({ model }: ModelPageProps): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                : model.status !== 'success' ?
-                    <Spinner />
                 :
                     <>
-                        <ModelInfo modelInfo={model.result} />
+                        <ModelInfo status={model.status} modelInfo={model.result} />
                         <Navbar />
                     </>
             }

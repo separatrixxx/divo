@@ -19,3 +19,8 @@ export interface VotingArguments extends Omit<BaseArguments, 'dispatch'> {
     setRaffleVisible: (e: boolean) => void,
     handleClick: () => void,
 }
+
+export interface CheckTaskArguments extends BaseArguments {
+    taskId: string,
+    setIsLoading: (e: boolean) => void,
+}

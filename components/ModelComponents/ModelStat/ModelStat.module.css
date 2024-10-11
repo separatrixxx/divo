@@ -43,8 +43,6 @@
 .statText,
 .tooltip > h1 {
 	color: var(--white);
-
-	font-weight: 200 !important;
 }
 
 .tooltip {

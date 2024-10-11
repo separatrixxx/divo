@@ -1,18 +1,24 @@
 .coinsInfoItem {
 	display: grid;
-	gap: 10px;
+	gap: 20px;
+	grid-template-columns: 1fr auto;
+
+	align-items: top;
+}
+
+.coinsInfoDiv {
+	display: grid;
+	gap: 5px;
 }
 
 .event {
-	margin-left: -5px;
-	padding: 5px 10px;
+	height: fit-content;
+	padding: 7px 12px;
 
 	color: var(--white);
 	border-radius: 5px;
 	outline: 1px solid var(--primary);
 	outline-offset: -1px;
-
-	font-weight: 400;
 }
 
 .coinsAmount {

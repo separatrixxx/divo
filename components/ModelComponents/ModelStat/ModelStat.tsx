@@ -36,12 +36,12 @@ export const ModelStat = ({ type, stat, tooltip, isActive }: ModelStatProps): JS
             {
                 type === 'eye' ?
                     <EyeIcon className={styles.eyeIcon} />
-                    : type === 'burn' ?
-                        <BurnIcon className={styles.burnIcon} />
-                        : type === 'coin' ?
-                            <CoinIcon className={styles.eyeIcon} />
-                            :
-                            <RefsIcon className={styles.burnIcon} />
+                : type === 'burn' ?
+                    <BurnIcon className={styles.burnIcon} />
+                : type === 'coin' ?
+                    <CoinIcon className={styles.eyeIcon} />
+                :
+                    <RefsIcon className={styles.burnIcon} />
             }
             <Htag tag='m' className={styles.statText}>
                 {stat}

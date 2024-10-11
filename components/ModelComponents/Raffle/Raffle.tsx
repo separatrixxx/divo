@@ -4,9 +4,7 @@ import { useState, useEffect } from 'react';
 import cn from 'classnames';
 
 
-export const Raffle = ({ target, default_award, isVisible, setIsVisible }: RaffleProps): JSX.Element => {
-    const numbers: number[] = Array.from([800, 1600, 8000], x => x * default_award);
-
+export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: RaffleProps): JSX.Element => {
     const [highlightedIndex, setHighlightedIndex] = useState<number>(0);
     const [isAnimating, setIsAnimating] = useState<boolean>(false);
     const [isBlinking, setIsBlinking] = useState<boolean>(false);
@@ -17,18 +15,18 @@ export const Raffle = ({ target, default_award, isVisible, setIsVisible }: Raffl
         let blinkTimeout: NodeJS.Timeout;
         let hideTimeout: NodeJS.Timeout;
 
-        if (isVisible && target) {
+        if (isVisible && target && potentionalReward) {
             setIsAnimating(true);
 
             interval = setInterval(() => {
-                setHighlightedIndex((prevIndex) => (prevIndex + 1) % numbers.length);
-            }, 100);
+                setHighlightedIndex((prevIndex) => (prevIndex + 1) % potentionalReward.length);
+            }, 200);
 
             setTimeout(() => {
                 clearInterval(interval);
 
                 additionalIterationTimeout = setTimeout(() => {
-                    const targetIndex = numbers.indexOf(target);
+                    const targetIndex = potentionalReward.indexOf(target);
                     setHighlightedIndex(targetIndex);
                     setIsAnimating(false);
 
@@ -51,7 +49,7 @@ export const Raffle = ({ target, default_award, isVisible, setIsVisible }: Raffl
             clearTimeout(blinkTimeout);
             clearTimeout(hideTimeout);
         };
-    }, [target, numbers, isVisible, setIsVisible]);
+    }, [target, potentionalReward, isVisible, setIsVisible]);
 
     if (!isVisible) {
         return <></>;
@@ -59,7 +57,7 @@ export const Raffle = ({ target, default_award, isVisible, setIsVisible }: Raffl
 
     return (
         <div className={styles.raffle}>
-            {numbers.map((number, index) => (
+            {potentionalReward?.map((number, index) => (
                 <div
                     key={index}
                     className={cn(styles.cell, {

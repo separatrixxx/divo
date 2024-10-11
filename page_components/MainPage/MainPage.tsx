@@ -7,6 +7,7 @@ import { ByBlock } from '../../components/Common/ByBlock/ByBlock';
 import { ModelsList } from '../../components/MainComponents/ModelsList/ModelsList';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { setLocale } from '../../helpers/locale.helper';
+import { ModelStat } from '../../components/ModelComponents/ModelStat/ModelStat';
 
 
 export const MainPage = (): JSX.Element => {
@@ -21,22 +22,16 @@ export const MainPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                    : user.status !== 'success' ?
-                        <>
-                            <Spinner />
-                            <Htag tag='s' className={styles.versionText}>
-                                {process.env.NEXT_PUBLIC_VERSION}
-                            </Htag>
-                            <ByBlock color='dark' />
-                        </>
-                    :
-                        <>
-                            <Htag tag='xl' className={styles.balance}>
-                                {user.result.coins.toLocaleString('en-US') + ' ' + setLocale(tgUser.language_code).token}
-                            </Htag>
-                            <ModelsList type='all' />
-                            <Navbar />
-                        </>
+                :
+                    <>
+                        <Htag tag='xl' className={styles.balance}>
+                            {user.result.coins.toLocaleString('en-US') + ' ' + setLocale(tgUser.language_code).token}
+                        </Htag>
+                        <ModelStat type='burn' stat={user.result.remaining_votes + '/' + user.result.total_available_votes}
+                            tooltip={setLocale(tgUser?.language_code).tooltips.remaining_votes} />
+                        <ModelsList type='all' />
+                        <Navbar />
+                    </>
             }
         </div>
     );

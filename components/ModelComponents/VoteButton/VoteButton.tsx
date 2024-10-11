@@ -48,7 +48,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
 
     return (
         <div className={cn(styles.voteButton, {
-            [styles.isVotedButton]: isVoted || remainingVotes <= 0,
+            [styles.isVotedButton]: isVoted,
         })} onClick={() => {
             if (!isVoted && remainingVotes > 0) {
                 voteForModel({
@@ -62,6 +62,8 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
                     setRaffleVisible: setRaffleVisible,
                     handleClick: handleClick,
                 });
+            } else if (remainingVotes <= 0) {
+                router.push('/tasks');
             }
         }}>
             {
@@ -76,7 +78,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
                                     setLocale(tgUser?.language_code).you_already_voted
                                 : remainingVotes > 0 ?
                                     setLocale(tgUser?.language_code).vote
-                                : setLocale(tgUser?.language_code).you_have_no_votes_left
+                                : setLocale(tgUser?.language_code).get_more_votes
                             }
                         </Htag>
                         {

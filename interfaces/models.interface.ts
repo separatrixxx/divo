@@ -31,6 +31,6 @@ export interface ModelByIdItem {
     view_count: number,
     picked_photo: number,
     picked_photo_url: string,
-    potential_reward?: number,
+    potential_award?: number[],
     award?: number,
 }

@@ -2,6 +2,7 @@ import { RaffleProps } from './Raffle.props';
 import styles from './Raffle.module.css';
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { FireworksComponents } from '../Fireworks/Fireworks';
 
 
 export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: RaffleProps): JSX.Element => {
@@ -20,7 +21,7 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
 
             interval = setInterval(() => {
                 setHighlightedIndex((prevIndex) => (prevIndex + 1) % potentionalReward.length);
-            }, 200);
+            }, 150);
 
             setTimeout(() => {
                 clearInterval(interval);
@@ -38,7 +39,7 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
                         hideTimeout = setTimeout(() => {
                             setIsVisible(false);
                         }, 500);
-                    }, 2000);
+                    }, 3000);
                 }, 100);
             }, 2000);
         }
@@ -56,16 +57,19 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
     }
 
     return (
-        <div className={styles.raffle}>
-            {potentionalReward?.map((number, index) => (
-                <div key={index} className={cn(styles.cell, {
-                    [styles.highlighted]: highlightedIndex === index,
-                    [styles.target]: !isAnimating && number === target,
-                    [styles.blink]: isBlinking && number === target,
-                })}>
-                    {number}
-                </div>
-            ))}
-        </div>
+        <>
+            <FireworksComponents />
+            <div className={styles.raffle}>
+                {potentionalReward?.map((number, index) => (
+                    <div key={index} className={cn(styles.cell, {
+                        [styles.highlighted]: highlightedIndex === index,
+                        [styles.target]: !isAnimating && number === target,
+                        [styles.blink]: isBlinking && number === target,
+                    })}>
+                        {number}
+                    </div>
+                ))}
+            </div>
+        </>
     );
 };

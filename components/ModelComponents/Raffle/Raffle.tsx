@@ -1,14 +1,19 @@
 import { RaffleProps } from './Raffle.props';
 import styles from './Raffle.module.css';
-import { useState, useEffect } from 'react';
-import cn from 'classnames';
+import { useState, useEffect, useRef } from 'react';
 import { FireworksComponents } from '../Fireworks/Fireworks';
+import Win from './win.svg';
+import BigWin from './big_win.svg';
+import EpicWin from './epic_win.svg';
+import { gsap } from 'gsap';
+import cn from 'classnames';
 
 
 export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: RaffleProps): JSX.Element => {
     const [highlightedIndex, setHighlightedIndex] = useState<number>(0);
     const [isAnimating, setIsAnimating] = useState<boolean>(false);
     const [isBlinking, setIsBlinking] = useState<boolean>(false);
+    const svgRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -33,6 +38,11 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
 
                     setIsBlinking(true);
 
+                    if (svgRef.current) {
+                        gsap.fromTo(svgRef.current, { opacity: 0 }, { opacity: 1, duration: 0.2 });
+                        gsap.to(svgRef.current, { opacity: 0, delay: 3, duration: 0.2 });
+                    }
+
                     blinkTimeout = setTimeout(() => {
                         setIsBlinking(false);
 
@@ -56,6 +66,19 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
         return <></>;
     }
 
+    const renderSVG = () => {
+        if (potentionalReward && target) {
+            const targetIndex = potentionalReward.indexOf(target);
+            if (targetIndex === 0) {
+                return <Win />;
+            } else if (targetIndex === 1) {
+                return <BigWin />;
+            } else if (targetIndex === 2) {
+                return <EpicWin />;
+            }
+        }
+    };
+
     return (
         <>
             <FireworksComponents />
@@ -69,6 +92,16 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
                         {number}
                     </div>
                 ))}
+            </div>
+            <div ref={svgRef} className={styles.winIcon}>
+                {
+                    potentionalReward && target ? potentionalReward.indexOf(target) === 0 ?
+                        <Win />
+                    : potentionalReward.indexOf(target) === 1 ?
+                        <BigWin />
+                    :<EpicWin />
+                    : <></>
+                }
             </div>
         </>
     );

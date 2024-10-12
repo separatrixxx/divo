@@ -2,6 +2,7 @@ import styles from './Fireworks.module.css';
 import { useEffect, useRef } from 'react';
 import Fireworks from 'fireworks-js';
 
+
 export const FireworksComponents = (): JSX.Element => {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -18,16 +19,16 @@ export const FireworksComponents = (): JSX.Element => {
         if (container) {
             const fireworks = new Fireworks(container, {
                 rocketsPoint: { min: 50, max: 10 },
-                hue: { min: 0, max: 360 },
+                hue: { min: 12, max: 20 },
                 delay: { min: 15, max: 30 },
-                acceleration: 1.05,
+                acceleration: 1.03,
                 friction: 0.98,
-                gravity: 1.5,
-                intensity: 30,
-                particles: 50,
-                explosion: 5,
+                gravity: 1.7,
+                intensity: 50,
+                particles: 55,
+                explosion: 6,
                 autoresize: true,
-                brightness: { min: 50, max: 80 },
+                brightness: { min: 30, max: 80 },
                 decay: { min: 0.015, max: 0.03 },
                 boundaries: {
                     x: 50,
@@ -40,26 +41,26 @@ export const FireworksComponents = (): JSX.Element => {
             startTimeout = setTimeout(() => {
                 fireworks.start();
 
-                fireworks.updateOptions({ intensity: 30 });
+                fireworks.updateOptions({ intensity: 50 });
 
                 intensityTimeout1 = setTimeout(() => {
-                    fireworks.updateOptions({ intensity: 20 });
+                    fireworks.updateOptions({ intensity: 30 });
                 }, 1200);
 
                 intensityTimeout2 = setTimeout(() => {
-                    fireworks.updateOptions({ intensity: 10 });
+                    fireworks.updateOptions({ intensity: 20 });
                 }, 1800);
 
                 intensityTimeout3 = setTimeout(() => {
-                    fireworks.updateOptions({ intensity: 7 });
+                    fireworks.updateOptions({ intensity: 5 });
                 }, 2000);
 
                 intensityTimeout4 = setTimeout(() => {
-                    fireworks.updateOptions({ intensity: 5 });
+                    fireworks.updateOptions({ intensity: 2 });
                 }, 2200);
 
                 intensityTimeout4 = setTimeout(() => {
-                    fireworks.updateOptions({ intensity: 2 });
+                    fireworks.updateOptions({ intensity: 1 });
                 }, 2400);
             }, 2000);
 

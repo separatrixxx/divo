@@ -10,7 +10,7 @@
 	padding: 20px;
 
 	border-radius: 7px;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.8);
 	grid-template-columns: repeat(3, auto);
 	justify-items: center;
 	gap: 20px;
@@ -47,4 +47,18 @@
 
 .blink {
 	animation: blink 0.3s ease-in-out infinite;
+}
+
+.winIcon {
+	z-index: 20;
+	position: absolute;
+	top: 320%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	width: 80%;
+}
+
+.winIcon > svg {
+	width: 100%;
 }

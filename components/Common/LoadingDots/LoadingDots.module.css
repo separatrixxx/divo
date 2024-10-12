@@ -6,6 +6,7 @@
 	grid-template-columns: 1fr auto 1fr;
 	justify-items: center;
 	margin: 20px 0;
+	gap: 10px;
 }
 
 .loading span {

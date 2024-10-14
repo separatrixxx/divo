@@ -58,7 +58,7 @@ export const ru = {
         tasks: "Выполнение задания",
     },
     task_tags: {
-        referral: "Друщья",
+        referral: "Друзья",
         telegram: "Telegram",
         twitter: "Twitter",
         youtube: "YouTube",

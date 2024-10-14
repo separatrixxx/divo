@@ -19,8 +19,8 @@ export const TasksList = (): JSX.Element => {
                 tasks.result.tasks.active.length > 0 || tasks.result.tasks.completed.length ?
                     <div className={styles.tasksList}>
                         {tasks.result.tasks.active.map(t => (
-                            <TaskItem key={t.id} taskId={t.id} name={t.name} tag={t.tag} award={t.award}
-                                current={t.progress.current} target={t.progress.target} />
+                            <TaskItem key={t.id} taskId={t.id} tag={t.tag} award={t.award} task_metadata={t.task_metadata}
+                            current={t.progress.current} target={t.progress.target} />
                         ))}
                         {
                             tasks.result.tasks.completed.length > 0 ?
@@ -28,11 +28,11 @@ export const TasksList = (): JSX.Element => {
                             : <></>
                         }
                         {tasks.result.tasks.completed.map(t => (
-                            <TaskItem key={t.id} name={t.name} tag={t.tag} award={t.award} isCompleted={true}
+                            <TaskItem key={t.id} tag={t.tag} award={t.award} isCompleted={true}
                                 current={t.progress.current} target={t.progress.target} />
                         ))}
                     </div>
-                    :
+                :
                     <Htag tag='s' className={styles.noTasks}>
                         {setLocale(tgUser?.language_code).no_tasks}
                     </Htag>

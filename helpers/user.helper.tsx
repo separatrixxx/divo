@@ -1,6 +1,5 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { setLocale } from "./locale.helper";
-import { CoinsInfoInterface, RefsInterface, UserInterface } from "../interfaces/user.interface";
 import { setUser, setUserDefault } from "../features/user/userSlice";
 import { BaseArguments } from "../interfaces/refactor.interface";
 import { setRefs, setRefsDefault } from "../features/refs/refsSlice";
@@ -13,17 +12,15 @@ export async function getUser(args: BaseArguments) {
     try {
         dispatch(setUserDefault());
 
-        const { data: response }: AxiosResponse<UserInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/users/user_data?user_id=' + tgUser?.id,
-            {
-                headers: {
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
-                },
-            });
+        const { data: response } = await axios.get('/api/getUser', {
+            params: {
+                user_id: tgUser?.id,
+            },
+        });
 
         dispatch(setUser(response));
     } catch (err: any) {
-        if (err.response && err.response.data.error_message === 'User not found') {
+        if (err.response && err.response.status === 404) {
             webApp?.showAlert(setLocale(tgUser?.language_code).errors.user_not_found_error, async function () {
                 webApp.close();
             });
@@ -33,7 +30,7 @@ export async function getUser(args: BaseArguments) {
             });
         }
 
-        console.log(err);
+        console.error(err);
     }
 }
 
@@ -43,41 +40,35 @@ export async function getRefs(args: BaseArguments) {
     try {
         dispatch(setRefsDefault());
 
-        const { data: response }: AxiosResponse<RefsInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/users/referral_info?user_id=' + tgUser?.id,
-            {
-                headers: {
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
-                },
-            });
+        const { data: response } = await axios.get('/api/getRefs', {
+            params: {
+                user_id: tgUser?.id,
+            },
+        });
 
         dispatch(setRefs(response));
     } catch (err: any) {
         webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_friends_error);
 
-        console.log(err);
+        console.error(err);
     }
 }
-
 
 export async function getCoinsInfo(args: BaseArguments) {
     const { dispatch, webApp, tgUser } = args;
 
     try {
         dispatch(setCoinsInfoDefault());
-        
-        const { data: response }: AxiosResponse<CoinsInfoInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/users/coins_logs?user_id=' + tgUser?.id,
-            {
-                headers: {
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
-                },
-            });
+
+        const { data: response } = await axios.get('/api/getCoinsInfo', {
+            params: {
+                user_id: tgUser?.id,
+            },
+        });
 
         dispatch(setCoinsInfo(response));
     } catch (err: any) {
         webApp?.showAlert(setLocale(tgUser?.language_code).errors.get_coins_info_error);
-
-        console.log(err);
+        console.error(err);
     }
 }

@@ -20,7 +20,7 @@ export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
 
     return (
         <div className={styles.errorPage}>
-            <Link href='/' className={styles.errorBlock}>
+            <Link href='/' className={styles.errorBlock} aria-label='error link'>
                 <Image className={styles.logo} draggable='false'
                     loader={() => '/logo.svg'}
                     src='/logo.svg'

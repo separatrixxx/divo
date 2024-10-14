@@ -8,12 +8,13 @@ import cn from 'classnames';
 
 
 export const ModelsItem = ({ id, random_photo, photo_index, user_voted }: ModelItem): JSX.Element => {
-    const { tgUser } = useSetup();
+    const { webApp, tgUser } = useSetup();
 
     return (
-        <Link href={`/model/${tgUser?.id}/${photo_index}/${id}`} aria-label='model link' className={cn(styles.modelsItem, {
+        <Link href={`/model/${tgUser?.id}/${photo_index}/${id}`} className={cn(styles.modelsItem, {
             [styles.isVoted]: user_voted,
-        })}>
+            [styles.weba]: webApp?.platform === 'weba',
+        })} aria-label='model link'>
             {
                 user_voted ?
                     <BurnIcon className={styles.burnIcon} />

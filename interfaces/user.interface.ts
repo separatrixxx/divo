@@ -2,12 +2,15 @@ export interface UserInterface {
     status: string,
     result: {
         user_id: number,
+        user_status: string,
         refferal_id: null,
         user_data: {},
         coins: number,
         total_available_votes: number,
         remaining_votes: number,
         potential_reward: number,
+        votes_for_ref: number,
+        votes_for_task: number,
     }
 }
 
@@ -16,8 +19,6 @@ export interface RefsInterface {
     result: {
         referral_info: {
             referral_count: number,
-            referrals_total_coins: number,
-            user_coins: number,
             referrals: RefItem[],
         },
         referral_link: string,
@@ -26,7 +27,6 @@ export interface RefsInterface {
 
 export interface RefItem {
     id: string,
-    balance: number,
 }
 
 export interface CoinsInfoInterface {

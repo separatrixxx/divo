@@ -6,10 +6,13 @@ import CoinIcon from './coin.svg';
 import RefsIcon from './profile.svg';
 import { Htag } from '../../Common/Htag/Htag';
 import { useEffect, useRef, useState } from 'react';
+import { useSetup } from '../../../hooks/useSetup';
 import cn from 'classnames';
 
 
 export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps): JSX.Element => {
+    const { webApp } = useSetup();
+
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +37,7 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
             [styles.active]: isActive,
             [styles.modelStatS]: tag === 's',
             [styles.noIcon]: !type,
+            [styles.weba]: webApp?.platform === 'weba',
         })} onClick={toggleTooltip} onMouseEnter={toggleTooltip} onMouseLeave={() => setTooltipVisible(false)}>
             {
                 type === 'eye' ?

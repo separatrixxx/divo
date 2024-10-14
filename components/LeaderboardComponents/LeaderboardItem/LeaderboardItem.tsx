@@ -8,10 +8,12 @@ import cn from 'classnames';
 
 
 export const LeaderboardItem = ({ position, model_id, total_votes, voted_by_user }: LeaderboardItemInterface): JSX.Element => {
-    const { tgUser } = useSetup();
+    const { webApp, tgUser } = useSetup();
 
     return (
-        <Link href={`/model/${tgUser?.id}/0/${model_id}`} aria-label='model link' className={styles.leaderboardItem}>
+        <Link href={`/model/${tgUser?.id}/0/${model_id}`} className={cn(styles.leaderboardItem, {
+            [styles.weba]: webApp?.platform === 'weba',
+        })} aria-label='model link'>
             <Htag tag='l' className={styles.position}>
                 {position}
             </Htag>

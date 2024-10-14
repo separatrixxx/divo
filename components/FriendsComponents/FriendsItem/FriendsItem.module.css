@@ -7,9 +7,21 @@
 }
 
 .friendsItemBalance {
+	display: grid;
+
+	width: fit-content;
+
 	color: var(--white) !important;
 
 	font-weight: 400;
+	grid-template-columns: auto auto;
+	gap: 10px;
+}
+
+.friendsItemBalance > svg {
+	fill: var(--white);
+
+	width: 15px;
 }
 
 .friendsItemId {

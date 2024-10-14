@@ -15,8 +15,8 @@
 	gap: 30px;
 }
 
-.leaderboardItem:hover,
-.leaderboardItem:active {
+.leaderboardItem:active,
+.weba:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	filter: brightness(0.9);

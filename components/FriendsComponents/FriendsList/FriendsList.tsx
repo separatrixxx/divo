@@ -9,7 +9,7 @@ export const FriendsList = (): JSX.Element => {
     return (
         <div className={styles.friendsList}>
             {refs.result.referral_info.referrals.map(r => (
-                <FriendsItem key={r.id} id={r.id} balance={r.balance} />
+                <FriendsItem key={r.id} id={r.id} />
             ))}
         </div>
     );

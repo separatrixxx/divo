@@ -21,8 +21,8 @@
 	outline-color: var(--primary);
 }
 
-.button:hover,
-.button:active {
+.button:active,
+.weba:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	outline-color: var(--primary);

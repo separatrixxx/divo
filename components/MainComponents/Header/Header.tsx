@@ -11,7 +11,7 @@ import cn from 'classnames';
 
 
 export const Header = (): JSX.Element => {
-    const { tgUser, user } = useSetup();
+    const { webApp, tgUser, user } = useSetup();
 
     return (
         <header className={styles.header}>
@@ -25,9 +25,13 @@ export const Header = (): JSX.Element => {
                 <ModelStat stat={user.result.remaining_votes + '/' + user.result.total_available_votes}
                     tooltip={setLocale(tgUser?.language_code).tooltips.remaining_votes} tag='s' />
             </div>
-            <Link href='/info' className={cn(styles.headerDiv, styles.headerDiv2)}>
-                <InfoIcon />
-            </Link>
+            <div className={styles.headerDiv}>
+                <Link href='/info' className={cn(styles.infoLink, {
+                    [styles.weba]: webApp?.platform === 'weba',
+                })} aria-label='info link'>
+                    <InfoIcon />
+                </Link>
+            </div>
         </header>
     );
 };

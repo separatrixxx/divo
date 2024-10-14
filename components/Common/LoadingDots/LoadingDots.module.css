@@ -36,13 +36,6 @@
 	animation-delay: 0.4s;
 }
 
-.loading:hover > span,
-.loading:active > span {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	background: var(--primary);
-}
-
 @keyframes blink {
 	0% {
 		transform: rotate(0deg);

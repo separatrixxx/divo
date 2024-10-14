@@ -22,5 +22,6 @@ export interface VotingArguments extends Omit<BaseArguments, 'dispatch'> {
 
 export interface CheckTaskArguments extends BaseArguments {
     taskId: string,
+    taskUrl?: string,
     setIsLoading: (e: boolean) => void,
 }

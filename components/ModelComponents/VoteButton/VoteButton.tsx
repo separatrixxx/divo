@@ -49,6 +49,7 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
     return (
         <div className={cn(styles.voteButton, {
             [styles.isVotedButton]: isVoted,
+            [styles.weba]: webApp?.platform === 'weba',
         })} onClick={() => {
             if (!isVoted && remainingVotes > 0) {
                 voteForModel({

@@ -23,7 +23,7 @@
 	outline-offset: -1px;
 	justify-items: center;
 
-	grid-template-columns: auto auto;
+	grid-template-columns: auto auto auto;
 }
 
 .friendsButtonsDiv {

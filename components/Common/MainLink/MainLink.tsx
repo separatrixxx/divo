@@ -11,7 +11,7 @@ export const MainLink = (): JSX.Element => {
     const { router, tgUser } = useSetup();
     
     return (
-        <Link href='' target='_blank' className={styles.link}>
+        <Link href='' target='_blank' className={styles.link} aria-label='main link'>
             <Image className={styles.logo} draggable='false'
                 loader={() => '/logo.svg'}
                 src='/logo.svg'

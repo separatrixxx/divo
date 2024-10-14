@@ -18,8 +18,8 @@
 	color: var(--darkLight) !important;
 }
 
-.byBanana:hover,
-.byBanana:active {
+.byBanana:active,
+.weba:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	color: var(--banana) !important;

@@ -12,12 +12,13 @@ import cn from 'classnames';
 
 
 export const NavbarButton = ({ type, text, link }: NavbarButtonProps): JSX.Element => {
-    const { router } = useSetup();
+    const { router, webApp } = useSetup();
 
     return (
-        <Link href={link} aria-label='navbar link' className={cn(styles.navbarButton, {
+        <Link href={link} className={cn(styles.navbarButton, {
             [styles.active]: router.asPath === link,
-        })}>
+            [styles.weba]: webApp?.platform === 'weba',
+        })} aria-label='navbar link'>
             <span className={styles.navbarButtonIcon}>
                 {
                     type === 'main' ?

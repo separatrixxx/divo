@@ -6,12 +6,15 @@ const userData: UserInterface = {
   status: '',
   result: {
     user_id: 0,
+    user_status: 'user',
     refferal_id: null,
     user_data: {},
     coins: 0,
     total_available_votes: 0,
     remaining_votes: 0,
     potential_reward: 0,
+    votes_for_ref: 0,
+    votes_for_task: 0,
   }
 };
 

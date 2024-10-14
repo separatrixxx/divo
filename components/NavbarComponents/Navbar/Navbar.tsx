@@ -4,16 +4,19 @@ import { NavbarButton } from '../NavbarButton/NavbarButton';
 import { setLocale } from '../../../helpers/locale.helper';
 import Logo from './logo.svg';
 import Link from 'next/link';
+import cn from 'classnames';
 
 
 export const Navbar = (): JSX.Element => {
-    const { tgUser } = useSetup();
+    const { webApp, tgUser } = useSetup();
 
     return (
         <nav className={styles.navbar}>
             <NavbarButton type='main' text={setLocale(tgUser?.language_code).main} link='/' />
             <NavbarButton type='collection' text={setLocale(tgUser?.language_code).collection} link='/collection' />
-            <Link href='/profile' aria-label='navbar main link' className={styles.navbarLogoButtonDiv}>
+            <Link href='/profile' className={cn(styles.navbarLogoButtonDiv, {
+                [styles.weba]: webApp?.platform === 'weba',
+            })} aria-label='navbar main link'>
                 <Logo className={styles.navbarLogoButton} />
             </Link>
             <NavbarButton type='friends' text={setLocale(tgUser?.language_code).friends} link='/friends' />

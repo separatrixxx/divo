@@ -37,25 +37,34 @@
 	font-weight: 400 !important;
 }
 
-.headerDiv2 {
+.infoLink {
 	display: grid;
 	align-items: center;
+	justify-self: right;
 
 	cursor: pointer;
+	margin-right: 10px;
+}
+
+.infoLink > svg {
+	fill: var(--primary);
+
+	height: 18px;
+
 	transition-duration: 300ms;
 }
 
-.headerDiv2:hover,
-.headerDiv2:active {
+.infoLink:active > svg,
+.weba:hover > svg {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	outline: 1px solid var(--darkLight);
+	fill: var(--white);
 }
 
-.headerDiv2 > svg {
-	fill: var(--white) !important;
+.infoLink:hover > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	height: 18px;
+	filter: var(--white);
 }
 
 .iconDiv {

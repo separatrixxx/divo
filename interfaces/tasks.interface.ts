@@ -15,6 +15,7 @@ export interface TaskItemInterface {
     description: string,
     tag: string,
     award: number,
+    task_metadata?: TaskMetadataInterface,
     task_start?: string,
     task_end?: string,
     timestamp_complete?: string,
@@ -22,6 +23,14 @@ export interface TaskItemInterface {
         current: number,
         target: number,
     }
+}
+
+export interface TaskMetadataInterface {
+    task: string,
+    require?: number,
+    task_url?: string,
+    object_id?: number,
+    chanel_id?: string,
 }
 
 export interface CheckTaskInterface {

@@ -14,7 +14,7 @@
 	border-radius: 10px 10px 0 0;
 
 	background: rgba(0, 0, 0, 0.8);
-	grid-template-columns: repeat(5, auto);
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	justify-items: center;
 }
 
@@ -23,8 +23,9 @@
 
 	display: grid;
 
-	width: 60px;
+	width: 70px;
 	height: 100%;
+	margin: 0 10px;
 
 	cursor: pointer;
 	transition-duration: 300ms;
@@ -42,7 +43,7 @@
 	z-index: 1;
 	top: -75%;
 
-	width: 60px;
+	width: 70px;
 
 	border-radius: 9999px;
 }
@@ -53,15 +54,15 @@
 	top: -75%;
 	left: 0;
 
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
 
 	content: '';
 
 	border-radius: 9999px;
 	outline: 11px solid rgba(0, 0, 0, 0.7);
-	outline-offset: -1px;
-	clip-path: ellipse(200% 33% at 50% 0%);
+	outline-offset: -5px;
+	clip-path: ellipse(200% 28% at 50% 0%);
 }
 
 .navbarLogoButtonDiv:hover .navbarLogoButton,

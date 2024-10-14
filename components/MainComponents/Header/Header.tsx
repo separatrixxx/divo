@@ -11,23 +11,23 @@ import cn from 'classnames';
 
 
 export const Header = (): JSX.Element => {
-    const { router, tgUser, user } = useSetup();
+    const { tgUser, user } = useSetup();
 
     return (
         <header className={styles.header}>
             <div className={styles.headerDiv}>
-                <Htag tag='s'>
+                <Htag tag='s' className={styles.balance}>
                     {numFormat(user.result.coins) + ' ' + setLocale(tgUser?.language_code).token}
                 </Htag>
             </div>
-            <XIcon className={styles.xIcon} />
-            <div className={cn(styles.headerDiv, styles.headerDiv2)}>
-                <ModelStat type='burn' stat={user.result.remaining_votes}
+            <div className={styles.iconDiv}>
+                <XIcon className={styles.xIcon} />
+                <ModelStat stat={user.result.remaining_votes + '/' + user.result.total_available_votes}
                     tooltip={setLocale(tgUser?.language_code).tooltips.remaining_votes} tag='s' />
-                <Link href='/info' className={styles.infoIcon}>
-                    <InfoIcon />
-                </Link>
             </div>
+            <Link href='/info' className={cn(styles.headerDiv, styles.headerDiv2)}>
+                <InfoIcon />
+            </Link>
         </header>
     );
 };

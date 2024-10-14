@@ -3,6 +3,7 @@ import { setLocale } from "./locale.helper";
 import { BaseArguments, CheckTaskArguments } from "../interfaces/refactor.interface";
 import { setTasks, setTasksDefault } from "../features/tasks/tasksSlice";
 import { CheckTaskInterface, TasksInterface } from "../interfaces/tasks.interface";
+import { ToastSuccess, ToastError } from "../components/Common/Toast/Toast";
 
 
 export async function getTasks(args: BaseArguments) {
@@ -36,7 +37,7 @@ export async function checkTasks(args: CheckTaskArguments) {
 
     try {
         const { data: response }: AxiosResponse<CheckTaskInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            `/api/tasks/check_tasks?user_id=1186504573&task_id=7d5dea43-2a4e-4275-ae6b-b3fbf69e5a13`,
+            `/api/tasks/check_tasks?user_id=${tgUser?.id}&task_id=${taskId}`,
             {
                 headers: {
                     'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
@@ -45,8 +46,10 @@ export async function checkTasks(args: CheckTaskArguments) {
 
         if (response.result.tasks_status.status === 'pending'
             || response.result.tasks_status.status === 'error') {
-            webApp?.showAlert(setLocale(tgUser?.language_code).errors.have_not_completed_task_error);
+            ToastError(setLocale(tgUser?.language_code).errors.have_not_completed_task_error);
         } else {
+            ToastSuccess(setLocale(tgUser?.language_code).task_completed);
+
             getTasks({
                 router: router,
                 webApp: webApp,

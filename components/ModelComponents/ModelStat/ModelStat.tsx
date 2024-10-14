@@ -33,6 +33,7 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
         <div className={cn(styles.modelStat, {
             [styles.active]: isActive,
             [styles.modelStatS]: tag === 's',
+            [styles.noIcon]: !type,
         })} onClick={toggleTooltip} onMouseEnter={toggleTooltip} onMouseLeave={() => setTooltipVisible(false)}>
             {
                 type === 'eye' ?
@@ -47,10 +48,11 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
                     <CoinIcon className={cn(styles.eyeIcon, {
                         [styles.eyeIconS]: tag === 's',
                     })} />
-                :
+                : type === 'refs' ?
                     <RefsIcon className={cn(styles.burnIcon, {
                         [styles.burnIconS]: tag === 's',
                     })} />
+                : <></>
             }
             <Htag tag={tag ? tag : 'm'} className={styles.statText}>
                 {stat}

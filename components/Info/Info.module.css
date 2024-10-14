@@ -4,7 +4,7 @@
 	width: calc(95% - 20px);
 	margin-bottom: 120px;
 	padding: 10px;
-	gap: 10px;
+	gap: 5px;
 	justify-items: center;
 }
 
@@ -12,4 +12,14 @@
 	color: var(--white);
 
 	font-weight: 300;
+}
+
+.byDiv {
+	display: grid;
+	justify-items: center;
+	gap: 15px;
+}
+
+.version {
+	color: var(--darkLight);
 }

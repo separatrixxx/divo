@@ -5,6 +5,7 @@ import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { setLocale } from '../../helpers/locale.helper';
 import { TasksList } from '../../components/TasksComponents/TasksList/TasksList';
+import { Toaster } from 'react-hot-toast';
 
 
 export const TasksPage = (): JSX.Element => {
@@ -25,6 +26,13 @@ export const TasksPage = (): JSX.Element => {
                     <MainLink />
                 :
                     <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
                         <Htag tag='xl' className={styles.tasksTitle}>
                             {setLocale(tgUser.language_code).tasks}
                         </Htag>

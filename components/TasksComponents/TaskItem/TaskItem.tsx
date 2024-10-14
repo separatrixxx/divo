@@ -22,7 +22,7 @@ export const TaskItem = ({ taskId, name, tag, award, current, target, isComplete
         })}>
             <div className={styles.taskInfo}>
                 <Htag tag='xs' className={styles.tag}>
-                    {tag}
+                    {setLocale(tgUser?.language_code).task_tags[tag as 'referral']}
                 </Htag>
                 {
                     !isCompleted ?

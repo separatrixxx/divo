@@ -16,6 +16,10 @@
 	gap: 7px;
 }
 
+.noIcon {
+	gap: 0;
+}
+
 .modelStat:hover,
 .modelStat:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

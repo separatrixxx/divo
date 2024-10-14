@@ -3,10 +3,11 @@ import toast from 'react-hot-toast';
 export const ToastSuccess = (message: string | undefined): void => {
     if (message) {
         toast.error(message, {
-            icon: '🤩',
+            icon: '🔥',
             style: {
-                borderRadius: '9999px',
-                color: 'var(--textDark)',
+                background: 'var(--dark)',
+                borderRadius: '10px',
+                color: 'var(--white)',
             },
         });
     }
@@ -15,9 +16,10 @@ export const ToastSuccess = (message: string | undefined): void => {
 export const ToastError = (message: string | undefined): void => {
     if (message) {
         toast.error(message, {
-            icon: '🙄',
+            icon: '😔',
             style: {
-                borderRadius: '9999px',
+                background: 'var(--dark)',
+                borderRadius: '10px',
                 color: 'var(--error)',
             },
         });

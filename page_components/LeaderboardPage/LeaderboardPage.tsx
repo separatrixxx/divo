@@ -9,7 +9,7 @@ import { setLocale } from '../../helpers/locale.helper';
 
 
 export const LeaderboardPage = (): JSX.Element => {
-    const { router, webApp, tgUser, leaderboard } = useSetup();
+    const { router, webApp, tgUser, user, leaderboard } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.show();
@@ -28,6 +28,10 @@ export const LeaderboardPage = (): JSX.Element => {
                     <>
                         <Spinner />
                     </>
+                : user.result.user_status === 'user' ?
+                    <Htag tag='m' className={styles.accessRestrictedText}>
+                        {setLocale(tgUser.language_code).errors.do_not_have_access_to_page_error}
+                    </Htag>
                 :
                     <>
                         <Htag tag='xl' className={styles.leaderboardTitle}>

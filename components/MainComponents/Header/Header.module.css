@@ -40,10 +40,11 @@
 .infoLink {
 	display: grid;
 	align-items: center;
-	justify-self: right;
+
+	margin-right: 10px;
 
 	cursor: pointer;
-	margin-right: 10px;
+	justify-self: right;
 }
 
 .infoLink > svg {

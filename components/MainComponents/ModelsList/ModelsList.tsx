@@ -10,17 +10,18 @@ import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { filterModels } from '../../../helpers/filter.helper';
 import { Spinner } from '../../Common/Spinner/Spinner';
+import { throttle } from 'lodash';
 
 
 export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     const { tgUser, user, models } = useSetup();
 
-    const limit = 10;
+    const limit = 20;
     const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState<number>(1);
     const [ref, inView] = useInView({
         triggerOnce: false,
-        threshold: 0.5,
+        threshold: 0.7,
     });
 
     useEffect(() => {
@@ -32,9 +33,16 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     }, [models, user.status, type, currentPage]);
 
     useEffect(() => {
-        if (inView && displayedModels.length < models.result.models.length) {
-            setCurrentPage(prevPage => prevPage + 1);
-        }
+        const handleScroll = throttle(() => {
+            if (inView && displayedModels.length < models.result.models.length) {
+                setCurrentPage(prevPage => prevPage + 1);
+            }
+        }, 500);
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [inView, models.result.models.length, displayedModels.length]);
 
     if (models.status !== 'success') {

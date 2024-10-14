@@ -1,5 +1,6 @@
 import styles from './ModelsItem.module.css';
 import { ModelItem } from '../../../interfaces/models.interface';
+import { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import BurnIcon from './burn.svg';
@@ -7,7 +8,7 @@ import { useSetup } from '../../../hooks/useSetup';
 import cn from 'classnames';
 
 
-export const ModelsItem = ({ id, random_photo, photo_index, user_voted }: ModelItem): JSX.Element => {
+export const ModelsItem = memo(({ id, random_photo, photo_index, user_voted }: ModelItem): JSX.Element => {
     const { webApp, tgUser } = useSetup();
 
     return (
@@ -15,20 +16,18 @@ export const ModelsItem = ({ id, random_photo, photo_index, user_voted }: ModelI
             [styles.isVoted]: user_voted,
             [styles.weba]: webApp?.platform === 'weba',
         })} aria-label='model link'>
-            {
-                user_voted ?
-                    <BurnIcon className={styles.burnIcon} />
-                : <></>
-            }
-            <Image className={styles.modelsItemPhoto} draggable='false'
+            {user_voted ? <BurnIcon className={styles.burnIcon} /> : null}
+            <Image className={styles.modelsItemPhoto}
                 loader={() => random_photo}
                 src={random_photo}
                 alt={id + ' image'}
                 width={1}
                 height={1}
                 unoptimized={true}
-                priority
+                priority={true}
             />
         </Link>
     );
-};
+});
+
+ModelsItem.displayName = 'ModelsItem';

@@ -1,10 +1,8 @@
 import { ModelInfoProps } from './ModelInfo.props';
 import styles from './ModelInfo.module.css';
 import { useSetup } from '../../../hooks/useSetup';
-import { Htag } from '../../Common/Htag/Htag';
 import { ModelStat } from '../ModelStat/ModelStat';
-import { copyToClipboard } from '../../../helpers/clipboard.helper';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { VoteButton } from '../VoteButton/VoteButton';
 import { ModelPhoto } from '../ModelPhoto/ModelPhoto';
 import { ModelOtherPhotos } from '../ModelOtherPhotos/ModelOtherPhotos';

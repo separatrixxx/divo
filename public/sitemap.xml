@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://front-divo.banana.codes/</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://front-divo.banana.codes/collection</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://front-divo.banana.codes/profile</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://front-divo.banana.codes/friends</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://front-divo.banana.codes/tasks</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://front-divo.banana.codes/info</loc>
+	<lastmod>2024-10-15T01:11:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+</urlset>

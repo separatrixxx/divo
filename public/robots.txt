@@ -4,3 +4,5 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 Crawl-delay: 10
+
+Sitemap: https://front-divo.banana.codes/sitemap.xml

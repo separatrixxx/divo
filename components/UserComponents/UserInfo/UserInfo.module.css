@@ -1,4 +1,6 @@
 .userInfo {
+	position: relative;
+
 	display: grid;
 
 	width: calc(95% - 20px);
@@ -8,14 +10,34 @@
 	justify-items: center;
 }
 
+.leaderboardLink {
+	cursor: pointer;
+}
+
+.leaderboardLink > svg {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+
+	width: 20px;
+
+	transition-duration: 300ms;
+	fill: var(--white);
+}
+
+.leaderboardLink:active > svg,
+.weba:hover > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--primary);
+}
+
 .logo {
 	display: grid;
 	align-items: center;
 
 	width: 120px;
 	height: 120px;
-
-	transition-duration: 300ms;
 
 	justify-items: center;
 }

@@ -6,10 +6,13 @@ import Image from 'next/image';
 import { ModelStat } from '../../ModelComponents/ModelStat/ModelStat';
 import { CoinsInfoList } from '../CoinsInfoList/CoinsInfoList';
 import { Spinner } from '../../Common/Spinner/Spinner';
+import LeaderboardIcon from './leaderboard.svg';
+import Link from 'next/link';
+import cn from 'classnames';
 
 
 export const UserInfo = (): JSX.Element => {
-    const { tgUser, user } = useSetup();
+    const { webApp, tgUser, user } = useSetup();
 
     const setName = () => {
         if (tgUser?.username) {
@@ -27,6 +30,15 @@ export const UserInfo = (): JSX.Element => {
 
     return (
         <div className={styles.userInfo}>
+            {
+                user.result.user_status !== 'user' ?
+                    <Link href='/leaderboard' className={cn(styles.leaderboardLink, {
+                        [styles.weba]: webApp?.platform === 'weba',
+                    })} aria-label='leaderboard link'>
+                        <LeaderboardIcon />
+                    </Link>
+                : <></>
+            }
             <Htag tag='m' className={styles.username}>
                 {setName()}
             </Htag>

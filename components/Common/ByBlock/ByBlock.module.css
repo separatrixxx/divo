@@ -1,15 +1,10 @@
 .byBlock {
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-
 	display: grid;
 	align-items: center;
 	align-self: end;
 
 	height: auto;
 
-	transform: translateX(-50%);
 	justify-items: center;
 }
 
@@ -23,16 +18,9 @@
 	color: var(--darkLight) !important;
 }
 
+.byBanana:hover,
 .byBanana:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--banana);
-}
-
-@media (min-width: 1024px) {
-	.byBanana:hover {
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-		color: var(--banana);
-	}
+	color: var(--banana) !important;
 }

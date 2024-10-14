@@ -11,7 +11,7 @@
 .infoDiv {
 	display: grid;
 
-	width: 95%;
+	width: 100%;
 	gap: 20px;
 	justify-items: center;
 }

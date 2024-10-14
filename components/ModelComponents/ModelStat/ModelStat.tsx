@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 
-export const ModelStat = ({ type, stat, tooltip, isActive }: ModelStatProps): JSX.Element => {
+export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps): JSX.Element => {
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -32,18 +32,27 @@ export const ModelStat = ({ type, stat, tooltip, isActive }: ModelStatProps): JS
     return (
         <div className={cn(styles.modelStat, {
             [styles.active]: isActive,
+            [styles.modelStatS]: tag === 's',
         })} onClick={toggleTooltip} onMouseEnter={toggleTooltip} onMouseLeave={() => setTooltipVisible(false)}>
             {
                 type === 'eye' ?
-                    <EyeIcon className={styles.eyeIcon} />
+                    <EyeIcon className={cn(styles.eyeIcon, {
+                        [styles.eyeIconS]: tag === 's',
+                    })} />
                 : type === 'burn' ?
-                    <BurnIcon className={styles.burnIcon} />
+                    <BurnIcon className={cn(styles.burnIcon, {
+                        [styles.burnIconS]: tag === 's',
+                    })} />
                 : type === 'coin' ?
-                    <CoinIcon className={styles.eyeIcon} />
+                    <CoinIcon className={cn(styles.eyeIcon, {
+                        [styles.eyeIconS]: tag === 's',
+                    })} />
                 :
-                    <RefsIcon className={styles.burnIcon} />
+                    <RefsIcon className={cn(styles.burnIcon, {
+                        [styles.burnIconS]: tag === 's',
+                    })} />
             }
-            <Htag tag='m' className={styles.statText}>
+            <Htag tag={tag ? tag : 'm'} className={styles.statText}>
                 {stat}
             </Htag>
             {

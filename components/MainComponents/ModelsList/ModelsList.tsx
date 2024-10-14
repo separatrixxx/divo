@@ -14,8 +14,8 @@ import { Spinner } from '../../Common/Spinner/Spinner';
 
 export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     const { tgUser, user, models } = useSetup();
-    const limit = 10;
 
+    const limit = 10;
     const [displayedModels, setDisplayedModels] = useState<ModelItem[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [ref, inView] = useInView({

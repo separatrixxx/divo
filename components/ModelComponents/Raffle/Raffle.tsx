@@ -2,7 +2,7 @@ import { RaffleProps } from './Raffle.props';
 import styles from './Raffle.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { FireworksComponents } from '../Fireworks/Fireworks';
-import Win from './win.svg';
+import GoodWin from './good_win.svg';
 import BigWin from './big_win.svg';
 import EpicWin from './epic_win.svg';
 import { gsap } from 'gsap';
@@ -66,19 +66,6 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
         return <></>;
     }
 
-    const renderSVG = () => {
-        if (potentionalReward && target) {
-            const targetIndex = potentionalReward.indexOf(target);
-            if (targetIndex === 0) {
-                return <Win />;
-            } else if (targetIndex === 1) {
-                return <BigWin />;
-            } else if (targetIndex === 2) {
-                return <EpicWin />;
-            }
-        }
-    };
-
     return (
         <>
             <FireworksComponents />
@@ -96,7 +83,7 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
             <div ref={svgRef} className={styles.winIcon}>
                 {
                     potentionalReward && target ? potentionalReward.indexOf(target) === 0 ?
-                        <Win />
+                        <GoodWin />
                     : potentionalReward.indexOf(target) === 1 ?
                         <BigWin />
                     :<EpicWin />

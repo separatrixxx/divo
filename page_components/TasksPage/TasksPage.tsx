@@ -4,7 +4,6 @@ import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { setLocale } from '../../helpers/locale.helper';
-import { Spinner } from '../../components/Common/Spinner/Spinner';
 import { TasksList } from '../../components/TasksComponents/TasksList/TasksList';
 
 

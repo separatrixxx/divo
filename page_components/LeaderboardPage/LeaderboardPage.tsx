@@ -3,7 +3,6 @@ import { useSetup } from '../../hooks/useSetup';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { Spinner } from '../../components/Common/Spinner/Spinner';
-import { UserInfo } from '../../components/UserComponents/UserInfo/UserInfo';
 import { LeaderboardList } from '../../components/LeaderboardComponents/LeaderboardList/LeaderboardList';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { setLocale } from '../../helpers/locale.helper';

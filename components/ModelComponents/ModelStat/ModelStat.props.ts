@@ -6,4 +6,5 @@ export interface ModelStatProps extends DetailedHTMLProps<HTMLAttributes<HTMLDiv
     stat: number | string,
     tooltip: string,
     isActive?: boolean,
+    tag?: 'm' | 's',
 }

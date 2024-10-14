@@ -1,0 +1,15 @@
+.info {
+	display: grid;
+
+	width: calc(95% - 20px);
+	margin-bottom: 120px;
+	padding: 10px;
+	gap: 10px;
+	justify-items: center;
+}
+
+.infoText {
+	color: var(--white);
+
+	font-weight: 300;
+}

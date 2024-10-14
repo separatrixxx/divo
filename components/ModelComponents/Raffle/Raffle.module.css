@@ -50,13 +50,16 @@
 }
 
 .winIcon {
-	z-index: 20;
 	position: absolute;
-	top: 320%;
+	z-index: 20;
+	top: 500%;
 	left: 50%;
+
+	width: 100%;
+
 	transform: translate(-50%, -50%);
+
 	opacity: 0;
-	width: 80%;
 }
 
 .winIcon > svg {

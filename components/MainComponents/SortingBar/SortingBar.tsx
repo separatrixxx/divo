@@ -1,11 +1,9 @@
 import styles from './SortingBar.module.css';
 import { useSetup } from '../../../hooks/useSetup';
 import FilterIcon from './filter.svg';
-import LeaderboardIcon from './leaderboard.svg';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { toggleSort } from '../../../features/sort/sortSlice';
-import Link from 'next/link';
 import { numFormat } from '../../../helpers/format.helper';
 import { ModelStat } from '../../ModelComponents/ModelStat/ModelStat';
 

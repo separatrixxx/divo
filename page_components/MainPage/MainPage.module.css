@@ -17,16 +17,3 @@
 
 	font-weight: 400 !important;
 }
-
-.balance {
-	margin-top: 20px !important;
-	padding: 10px 20px;
-
-	color: var(--white) !important;
-
-	border-radius: 10px;
-	outline: 1px solid var(--primary);
-	outline-offset: -1px;
-
-	font-weight: 400 !important;
-}

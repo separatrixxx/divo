@@ -2,7 +2,6 @@ import styles from './FriendsPage.module.css';
 import { useSetup } from '../../hooks/useSetup';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
-import { Spinner } from '../../components/Common/Spinner/Spinner';
 import { FriendsInfo } from '../../components/FriendsComponents/FriendsInfo/FriendsInfo';
 import { setLocale } from '../../helpers/locale.helper';
 import { Htag } from '../../components/Common/Htag/Htag';

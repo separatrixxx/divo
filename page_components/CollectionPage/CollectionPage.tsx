@@ -1,7 +1,6 @@
 import styles from './CollectionPage.module.css';
 import { useSetup } from '../../hooks/useSetup';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
-import { Spinner } from '../../components/Common/Spinner/Spinner';
 import { ModelsList } from '../../components/MainComponents/ModelsList/ModelsList';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { Htag } from '../../components/Common/Htag/Htag';

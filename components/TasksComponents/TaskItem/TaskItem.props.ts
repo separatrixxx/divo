@@ -6,6 +6,7 @@ export interface TaskItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     taskId?: string,
     tag: string,
     award: number,
+    task_day?: number,
     task_metadata?: TaskMetadataInterface,
     current: number,
     target: number,

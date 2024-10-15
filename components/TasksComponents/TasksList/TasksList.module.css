@@ -4,8 +4,25 @@
 	width: calc(100% - 20px);
 	margin-bottom: 110px;
 	padding: 10px;
+	gap: 30px;
+	justify-items: center;
+}
+
+.daysDiv {
+	display: grid;
+
+	width: 100%;
 	gap: 20px;
 	justify-items: center;
+}
+
+.dayText {
+	margin-left: 10px;
+
+	color: var(--darkLight);
+
+	font-weight: 400;
+	justify-self: left;
 }
 
 .noTasks {

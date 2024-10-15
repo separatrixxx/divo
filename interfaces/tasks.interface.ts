@@ -15,6 +15,7 @@ export interface TaskItemInterface {
     description: string,
     tag: string,
     award: number,
+    task_day?: number,
     task_metadata?: TaskMetadataInterface,
     task_start?: string,
     task_end?: string,

@@ -63,12 +63,14 @@ export const es = {
         telegram: "Telegram",
         twitter: "Twitter",
         youtube: "YouTube",
+        comment: "Comentario",
     },
     task_texts: {
         referral: "Invita el número requerido de amigos",
         twitter: "Suscríbete a Twitter/X",
         telegram: "Suscríbete al canal de Telegram",
         youtube: "Suscríbete al canal de YouTube",
+        comment: "Deja un comentario debajo de la publicación",
     },    
     check: "Controlar",
     friends: "Amigos",
@@ -78,4 +80,5 @@ export const es = {
     info: "Información",
     info_text: "😎 **Cómo jugar en Divo bot**\n\n📢 Versión completa de la guía\n\n**¡Completa las tareas!**\n\nSé activo y obtén más oportunidades para abrir tarjetas de modelos de moda\n\n😜 **Elige y abre tarjetas**\nCada tarjeta de modelo de moda contiene una recompensa en monedas DIVO\n¡El tamaño de la recompensa depende de tu suerte!\n\n🎁 **Recompensas:**\n\n- *Good WIN*\n\n- *Big WIN*\n\n- *Epic WIN*\n\n🔥 **Multi WIN!!!**\n\nAl final de la temporada, el valor de la tarjeta seleccionada por los jugadores se incrementará x10!\n\n¡Sigue el progreso de los modelos que has elegido!\n\n👌 **Amigos**\n\nInvita a tus amigos y recibirás bonificaciones.\n\n🪙 **Lista de tokens**\n\nAl final de la temporada, se emitirá un token que se distribuirá entre los jugadores.\n\n🔥 **Listado del token**\n\nPronto sabrás las fechas.\n\nMantente informado, sigue las noticias en nuestro canal de Telegram!\n\nPronto sabrás las fechas.\n\nMantente informado, sigue las noticias en nuestro canal de Telegram!",
     task_completed: "La tarea está completada",
+    day: "Día",
 };

@@ -12,7 +12,7 @@
 
 .taskInfo {
 	display: grid;
-	gap: 7px;
+	gap: 10px;
 	justify-items: left;
 }
 

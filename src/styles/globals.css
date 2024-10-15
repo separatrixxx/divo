@@ -13,6 +13,9 @@ body {
 	font-family: 'Roboto', sans-serif;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	-webkit-tap-highlight-color: transparent;
+	overscroll-behavior: none;
+	scroll-behavior: smooth;
+	touch-action: manipulation;
 }
 
 ::-moz-focus-outer,
@@ -36,6 +39,10 @@ body {
 	background-color: var(--white);
 }
 
+.modelsList::-webkit-scrollbar {
+	display: none;
+}
+
 a {
 	text-decoration: none;
 }
@@ -45,6 +52,16 @@ a {
 		width: 5px;
 		height: 5px;
 	}
+}
+
+.swiper-pagination {
+	top: 10px !important;
+
+	height: 1px !important;
+}
+
+.swiper-pagination-bullet-active {
+	background: var(--primary) !important;
 }
 
 :root {

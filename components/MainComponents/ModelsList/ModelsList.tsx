@@ -22,6 +22,7 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     const [ref, inView] = useInView({
         triggerOnce: false,
         threshold: 0.7,
+        rootMargin: '100px',
     });
 
     useEffect(() => {
@@ -60,13 +61,8 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
     return (
         <div className={styles.modelsList}>
             {displayedModels.map((m) => (
-                <ModelsItem
-                    key={m.id}
-                    id={m.id}
-                    random_photo={m.random_photo}
-                    photo_index={m.photo_index}
-                    user_voted={m.user_voted}
-                />
+                <ModelsItem key={m.id} id={m.id} random_photo={m.random_photo}
+                    photo_index={m.photo_index} user_voted={m.user_voted} />
             ))}
             {
                 filterModels(type, models.result.models).length !== displayedModels.length ?

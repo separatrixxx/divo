@@ -1,5 +1,6 @@
 .modelsList {
 	display: grid;
+	overflow-y: auto;
 
 	width: calc(100% - 20px);
 	margin-bottom: 110px;
@@ -7,6 +8,8 @@
 	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
 	gap: 10px;
 	justify-items: center;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
 }
 
 .noModelsFound {
@@ -15,11 +18,4 @@
 	color: var(--white);
 
 	font-weight: 400 !important;
-}
-
-.loadingIndicator {
-	display: grid;
-
-	width: 15%;
-	justify-self: center;
 }

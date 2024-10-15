@@ -8,7 +8,7 @@ import { useSetup } from '../../../hooks/useSetup';
 
 
 export const MainLink = (): JSX.Element => {
-    const { router, tgUser } = useSetup();
+    const { router } = useSetup();
     
     return (
         <Link href='' target='_blank' className={styles.link} aria-label='main link'>

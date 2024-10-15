@@ -4,7 +4,8 @@ module.exports = {
 		defaultLocale: 'en',
 	},
 	images: {
-		domains: ['https://divo.vercel.app/'],
+		domains: ['divo.vercel.app'],
+		domains: ['front-divo.banana.codes'],
 	},
 	webpack(config) {
 		config.module.rules.push({

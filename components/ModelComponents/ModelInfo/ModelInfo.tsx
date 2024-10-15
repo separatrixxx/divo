@@ -4,12 +4,13 @@ import { useSetup } from '../../../hooks/useSetup';
 import { ModelStat } from '../ModelStat/ModelStat';
 import { useState } from 'react';
 import { VoteButton } from '../VoteButton/VoteButton';
-import { ModelPhoto } from '../ModelPhoto/ModelPhoto';
-import { ModelOtherPhotos } from '../ModelOtherPhotos/ModelOtherPhotos';
+// import { ModelPhoto } from '../ModelPhoto/ModelPhoto';
+// import { ModelOtherPhotos } from '../ModelOtherPhotos/ModelOtherPhotos';
 import { numFormat } from '../../../helpers/format.helper';
 import { setLocale } from '../../../helpers/locale.helper';
 import { Raffle } from '../Raffle/Raffle';
 import { Spinner } from '../../Common/Spinner/Spinner';
+import { Slider } from '../../Slider/Slider/Slider';
 
 
 export const ModelInfo = ({ status, modelInfo }: ModelInfoProps): JSX.Element => {
@@ -19,7 +20,7 @@ export const ModelInfo = ({ status, modelInfo }: ModelInfoProps): JSX.Element =>
     const [isVoted, setIsVoted] = useState<boolean>(Boolean(models.result.models
         .find(el => el.id === modelInfo.id)?.user_voted));
 
-    const [photo, setPhoto] = useState<string>(modelInfo.picked_photo_url);
+    // const [photo, setPhoto] = useState<string>(modelInfo.picked_photo_url);
     const [award, setAward] = useState<number | undefined>(modelInfo.award);
     const [raffleVisible, setRaffleVisible] = useState<boolean>(false);
 
@@ -46,12 +47,14 @@ export const ModelInfo = ({ status, modelInfo }: ModelInfoProps): JSX.Element =>
                     : <></>
                 }
             </div>
-            <ModelPhoto id={modelInfo.id} photo={photo} />
+            {/* <ModelPhoto id={modelInfo.id} photo={photo} />
             {
                 isVoted ?
                     <ModelOtherPhotos photos={modelInfo.photo_urls} setPhoto={setPhoto} />
                 : <></>
-            }
+            } */}
+            <Slider id={modelInfo.id} picked_photo={modelInfo.picked_photo}
+                photo_urls={modelInfo.photo_urls} isVoted={isVoted} />
         </div>
     );
 };

@@ -16,7 +16,7 @@ export const TaskItem = ({ taskId, tag, award, task_day, task_metadata, current,
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const referenceDate = new Date('2024-10-15T00:00:00');
+    const referenceDate = new Date('2024-10-16T00:00:00');
     const currentDate = new Date();
     const daysPassed = Math.floor((currentDate.getTime() - referenceDate.getTime()) / (1000 * 60 * 60 * 24));
 

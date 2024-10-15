@@ -1,6 +1,6 @@
 import { ModelPage } from "../../../../../page_components/ModelPage/ModelPage";
 import Head from "next/head";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import axios, { AxiosResponse } from 'axios';
 import { useSetup } from "../../../../../hooks/useSetup";
 import { setLocale } from "../../../../../helpers/locale.helper";
@@ -28,40 +28,7 @@ function Model({ model }: ModelProps): JSX.Element {
     );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    try {
-        const { data } = await axios.get(`${process.env.API_DOMAIN}/api/models/`, {
-            headers: {
-                'X-API-Key': process.env.API_KEY,
-            },
-            params: {
-                page: 1,
-                per_page: 100,
-            }
-        });
-
-        const paths = data.models.map((model: { id: string, user_id: string, photo_index: string }) => ({
-            params: {
-                model: model.id,
-                userId: model.user_id,
-                photoIndex: model.photo_index
-            }
-        }));
-
-        return {
-            paths,
-            fallback: 'blocking',
-        };
-    } catch (error) {
-        console.error("Error fetching models for static paths:", error);
-        return {
-            paths: [],
-            fallback: 'blocking',
-        };
-    }
-};
-
-export const getStaticProps: GetStaticProps<ModelProps> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<ModelProps> = async ({ params }) => {
     if (!params) {
         return {
             notFound: true
@@ -81,7 +48,6 @@ export const getStaticProps: GetStaticProps<ModelProps> = async ({ params }) => 
             props: {
                 model,
             },
-            revalidate: 60,
         };
     } catch {
         return {

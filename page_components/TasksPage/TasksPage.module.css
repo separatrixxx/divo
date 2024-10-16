@@ -5,11 +5,10 @@
 	justify-items: center;
 }
 
-.tasksTitle {
-	margin: 20px 0 10px 20px !important;
+.divider {
+	width: calc(100% - 40px);
+	height: 0.5px;
+	margin: 20px 0;
 
-	color: var(--white) !important;
-
-	font-weight: 400 !important;
-	justify-self: left;
+	background: var(--darkLight);
 }

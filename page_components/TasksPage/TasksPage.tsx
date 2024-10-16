@@ -24,7 +24,7 @@ export const TasksPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                :
+                    :
                     <>
                         <Toaster
                             position="top-center"
@@ -33,10 +33,13 @@ export const TasksPage = (): JSX.Element => {
                                 duration: 2000,
                             }}
                         />
-                        <Htag tag='xl' className={styles.tasksTitle}>
-                            {setLocale(tgUser.language_code).tasks}
-                        </Htag>
-                        <TasksList />
+                        <TasksList type='active' list={tasks.result.tasks.active} />
+                        {
+                            tasks.status === 'success' && tasks.result.tasks.completed.length > 0 ?
+                                <span className={styles.divider} />
+                                : <></>
+                        }
+                        <TasksList type='completed' list={tasks.result.tasks.completed} />
                         <Navbar />
                     </>
             }

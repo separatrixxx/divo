@@ -44,7 +44,7 @@ export const TaskItem = ({ taskId, tag, award, task_day, task_metadata, current,
                         (task_metadata && task_metadata.require ? ': ' + task_metadata.require : '')}
                 </Htag>
                 <Htag tag='xs' className={styles.award}>
-                    {'+' + award + ' ' + setLocale(tgUser?.language_code).token + ' | +1'}
+                    {'+1'}
                     <BurnIcon className={styles.burnIcon} />
                 </Htag>
             </div>

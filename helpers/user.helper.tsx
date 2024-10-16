@@ -22,6 +22,7 @@ export async function getUser(args: BaseArguments) {
     } catch (err: any) {
         if (err.response && err.response.status === 404) {
             webApp?.showAlert(setLocale(tgUser?.language_code).errors.user_not_found_error, async function () {
+                webApp.openLink('https://t.me/divo_fashion_bot')
                 webApp.close();
             });
         } else {

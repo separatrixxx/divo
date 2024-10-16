@@ -2,9 +2,8 @@
 	display: grid;
 	align-items: center;
 
-	width: calc(95% - 20px);
+	width: 100%;
 	height: auto;
-	padding: 0 10px;
 	justify-items: left;
 	grid-template-columns: 1fr auto;
 	gap: 40px;

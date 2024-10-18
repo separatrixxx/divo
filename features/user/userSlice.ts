@@ -15,6 +15,8 @@ const userData: UserInterface = {
     potential_reward: 0,
     votes_for_ref: 0,
     votes_for_task: 0,
+    register_date: '',
+    last_vote_datetime: '',
   }
 };
 

@@ -31,6 +31,13 @@
 	outline-color: var(--primary);
 }
 
+.disableButton {
+	cursor: default;
+	filter: none !important;
+
+	outline-color: var(--darkLight) !important;
+}
+
 .buttonDiv {
 	display: grid;
 	align-items: center;

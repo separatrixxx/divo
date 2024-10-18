@@ -3,18 +3,38 @@ import styles from './VoteButton.module.css';
 import { Htag } from '../../Common/Htag/Htag';
 import BurnIcon from './burn.svg';
 import LogoIcon from './logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { setLocale } from '../../../helpers/locale.helper';
 import { useSetup } from '../../../hooks/useSetup';
 import { voteForModel } from '../../../helpers/models.helper';
 import cn from 'classnames';
+import { formatTime } from '../../../helpers/format.helper';
 
 
 export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsLoading, setIsVoted,
     setAward, setRaffleVisible }: VoteButtonProps): JSX.Element => {
-    const { router, webApp, tgUser } = useSetup();
+    const { router, webApp, tgUser, user } = useSetup();
 
+    const lastVoteDate = new Date(user.result.last_vote_datetime);
+    const currentDate = new Date();
+
+    const timeDifference = currentDate.getTime() - lastVoteDate.getTime();
+    const minutesSinceLastVote = Math.floor(timeDifference / (1000 * 60));
+    const timeToVote = Number(process.env.NEXT_PUBLIC_MINUTES_TO_VOTE);
+
+    const [timeLeft, setTimeLeft] = useState<number>(timeToVote * 60 - (timeDifference / 1000));
+
+    useEffect(() => {
+        if (!isVoted && minutesSinceLastVote < timeToVote) {
+            const interval = setInterval(() => {
+                setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+            }, 1000);
+
+            return () => clearInterval(interval);
+        }
+    }, [minutesSinceLastVote, timeToVote, isVoted]);
+    
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
     const flightDuration = 1.5;
@@ -49,9 +69,10 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
     return (
         <div className={cn(styles.voteButton, {
             [styles.isVotedButton]: isVoted,
+            [styles.disableButton]: minutesSinceLastVote < timeToVote,
             [styles.weba]: webApp?.platform === 'weba',
         })} onClick={() => {
-            if (!isVoted && remainingVotes > 0) {
+            if (!isVoted && remainingVotes > 0 && minutesSinceLastVote >= timeToVote) {
                 voteForModel({
                     router: router,
                     webApp: webApp,
@@ -74,10 +95,12 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
                             [styles.isVoted]: isVoted,
                         })} />
                         <Htag tag='m' className={styles.text}>
-                            {
-                                isVoted ?
+                        {
+                                isVoted ? 
                                     setLocale(tgUser?.language_code).you_already_voted
-                                : remainingVotes > 0 ?
+                                : minutesSinceLastVote < timeToVote ? 
+                                    formatTime(timeLeft)
+                                : remainingVotes > 0 ? 
                                     setLocale(tgUser?.language_code).vote
                                 : setLocale(tgUser?.language_code).get_more_votes
                             }

@@ -11,6 +11,8 @@ export interface UserInterface {
         potential_reward: number,
         votes_for_ref: number,
         votes_for_task: number,
+        register_date: string,
+        last_vote_datetime: string,
     }
 }
 

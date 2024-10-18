@@ -10,9 +10,9 @@ import cn from 'classnames';
 
 
 export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
-    const { tgUser, tasks } = useSetup();
+    const { tgUser, user, tasks } = useSetup();
 
-    const startDate = new Date('2024-10-17T00:00:00');
+    const startDate = new Date(user.result.register_date);
     const currentDate = new Date();
     const timeDifference = currentDate.getTime() - startDate.getTime();
     const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;

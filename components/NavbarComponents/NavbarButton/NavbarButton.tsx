@@ -18,7 +18,7 @@ export const NavbarButton = ({ type, text, link }: NavbarButtonProps): JSX.Eleme
         <Link href={link} className={cn(styles.navbarButton, {
             [styles.active]: router.asPath === link,
             [styles.weba]: webApp?.platform === 'weba',
-        })} aria-label='navbar link'>
+        })} aria-label={`navbar ${type} link`}>
             <span className={styles.navbarButtonIcon}>
                 {
                     type === 'main' ?

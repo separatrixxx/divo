@@ -56,11 +56,11 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                                             <TaskItem key={t.id} taskId={t.id} tag={t.tag} task_day={t.task_day}
                                                 task_metadata={t.task_metadata} current={t.progress.current}
                                                 target={t.progress.target} currentDay={currentDay} />
-                                    ))}
+                                        ))}
                                 </div>
                             :
                                 <>
-                                    {Object.keys(groupedTasks).map(day => (
+                                    {Object.keys(groupedTasks).reverse().map(day => (
                                         <div key={day} className={styles.daysDiv}>
                                             <Htag key={day} tag='s' className={styles.dayText}>
                                                 {setLocale(tgUser?.language_code).day + ' ' + day}

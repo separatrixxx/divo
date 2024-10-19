@@ -28,6 +28,6 @@
 
 .friendsButtonsDiv {
 	width: calc(95% + 20px);
-	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+	grid-template-columns: 1fr 50px;
 	gap: 10px;
 }

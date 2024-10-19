@@ -21,6 +21,15 @@
 	justify-self: left;
 }
 
+.tasksDescription {
+	max-width: 80%;
+	margin: 0 0 20px 20px !important;
+
+	color: var(--darkLight) !important;
+
+	justify-self: left;
+}
+
 .daysDiv {
 	display: grid;
 

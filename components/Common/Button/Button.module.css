@@ -17,6 +17,11 @@
 	justify-items: center;
 }
 
+.copyIcon > svg {
+	height: 20px;
+	fill: var(--white) !important;
+}
+
 .active {
 	outline-color: var(--primary);
 }

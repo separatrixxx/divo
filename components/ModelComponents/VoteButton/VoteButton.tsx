@@ -8,8 +8,8 @@ import { motion } from 'framer-motion';
 import { setLocale } from '../../../helpers/locale.helper';
 import { useSetup } from '../../../hooks/useSetup';
 import { voteForModel } from '../../../helpers/models.helper';
-import cn from 'classnames';
 import { formatTime } from '../../../helpers/format.helper';
+import cn from 'classnames';
 
 
 export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsLoading, setIsVoted,
@@ -17,9 +17,10 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
     const { router, webApp, tgUser, user } = useSetup();
 
     const lastVoteDate = new Date(user.result.last_vote_datetime);
+    const localCastVoteDate = new Date(lastVoteDate.toLocaleString());
     const currentDate = new Date();
 
-    const timeDifference = currentDate.getTime() - lastVoteDate.getTime();
+    const timeDifference = currentDate.getTime() - localCastVoteDate.getTime();
     const minutesSinceLastVote = Math.floor(timeDifference / (1000 * 60));
     const timeToVote = Number(process.env.NEXT_PUBLIC_MINUTES_TO_VOTE);
 

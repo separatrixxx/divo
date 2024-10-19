@@ -8,6 +8,7 @@
 
 .friendsItemBalance {
 	display: grid;
+	align-items: center;
 
 	width: fit-content;
 
@@ -21,7 +22,7 @@
 .friendsItemBalance > svg {
 	fill: var(--white);
 
-	width: 15px;
+	height: 15px;
 }
 
 .friendsItemId {

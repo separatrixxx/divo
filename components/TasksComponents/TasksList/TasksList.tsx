@@ -13,8 +13,10 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     const { tgUser, user, tasks } = useSetup();
 
     const startDate = new Date(user.result.register_date);
+    const localStartDate = new Date(startDate.toLocaleString());
     const currentDate = new Date();
-    const timeDifference = currentDate.getTime() - startDate.getTime();
+    
+    const timeDifference = currentDate.getTime() - localStartDate.getTime();
     const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
 
     const groupedTasks = list.reduce((acc, task) => {
@@ -38,6 +40,13 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
             <Htag tag='xl' className={styles.tasksTitle}>
                 {setLocale(tgUser?.language_code)[type + '_tasks' as 'active_tasks']}
             </Htag>
+            {
+                type === 'active' ?
+                    <Htag tag='m' className={styles.tasksDescription}>
+                        {setLocale(tgUser?.language_code).tasks_description}
+                    </Htag>
+                : <></>
+            }
             {
                 (groupedTasks[currentDay]?.length > 0 && type === 'active')
                     || (Object.keys(groupedTasks).length > 0 && type === 'completed') ?

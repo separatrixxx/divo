@@ -29,7 +29,8 @@
 	justify-items: center;
 }
 
-.balance {
+.balance,
+.balance > h1 {
 	text-align: center;
 
 	color: var(--white) !important;

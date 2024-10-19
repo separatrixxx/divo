@@ -1,5 +1,4 @@
 import styles from './MainLink.module.css';
-import { useRouter } from 'next/router';
 import { setLocale } from '../../../helpers/locale.helper';
 import { Htag } from '../Htag/Htag';
 import Link from 'next/link';
@@ -11,7 +10,7 @@ export const MainLink = (): JSX.Element => {
     const { router } = useSetup();
     
     return (
-        <Link href='' target='_blank' className={styles.link} aria-label='main link'>
+        <Link href='https://t.me/divo_fashion_bot' target='_blank' className={styles.link} aria-label='main link'>
             <Image className={styles.logo} draggable='false'
                 loader={() => '/logo.svg'}
                 src='/logo.svg'

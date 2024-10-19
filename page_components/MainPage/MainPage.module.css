@@ -5,15 +5,3 @@
 	justify-items: center;
 	gap: 20px;
 }
-
-.versionText {
-	position: absolute;
-	right: 0;
-	bottom: 20px;
-
-	margin-right: 5% !important;
-
-	color: var(--darkLight) !important;
-
-	font-weight: 400 !important;
-}

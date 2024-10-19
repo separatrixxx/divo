@@ -1,0 +1,40 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	justify-items: center;
+	gap: 20px;
+}
+
+.updateDiv {
+	position: absolute;
+	top: 35%;
+
+	display: grid;
+
+	width: fit-content;
+	justify-items: center;
+	gap: 40px;
+	margin: 0 40px;
+}
+
+.updateTitle {
+	padding-bottom: 5px;
+
+	text-align: center;
+
+	color: var(--white) !important;
+	border-bottom: 1px solid var(--primary);
+
+	font-weight: 400 !important;
+}
+
+.logo {
+	display: grid;
+	align-items: center;
+
+	width: 120px;
+	height: 120px;
+
+	justify-items: center;
+}

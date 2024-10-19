@@ -13,8 +13,11 @@ const userData: UserInterface = {
     total_available_votes: 0,
     remaining_votes: 0,
     potential_reward: 0,
+    legacy_refferal_votes: 0,
     votes_for_ref: 0,
     votes_for_task: 0,
+    invited_friends_count: 0,
+    money_friends: 0,
     register_date: '',
     last_vote_datetime: '',
   }

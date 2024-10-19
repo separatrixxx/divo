@@ -9,8 +9,11 @@ export interface UserInterface {
         total_available_votes: number,
         remaining_votes: number,
         potential_reward: number,
+        legacy_refferal_votes: number,
         votes_for_ref: number,
         votes_for_task: number,
+        invited_friends_count: number,
+        money_friends: number,
         register_date: string,
         last_vote_datetime: string,
     }

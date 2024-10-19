@@ -16,15 +16,16 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
     setAward, setRaffleVisible }: VoteButtonProps): JSX.Element => {
     const { router, webApp, tgUser, user } = useSetup();
 
-    const lastVoteDate = new Date(user.result.last_vote_datetime);
-    const localCastVoteDate = new Date(lastVoteDate.toLocaleString());
-    const currentDate = new Date();
+    const lastVoteDateUTC = new Date(user.result.last_vote_datetime);
+    const timeZoneOffset = lastVoteDateUTC.getTimezoneOffset() * 60000;
+    const localCastVoteDate = new Date(lastVoteDateUTC.getTime() - timeZoneOffset);    const currentDate = new Date();
 
     const timeDifference = currentDate.getTime() - localCastVoteDate.getTime();
     const minutesSinceLastVote = Math.floor(timeDifference / (1000 * 60));
     const timeToVote = Number(process.env.NEXT_PUBLIC_MINUTES_TO_VOTE);
 
     const [timeLeft, setTimeLeft] = useState<number>(timeToVote * 60 - (timeDifference / 1000));
+
 
     useEffect(() => {
         if (!isVoted && minutesSinceLastVote < timeToVote) {

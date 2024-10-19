@@ -12,13 +12,14 @@ import cn from 'classnames';
 export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     const { tgUser, user, tasks } = useSetup();
 
-    const startDate = new Date(user.result.register_date);
-    const localStartDate = new Date(startDate.toLocaleString());
+    const startDateUTC = new Date(user.result.register_date);
+    const timeZoneOffset = startDateUTC.getTimezoneOffset() * 60000;
+    const localStartDate = new Date(startDateUTC.getTime() - timeZoneOffset);
     const currentDate = new Date();
     
     const timeDifference = currentDate.getTime() - localStartDate.getTime();
     const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
-
+    
     const groupedTasks = list.reduce((acc, task) => {
         const day = task.task_day ?? 0;
 

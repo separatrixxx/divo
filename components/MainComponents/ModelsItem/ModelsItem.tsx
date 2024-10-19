@@ -19,7 +19,6 @@ export const ModelsItem = memo(({ id, random_photo, photo_index, user_voted }: M
 
     return (
         <Link href={`/model/${tgUser?.id}/${photo_index}/${id}`} className={cn(styles.modelsItem, {
-            [styles.isVoted]: user_voted,
             [styles.weba]: webApp?.platform === 'weba',
         })} aria-label='model link'>
             {user_voted ? <BurnIcon className={styles.burnIcon} /> : null}

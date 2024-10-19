@@ -13,17 +13,14 @@
 	border-radius: 7px;
 	justify-items: center;
 	background: rgba(0, 0, 0, 0.5);
+	outline: 1px solid var(--primary);
+	outline-offset: -1px;
 }
 
 .modelsItem:active,
 .weba:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	filter: brightness(0.9);
-}
-
-.isVoted {
-	outline: 1px solid var(--primary);
-	outline-offset: -1px;
 }
 
 .burnIcon {

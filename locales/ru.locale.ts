@@ -63,6 +63,7 @@ export const ru = {
         telegram: "Telegram",
         twitter: "Twitter",
         youtube: "YouTube",
+        instagram: "Instagram",
         comment: "Комментарий",
     },
     task_texts: {
@@ -71,6 +72,7 @@ export const ru = {
         twitter: "Подпишитесь на Twitter/X",
         telegram: "Подпишитесь на канал в Telegram",
         youtube: "Подпишитесь на YouTube канал",
+        instagram: "Подпишитесь на Instagram",
         comment: "Оставьте комментарий под постом",
     },
     check: "Проверить",

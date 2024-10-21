@@ -63,6 +63,7 @@ export const en = {
         telegram: "Telegram",
         twitter: "Twitter",
         youtube: "YouTube",
+        instagram: "Instagram",
         comment: "Comment",
     },
     task_texts: {
@@ -70,7 +71,9 @@ export const en = {
         referral_date: "Invite new friends",
         twitter: "Subscribe to Twitter/X",
         telegram: "Subscribe to Telegram channel",
+        instagram: "Subscribe to Instagram",
         youtube: "Subscribe to YouTube channel",
+
         comment: "Leave a comment under the post",
     },
     check : "Check",

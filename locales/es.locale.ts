@@ -89,4 +89,5 @@ export const es = {
     completed_tasks: "Tareas completadas",
     update: "Actualizar",
     update_text: "Estamos actualizando la aplicación, vuelva a visitarla más tarde",
+    time_until_tasks: "Tiempo restante hasta nuevas tareas",
 };

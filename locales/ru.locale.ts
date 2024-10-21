@@ -89,4 +89,5 @@ export const ru = {
     completed_tasks: "Выполненные задания",
     update: "Обновление",
     update_text: "Мы обновляем приложение, пожалуйста, зайдите позже",
+    time_until_tasks: "До новых заданий",
 };

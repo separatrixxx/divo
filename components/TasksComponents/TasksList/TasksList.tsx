@@ -7,10 +7,12 @@ import { TaskItem } from '../TaskItem/TaskItem';
 import { Spinner } from '../../Common/Spinner/Spinner';
 import { TaskItemInterface } from '../../../interfaces/tasks.interface';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+import { getTasks } from '../../../helpers/tasks.helper';
 
 
 export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
-    const { tgUser, user, tasks } = useSetup();
+    const { router, dispatch, webApp, tgUser, user, tasks } = useSetup();
 
     const startDateUTC = new Date(user.result.register_date);
     const currentDate = new Date();
@@ -20,6 +22,8 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     
     const timeDifference = localCurrentDate.getTime() - localStartDate.getTime();
     const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
+
+    const [timeUntilMidnight, setTimeUntilMidnight] = useState<number | null>(null);
     
     const groupedTasks = list.reduce((acc, task) => {
         const day = task.task_day ?? 0;
@@ -32,6 +36,35 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
 
         return acc;
     }, {} as { [key: string]: TaskItemInterface[] });
+
+    useEffect(() => {
+        const calculateTimeUntilMidnight = () => {
+            const now = new Date();
+            const midnight = new Date(now);
+            midnight.setHours(24, 0, 0, 0);
+            return midnight.getTime() - now.getTime();
+        };
+
+        setTimeUntilMidnight(calculateTimeUntilMidnight());
+
+        const timer = setInterval(() => {
+            const timeLeft = calculateTimeUntilMidnight();
+            setTimeUntilMidnight(timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+
+                getTasks({
+                    router: router,
+                    webApp: webApp,
+                    dispatch: dispatch,
+                    tgUser: tgUser,
+                });
+            }
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [router, webApp, dispatch, tgUser]);
 
     if (tasks.status !== 'success') {
         return <Spinner />;
@@ -84,6 +117,10 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                                 </>
                         }
                     </div>
+                : type === 'active' && groupedTasks[currentDay + 1] !== undefined ?
+                    <Htag tag='s' className={styles.noTasks}>
+                        {setLocale(tgUser?.language_code).time_until_tasks + ': ' + new Date(timeUntilMidnight ?? 0).toISOString().substr(11, 8)}
+                    </Htag>
                 :
                     <Htag tag='s' className={styles.noTasks}>
                         {setLocale(tgUser?.language_code).no_tasks}

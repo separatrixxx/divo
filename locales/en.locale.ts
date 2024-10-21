@@ -90,4 +90,5 @@ export const en = {
     completed_tasks: "Completed Tasks",
     update: "Update",
     update_text: "We are updating the app, please check back later",
+    time_until_tasks: "Time left until new tasks",
 };

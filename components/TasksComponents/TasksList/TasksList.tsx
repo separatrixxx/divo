@@ -6,25 +6,23 @@ import { setLocale } from '../../../helpers/locale.helper';
 import { TaskItem } from '../TaskItem/TaskItem';
 import { Spinner } from '../../Common/Spinner/Spinner';
 import { TaskItemInterface } from '../../../interfaces/tasks.interface';
-import cn from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getTasks } from '../../../helpers/tasks.helper';
+import cn from 'classnames';
 
 
 export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     const { router, dispatch, webApp, tgUser, user, tasks } = useSetup();
 
-    const startDateUTC = new Date(user.result.register_date);
+    const startDateUTC = useMemo(() => new Date(user.result.register_date), [user.result.register_date]);
+    const startDateLocal = useMemo(() => new Date(startDateUTC.getTime() + startDateUTC.getTimezoneOffset() * 60000), [startDateUTC]);
     const currentDate = new Date();
-    
-    const localStartDate = new Date(startDateUTC.getFullYear(), startDateUTC.getMonth(), startDateUTC.getDate());
-    const localCurrentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-    
-    const timeDifference = localCurrentDate.getTime() - localStartDate.getTime();
+
+    const timeDifference = currentDate.getTime() - startDateLocal.getTime();
     const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
 
-    const [timeUntilMidnight, setTimeUntilMidnight] = useState<number | null>(null);
-    
+    const [timeUntilNextTasks, setTimeUntilNextTasks] = useState<number | null>(null);
+
     const groupedTasks = list.reduce((acc, task) => {
         const day = task.task_day ?? 0;
 
@@ -38,33 +36,40 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     }, {} as { [key: string]: TaskItemInterface[] });
 
     useEffect(() => {
-        const calculateTimeUntilMidnight = () => {
-            const now = new Date();
-            const midnight = new Date(now);
-            midnight.setHours(24, 0, 0, 0);
-            return midnight.getTime() - now.getTime();
-        };
+        if (type === 'active' && groupedTasks[currentDay + 1] !== undefined &&
+            Object.keys(groupedTasks).filter(day => Number(day) <= currentDay).length <= 0) {
+            const calculateTimeUntilNextTasks = () => {
+                const now = new Date();
+                const nextDay = new Date(startDateLocal);
+                nextDay.setDate(startDateLocal.getDate() + currentDay + 1);
 
-        setTimeUntilMidnight(calculateTimeUntilMidnight());
-
-        const timer = setInterval(() => {
-            const timeLeft = calculateTimeUntilMidnight();
-            setTimeUntilMidnight(timeLeft);
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-
-                getTasks({
-                    router: router,
-                    webApp: webApp,
-                    dispatch: dispatch,
-                    tgUser: tgUser,
-                });
-            }
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, [router, webApp, dispatch, tgUser]);
+                return nextDay.getTime() - now.getTime();
+            };
+    
+            setTimeUntilNextTasks(calculateTimeUntilNextTasks());
+            
+            let hasFetchedTasks = false;
+    
+            const timer = setInterval(() => {
+                const timeLeft = calculateTimeUntilNextTasks();
+                setTimeUntilNextTasks(timeLeft);
+    
+                if (timeLeft <= 0 && !hasFetchedTasks) {
+                    clearInterval(timer);
+                    hasFetchedTasks = true;
+    
+                    getTasks({
+                        router: router,
+                        webApp: webApp,
+                        dispatch: dispatch,
+                        tgUser: tgUser,
+                    });
+                }
+            }, 1000);
+    
+            return () => clearInterval(timer);
+        }
+    }, [router, webApp, dispatch, tgUser, type, groupedTasks, startDateLocal, currentDay]);    
 
     if (tasks.status !== 'success') {
         return <Spinner />;
@@ -80,7 +85,7 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                     <Htag tag='m' className={styles.tasksDescription}>
                         {setLocale(tgUser?.language_code).tasks_description}
                     </Htag>
-                : <></>
+                    : <></>
             }
             {
                 (groupedTasks[currentDay]?.length > 0 && type === 'active')
@@ -88,38 +93,32 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                     <div className={cn(styles.tasksList, {
                         [styles.activeTasksList]: type === 'active',
                     })}>
-                        {
-                            type === 'active' ?
-                                <div className={styles.daysDiv}>
-                                    <Htag key={currentDay} tag='s' className={styles.dayText}>
-                                        {setLocale(tgUser?.language_code).day + ' ' + currentDay}
+                        <>
+                            {Object.keys(groupedTasks)
+                                .filter(day => (type === 'active' ? Number(day) <= currentDay : true))
+                                .reverse().map((day, i) => (
+                                <div key={day + i} className={styles.daysDiv}>
+                                    <Htag key={day} tag='s' className={styles.dayText}>
+                                        {setLocale(tgUser?.language_code).day + ' ' + day}
                                     </Htag>
-                                    {groupedTasks[currentDay]
-                                        .sort((a, b) => (a.tag === 'referral' ? 1 : b.tag === 'referral' ? -1 : 0))
-                                        .map(t => (
-                                            <TaskItem key={t.id} taskId={t.id} tag={t.tag} task_day={t.task_day}
-                                                task_metadata={t.task_metadata} current={t.progress.current}
-                                                target={t.progress.target} currentDay={currentDay} />
-                                        ))}
-                                </div>
-                            :
-                                <>
-                                    {Object.keys(groupedTasks).reverse().map(day => (
-                                        <div key={day} className={styles.daysDiv}>
-                                            <Htag key={day} tag='s' className={styles.dayText}>
-                                                {setLocale(tgUser?.language_code).day + ' ' + day}
-                                            </Htag>
-                                            {groupedTasks[Number(day)].map(t => (
-                                                <TaskItem key={t.id} tag={t.tag} isCompleted={true} currentDay={currentDay} />
-                                            ))}
-                                        </div>
+                                    {groupedTasks[Number(day)].map(t => (
+                                        <>
+                                            {
+                                                type === 'active' ?
+                                                    <TaskItem key={t.id} taskId={t.id} tag={t.tag} task_metadata={t.task_metadata}
+                                                        current={t.progress.current} target={t.progress.target} isCompleted={false} />
+                                                : 
+                                                    <TaskItem key={t.id} tag={t.tag} isCompleted={true} />
+                                            }
+                                        </>
                                     ))}
-                                </>
-                        }
+                                </div>
+                            ))}
+                        </>
                     </div>
                 : type === 'active' && groupedTasks[currentDay + 1] !== undefined ?
                     <Htag tag='s' className={styles.noTasks}>
-                        {setLocale(tgUser?.language_code).time_until_tasks + ': ' + new Date(timeUntilMidnight ?? 0).toISOString().substr(11, 8)}
+                        {setLocale(tgUser?.language_code).time_until_tasks + ': ' + new Date(timeUntilNextTasks ?? 0).toISOString().substr(11, 8)}
                     </Htag>
                 :
                     <Htag tag='s' className={styles.noTasks}>

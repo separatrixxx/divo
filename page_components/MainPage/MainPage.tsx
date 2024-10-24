@@ -7,7 +7,7 @@ import { Header } from '../../components/MainComponents/Header/Header';
 
 
 export const MainPage = (): JSX.Element => {
-    const { webApp, tgUser, user } = useSetup();
+    const { webApp, tgUser } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.hide();

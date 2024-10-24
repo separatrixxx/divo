@@ -23,6 +23,34 @@ export default function Document() {
             });
           `}
         </Script>
+        <Script id="send-utm-metrika" strategy="beforeInteractive">
+          {`
+            function getUTMParams() {
+              const params = new URLSearchParams(window.location.search);
+              let utmParams = {};
+
+              ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+                if (params.get(param)) {
+                  utmParams[param] = params.get(param);
+                }
+              });
+
+              return utmParams;
+            }
+
+            function sendUTMToYandexMetrica() {
+              const utmParams = getUTMParams();
+
+              if (Object.keys(utmParams).length > 0) {
+                ym(98638311, 'params', {
+                  UTM: utmParams
+                });
+              }
+            }
+
+            document.addEventListener('DOMContentLoaded', sendUTMToYandexMetrica);
+          `}
+        </Script>
         <noscript>
           <div>
             <img src="https://mc.yandex.ru/watch/98638311" alt="" style={{ position: 'absolute', left: '-9999px' }} />

@@ -37,7 +37,7 @@ export const TasksPage = (): JSX.Element => {
                         {
                             tasks.status === 'success' && tasks.result.tasks.completed.length > 0 ?
                                 <span className={styles.divider} />
-                                : <></>
+                            : <></>
                         }
                         <TasksList type='completed' list={tasks.result.tasks.completed} />
                         <Navbar />

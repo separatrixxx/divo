@@ -34,10 +34,10 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
 
         return acc;
     }, {} as { [key: string]: TaskItemInterface[] });
+    console.log(currentDay)
 
     useEffect(() => {
-        if (type === 'active' && groupedTasks[currentDay + 1] !== undefined &&
-            Object.keys(groupedTasks).filter(day => Number(day) <= currentDay).length <= 0) {
+         if (type === 'active' && Object.keys(groupedTasks).length === 0 && groupedTasks[currentDay + 1] !== undefined) {
             const calculateTimeUntilNextTasks = () => {
                 const now = new Date();
                 const nextDay = new Date(startDateLocal);
@@ -69,7 +69,7 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     
             return () => clearInterval(timer);
         }
-    }, [router, webApp, dispatch, tgUser, type, groupedTasks, startDateLocal, currentDay]);    
+    }, [router, webApp, dispatch, tgUser, type, groupedTasks, startDateLocal, currentDay]);
 
     if (tasks.status !== 'success') {
         return <Spinner />;
@@ -81,15 +81,14 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                 {setLocale(tgUser?.language_code)[type + '_tasks' as 'active_tasks']}
             </Htag>
             {
-                type === 'active' ?
+                type === 'active' ? (
                     <Htag tag='m' className={styles.tasksDescription}>
                         {setLocale(tgUser?.language_code).tasks_description}
                     </Htag>
-                    : <></>
+                ) : null
             }
             {
-                (groupedTasks[currentDay]?.length > 0 && type === 'active')
-                    || (Object.keys(groupedTasks).length > 0 && type === 'completed') ?
+                Object.keys(groupedTasks).length > 0 ?
                     <div className={cn(styles.tasksList, {
                         [styles.activeTasksList]: type === 'active',
                     })}>
@@ -97,23 +96,21 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                             {Object.keys(groupedTasks)
                                 .filter(day => (type === 'active' ? Number(day) <= currentDay : true))
                                 .reverse().map((day, i) => (
-                                <div key={day + i} className={styles.daysDiv}>
-                                    <Htag key={day} tag='s' className={styles.dayText}>
-                                        {setLocale(tgUser?.language_code).day + ' ' + day}
-                                    </Htag>
-                                    {groupedTasks[Number(day)].map(t => (
-                                        <>
-                                            {
-                                                type === 'active' ?
-                                                    <TaskItem key={t.id} taskId={t.id} tag={t.tag} task_metadata={t.task_metadata}
-                                                        current={t.progress.current} target={t.progress.target} isCompleted={false} />
-                                                : 
-                                                    <TaskItem key={t.id} tag={t.tag} isCompleted={true} />
-                                            }
-                                        </>
-                                    ))}
-                                </div>
-                            ))}
+                                    <div key={day + i} className={styles.daysDiv}>
+                                        <Htag key={day} tag='s' className={styles.dayText}>
+                                            {setLocale(tgUser?.language_code).day + ' ' + day}
+                                        </Htag>
+                                        {groupedTasks[Number(day)]
+                                            .sort((a, b) => (a.tag === 'referral' ? 1 : b.tag === 'referral' ? -1 : 0))
+                                            .map(t => (
+                                            <TaskItem key={t.id} taskId={t.id} tag={t.tag}
+                                                task_metadata={type === 'active' ? t.task_metadata : undefined}
+                                                current={type === 'active' ? t.progress.current : undefined}
+                                                target={type === 'active' ? t.progress.target : undefined}
+                                                isCompleted={type !== 'active'} />
+                                        ))}
+                                    </div>
+                                ))}
                         </>
                     </div>
                 : type === 'active' && groupedTasks[currentDay + 1] !== undefined ?
@@ -126,5 +123,5 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                     </Htag>
             }
         </>
-    );
+    );    
 };

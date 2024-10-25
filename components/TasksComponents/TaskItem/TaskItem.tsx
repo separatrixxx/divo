@@ -36,7 +36,7 @@ export const TaskItem = ({ taskId, tag, task_metadata, current, target, isComple
                     : <></>
                 }
                 <Htag tag='s' className={styles.name}>
-                    {setLocale(tgUser?.language_code).task_texts[tag as 'referral'] +
+                    {setLocale(tgUser?.language_code).task_texts[task_metadata?.task as 'referral'] +
                         (task_metadata && task_metadata.require ? ': ' + task_metadata.require : '')}
                 </Htag>
                 <Htag tag='xs' className={styles.award}>

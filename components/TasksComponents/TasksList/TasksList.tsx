@@ -19,7 +19,7 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     const currentDate = new Date();
 
     const timeDifference = currentDate.getTime() - startDateLocal.getTime();
-    const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
+    const currentDay = 7;
 
     const [timeUntilNextTasks, setTimeUntilNextTasks] = useState<number | null>(null);
 
@@ -34,7 +34,6 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
 
         return acc;
     }, {} as { [key: string]: TaskItemInterface[] });
-    console.log(currentDay)
 
     useEffect(() => {
          if (type === 'active' && Object.keys(groupedTasks).length === 0 && groupedTasks[currentDay + 1] !== undefined) {

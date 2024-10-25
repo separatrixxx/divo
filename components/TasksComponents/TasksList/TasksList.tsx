@@ -118,7 +118,9 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                         {setLocale(tgUser?.language_code).time_until_tasks + ': ' + new Date(timeUntilNextTasks ?? 0).toISOString().substr(11, 8)}
                     </Htag>
                 :
-                    <Htag tag='s' className={styles.noTasks}>
+                    <Htag tag='s' className={cn(styles.noTasks, {
+                        [styles.completedNoTasks]: type === 'completed',
+                    })}>
                         {setLocale(tgUser?.language_code).no_tasks}
                     </Htag>
             }

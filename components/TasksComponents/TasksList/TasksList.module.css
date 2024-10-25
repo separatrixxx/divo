@@ -50,3 +50,7 @@
 
 	color: var(--white);
 }
+
+.completedNoTasks {
+	margin-bottom: 110px;
+}

@@ -19,7 +19,7 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     const currentDate = new Date();
 
     const timeDifference = currentDate.getTime() - startDateLocal.getTime();
-    const currentDay = 7;
+    const currentDay = Math.floor(timeDifference / (1000 * 3600 * 24)) + 1;
 
     const [timeUntilNextTasks, setTimeUntilNextTasks] = useState<number | null>(null);
 
@@ -36,7 +36,10 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
     }, {} as { [key: string]: TaskItemInterface[] });
 
     useEffect(() => {
-         if (type === 'active' && Object.keys(groupedTasks).length === 0 && groupedTasks[currentDay + 1] !== undefined) {
+        const hasPreviousOrCurrentTasks = Object.keys(groupedTasks)
+            .some(day => Number(day) <= currentDay);
+
+         if (type === 'active' && groupedTasks[currentDay + 1] !== undefined  && !hasPreviousOrCurrentTasks) {
             const calculateTimeUntilNextTasks = () => {
                 const now = new Date();
                 const nextDay = new Date(startDateLocal);
@@ -87,7 +90,8 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                 ) : null
             }
             {
-                Object.keys(groupedTasks).length > 0 ?
+               (type === 'active' && Object.keys(groupedTasks).some(day => Number(day) <= currentDay))
+                    || (type === 'completed' && Object.keys(groupedTasks).length > 0) ?
                     <div className={cn(styles.tasksList, {
                         [styles.activeTasksList]: type === 'active',
                     })}>
@@ -103,7 +107,7 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                                             .sort((a, b) => (a.tag === 'referral' ? 1 : b.tag === 'referral' ? -1 : 0))
                                             .map(t => (
                                             <TaskItem key={t.id} taskId={t.id} tag={t.tag}
-                                                task_metadata={type === 'active' ? t.task_metadata : undefined}
+                                                task_metadata={t.task_metadata}
                                                 current={type === 'active' ? t.progress.current : undefined}
                                                 target={type === 'active' ? t.progress.target : undefined}
                                                 isCompleted={type !== 'active'} />

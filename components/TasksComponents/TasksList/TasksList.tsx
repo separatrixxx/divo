@@ -83,13 +83,6 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                 {setLocale(tgUser?.language_code)[type + '_tasks' as 'active_tasks']}
             </Htag>
             {
-                type === 'active' ? (
-                    <Htag tag='m' className={styles.tasksDescription}>
-                        {setLocale(tgUser?.language_code).tasks_description}
-                    </Htag>
-                ) : null
-            }
-            {
                (type === 'active' && Object.keys(groupedTasks).some(day => Number(day) <= currentDay))
                     || (type === 'completed' && Object.keys(groupedTasks).length > 0) ?
                     <div className={cn(styles.tasksList, {

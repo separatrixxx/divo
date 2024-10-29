@@ -8,6 +8,7 @@ const tasksData: TasksInterface = {
         tasks: {
             active: [],
             completed: [],
+            event_task: [],
         },
         completion_status: [],
     }

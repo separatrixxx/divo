@@ -4,8 +4,9 @@ export interface TasksInterface {
         tasks: {
             active: TaskItemInterface[],
             completed: TaskItemInterface[],
+            event_task: TaskItemInterface[],
         },
-        completion_status: TaskItemInterface[]
+        completion_status: TaskItemInterface[],
     }
 }
 

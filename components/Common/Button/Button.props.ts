@@ -5,5 +5,7 @@ export interface ButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
     text?: string,
     isCopy?: boolean,
     isActive?: boolean,
+    isLoading?: boolean,
+    isDisabled?: boolean,
     onClick: (e: any) => void,
 }

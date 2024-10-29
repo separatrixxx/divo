@@ -3,6 +3,7 @@ import { useSetup } from '../../hooks/useSetup';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { UserInfo } from '../../components/UserComponents/UserInfo/UserInfo';
+import { Toaster } from 'react-hot-toast';
 
 
 export const ProfilePage = (): JSX.Element => {
@@ -23,6 +24,13 @@ export const ProfilePage = (): JSX.Element => {
                     <MainLink />
                 :
                     <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
                         <UserInfo />
                         <Navbar />
                     </>

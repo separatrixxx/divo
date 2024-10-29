@@ -38,3 +38,26 @@
 
 	color: var(--white) !important;
 }
+
+.spinner {
+	width: 15px;
+	height: 15px;
+
+	animation: spin 1s linear infinite;
+
+	border: 1px solid var(--dark);
+	border-top: 1px solid var(--white);
+	border-radius: 50%;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.disableButton {
+	cursor: default;
+	filter: none !important;
+
+	outline-color: var(--darkLight) !important;
+}

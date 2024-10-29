@@ -6,6 +6,7 @@ import { Htag } from '../../components/Common/Htag/Htag';
 import { setLocale } from '../../helpers/locale.helper';
 import { TasksList } from '../../components/TasksComponents/TasksList/TasksList';
 import { Toaster } from 'react-hot-toast';
+import { EventTasksList } from '../../components/TasksComponents/EventTasksList/EventTasksList';
 
 
 export const TasksPage = (): JSX.Element => {
@@ -24,7 +25,7 @@ export const TasksPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                    :
+                :
                     <>
                         <Toaster
                             position="top-center"
@@ -33,6 +34,8 @@ export const TasksPage = (): JSX.Element => {
                                 duration: 2000,
                             }}
                         />
+                        <EventTasksList />
+                        <span className={styles.divider} />
                         <TasksList type='active' list={tasks.result.tasks.active} />
                         {
                             tasks.status === 'success' && tasks.result.tasks.completed.length > 0 ?

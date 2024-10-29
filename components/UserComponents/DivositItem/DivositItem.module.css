@@ -1,0 +1,14 @@
+.divositItem {
+	display: grid;
+	gap: 5px;
+
+	align-items: top;
+}
+
+.title {
+	color: var(--white) !important;
+}
+
+.text {
+	color: var(--darkLight) !important;
+}

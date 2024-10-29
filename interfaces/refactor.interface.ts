@@ -25,3 +25,10 @@ export interface CheckTaskArguments extends BaseArguments {
     taskUrl?: string,
     setIsLoading: (e: boolean) => void,
 }
+
+export interface StakingArguments extends BaseArguments {
+    amount: number,
+    duration: number,
+    setStakeCoins: (e: any) => void,
+    setIsLoading: (e: boolean) => void,
+}

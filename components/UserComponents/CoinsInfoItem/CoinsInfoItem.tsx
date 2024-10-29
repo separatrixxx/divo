@@ -13,7 +13,7 @@ export const CoinsInfoItem = ({ event_by, timestamp, coins_amount }: CoinsInfoIt
         <div className={styles.coinsInfoItem}>
             <div className={styles.coinsInfoDiv}>
                 <Htag tag='m' className={styles.coinsAmount}>
-                    {'+' + coins_amount + ' ' + setLocale(tgUser?.language_code).token}
+                    {'+' + coins_amount.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token}
                 </Htag>
                 <Htag tag='xs' className={styles.date}>
                     {format(timestamp, 'dd.MM.yyyy, HH:mm')}

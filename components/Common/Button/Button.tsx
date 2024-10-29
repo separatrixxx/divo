@@ -6,7 +6,7 @@ import CopyIcon from './copy.svg';
 import cn from 'classnames';
 
 
-export const Button = ({ text, isCopy, isActive, onClick }: ButtonProps): JSX.Element => {
+export const Button = ({ text, isCopy, isActive, isLoading, isDisabled, onClick }: ButtonProps): JSX.Element => {
     const { webApp } = useSetup();
 
     return (
@@ -14,14 +14,16 @@ export const Button = ({ text, isCopy, isActive, onClick }: ButtonProps): JSX.El
             [styles.copyIcon]: isCopy,
             [styles.active]: isActive,
             [styles.weba]: webApp?.platform === 'weba',
+            [styles.disableButton]: isDisabled,
         })} onClick={onClick}>
             {
-                !isCopy ?
+                !isCopy && !isLoading ?
                     <Htag tag='m' className={styles.text}>
                         {text}
                     </Htag>
-                : 
-                    <CopyIcon />
+                : isLoading ?
+                    <div className={styles.spinner} />
+                : <CopyIcon />
             }
         </div>
     );

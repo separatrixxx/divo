@@ -8,11 +8,16 @@ import { CoinsInfoList } from '../CoinsInfoList/CoinsInfoList';
 import { Spinner } from '../../Common/Spinner/Spinner';
 import LeaderboardIcon from './leaderboard.svg';
 import Link from 'next/link';
+import { useState } from 'react';
+import { Button } from '../../Common/Button/Button';
 import cn from 'classnames';
+import { DivositBlock } from '../DivositBlock/DivositBlock';
 
 
 export const UserInfo = (): JSX.Element => {
     const { webApp, tgUser, user } = useSetup();
+
+    const [type, setType] = useState<'coins' | 'divosit'>('coins');
 
     const setName = () => {
         if (tgUser?.username) {
@@ -53,13 +58,28 @@ export const UserInfo = (): JSX.Element => {
             <Htag tag='xl' className={styles.coins}>
                 {user.result.coins.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token}
             </Htag>
-            <ModelStat type='burn' stat={user.result.remaining_votes + '/' + user.result.total_available_votes}
-                tooltip={setLocale(tgUser?.language_code).tooltips.remaining_votes} />
-            <span className={styles.divider} />
+            <div className={styles.changeTypeDiv}>
+                <Button text={setLocale(tgUser?.language_code).transactions} isActive={type === 'coins'}
+                    onClick={() => setType('coins')} />
+                <Button text={setLocale(tgUser?.language_code).divosit} isActive={type === 'divosit'}
+                    onClick={() => setType('divosit')} />
+            </div>
             <Htag tag='xl' className={styles.coinsInfoTitle}>
-                {setLocale(tgUser?.language_code).coins_info}
+                {setLocale(tgUser?.language_code)[type === 'coins' ? 'transactions' : 'divosit']}
             </Htag>
-            <CoinsInfoList />
+            {
+                type === 'divosit' ?
+                    <Htag tag='m' className={styles.divositInfo}>
+                        {setLocale(tgUser?.language_code).divosit_info}
+                    </Htag>
+                : <></>
+            }
+            {
+                type === 'coins' ?
+                    <CoinsInfoList />
+                :
+                    <DivositBlock />
+            }
         </div>
     );
 };

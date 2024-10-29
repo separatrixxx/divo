@@ -16,6 +16,7 @@ export const useSetup = () => {
     const refs = useSelector((state: AppState) => state.refs.refs);
     const coinsInfo = useSelector((state: AppState) => state.coinsInfo.coinsInfo);
     const tasks = useSelector((state: AppState) => state.tasks.tasks);
+    const divosit = useSelector((state: AppState) => state.divosit.divosit);
 
     return {
         router,
@@ -29,5 +30,6 @@ export const useSetup = () => {
         refs,
         coinsInfo,
         tasks,
+        divosit,
     };
 };

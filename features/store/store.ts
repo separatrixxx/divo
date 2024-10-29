@@ -7,6 +7,7 @@ import leaderboardSlice from "../leaderboard/leaderboardSlice";
 import refsSlice from "../refs/refsSlice";
 import coinsInfoSlice from "../coinsInfo/coinsInfoSlice";
 import tasksSlice from "../tasks/tasksSlice";
+import divositSlice from "../divosit/divositSlice";
 
 
 const makeStore = () =>
@@ -19,6 +20,7 @@ const makeStore = () =>
       refs: refsSlice,
       coinsInfo: coinsInfoSlice,
       tasks: tasksSlice,
+      divosit: divositSlice,
     },
     devTools: true,
   });

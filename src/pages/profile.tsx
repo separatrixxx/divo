@@ -4,10 +4,11 @@ import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
 import { useEffect } from 'react';
 import { getCoinsInfo, getUser } from '../../helpers/user.helper';
+import { getDivosit } from '../../helpers/divosit.helper';
 
 
 function Profile(): JSX.Element {
-    const { router, dispatch, webApp, tgUser } = useSetup();
+    const { router, dispatch, webApp, tgUser, user } = useSetup();
 
     useEffect(() => {
         if (tgUser) {
@@ -19,6 +20,13 @@ function Profile(): JSX.Element {
             });
 
             getCoinsInfo({
+                router: router,
+                webApp: webApp,
+                dispatch: dispatch,
+                tgUser: tgUser,
+            });
+
+            getDivosit({
                 router: router,
                 webApp: webApp,
                 dispatch: dispatch,

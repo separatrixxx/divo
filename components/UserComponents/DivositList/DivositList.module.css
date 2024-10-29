@@ -1,0 +1,10 @@
+.divositList {
+	display: grid;
+
+	width: calc(95% + 20px);
+	gap: 20px;
+}
+
+.noDivosits {
+	color: var(--white);
+}

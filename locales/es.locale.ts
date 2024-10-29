@@ -68,6 +68,7 @@ export const es = {
         youtube: "YouTube",
         instagram: "Instagram",
         comment: "Comentario",
+        tag: "Evento",
     },
     task_texts: {
         referral: "Invita el número requerido de amigos",

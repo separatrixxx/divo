@@ -68,6 +68,7 @@ export const ru = {
         youtube: "YouTube",
         instagram: "Instagram",
         comment: "Комментарий",
+        tag: "Событие",
     },
     task_texts: {
         referral: "Пригласите необходимое количество друзей",

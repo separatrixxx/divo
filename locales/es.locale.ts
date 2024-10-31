@@ -3,6 +3,7 @@ export const es = {
     language: "Español",
     lang: "ES",
     divo: "DIVO",
+    slogan: "¡Vota por modelos, gana monedas, crea tendencias!",
     error404: "Página no encontrada, error 404",
     error500: "Fallo del servidor, error 500",
     main_title: "La aplicación web sólo funciona en nuestro bot de telegram",
@@ -68,7 +69,8 @@ export const es = {
         youtube: "YouTube",
         instagram: "Instagram",
         comment: "Comentario",
-        tag: "Evento",
+        event: "Evento",
+        staking: "DIVOsit",
     },
     task_texts: {
         referral: "Invita el número requerido de amigos",
@@ -78,6 +80,7 @@ export const es = {
         youtube: "Suscríbete al canal de YouTube",
         instagram: "Suscríbete a Instagram",
         comment: "Deja un comentario debajo de la publicación",
+        staking: "Coloque la cantidad requerida de monedas en el DIVOsit",
     },    
     check: "Controlar",
     friends: "Amigos",
@@ -112,4 +115,9 @@ export const es = {
     not_enough_coins: "No hay suficientes monedas",
     until: "hasta el",
     per_day_total: "$$$ por día / $$$$ en total",
+    join_our_channel: "Únete a nuestro canal para estar al tanto",
+    header_divosit: {
+        good: "Tienes $$$ monedas en DIVOsit",
+        bad: "DIVOsit tus monedas en tu página de perfil",
+    },
 };

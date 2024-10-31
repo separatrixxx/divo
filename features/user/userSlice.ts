@@ -21,6 +21,7 @@ const userData: UserInterface = {
     register_date: '',
     last_vote_datetime: '',
     blocked_in_stake: 0,
+    daily_stake_income: 0,
   }
 };
 

@@ -17,6 +17,7 @@ export interface UserInterface {
         register_date: string,
         last_vote_datetime: string,
         blocked_in_stake: number,
+        daily_stake_income: number,
     }
 }
 

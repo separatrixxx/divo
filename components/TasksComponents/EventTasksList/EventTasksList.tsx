@@ -12,7 +12,7 @@ export const EventTasksList = (): JSX.Element => {
     if (tasks.status !== 'success') {
         return <Spinner />;
     }
-
+    
     return (
         <>
             <Htag tag='xl' className={styles.tasksTitle}>

@@ -1,14 +1,15 @@
 import styles from './InfoPage.module.css';
 import { useSetup } from '../../hooks/useSetup';
-import { MainLink } from '../../components/Common/MainLink/MainLink';
+import { MainLink } from '../../components/MainComponents/MainLink/MainLink';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
 import { setLocale } from '../../helpers/locale.helper';
 import { Htag } from '../../components/Common/Htag/Htag';
 import { Info } from '../../components/Info/Info';
+import { StartScreen } from '../../components/MainComponents/StartScreen/StartScreen';
 
 
 export const InfoPage = (): JSX.Element => {
-    const { router, webApp, tgUser } = useSetup();
+    const { router, webApp, tgUser, firstVisit } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.show();
@@ -23,7 +24,7 @@ export const InfoPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                :
+                : firstVisit ?
                     <>
                         <Htag tag='xl' className={styles.infoTitle}>
                             {setLocale(tgUser.language_code).info}
@@ -31,6 +32,7 @@ export const InfoPage = (): JSX.Element => {
                         <Info />
                         <Navbar />
                     </>
+                : <StartScreen />
             }
         </div>
     );

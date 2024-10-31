@@ -3,6 +3,7 @@ export const ru = {
     language: "Русский",
     lang: "РУ",
     divo: "DIVO",
+    slogan: "Голосуй за моделей, зарабатывай монеты, создавай тренды!",
     error404: "Страница не найдена, ошибка 404",
     error500: "Нарушение работы сервера, ошибка 500",
     main_title: "Веб-приложение работает только в нашем тг-боте",
@@ -68,7 +69,8 @@ export const ru = {
         youtube: "YouTube",
         instagram: "Instagram",
         comment: "Комментарий",
-        tag: "Событие",
+        event: "Событие",
+        staking: "DIVOзит",
     },
     task_texts: {
         referral: "Пригласите необходимое количество друзей",
@@ -78,6 +80,7 @@ export const ru = {
         youtube: "Подпишитесь на YouTube канал",
         instagram: "Подпишитесь на Instagram",
         comment: "Оставьте комментарий под постом",
+        staking: "Разместите необходимое количество монет на DIVOзите",
     },
     check: "Проверить",
     friends: "Друзья",
@@ -112,4 +115,9 @@ export const ru = {
     not_enough_coins: "Недостаточно монет",
     until: "до",
     per_day_total: "$$$ в день / $$$$ всего",
+    join_our_channel: "Подпишитесь на наш канал, чтобы быть в курсе новостей",
+    header_divosit: {
+        good: "У вас лежит $$$ монет DIVOзитн",
+        bad: "Положите ваши монеты на DIVOзит на странице профиля",
+    },
 };

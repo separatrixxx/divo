@@ -3,6 +3,7 @@ export const en = {
     language: "English",
     lang: "EN",
     divo: "DIVO",
+    slogan: "Vote for models, earn coins, shape trends!",
     error404: "Page not found, 404 error",
     error500: "Server failure, error 500",
     main_title: "The web application works only in our tg bot",
@@ -68,7 +69,8 @@ export const en = {
         youtube: "YouTube",
         instagram: "Instagram",
         comment: "Comment",
-        tag: "Event",
+        event: "Event",
+        staking: "DIVOsit",
     },
     task_texts: {
         referral: "Invite the required number of friends",
@@ -78,6 +80,7 @@ export const en = {
         instagram: "Subscribe to Instagram",
         youtube: "Subscribe to YouTube channel",
         comment: "Leave a comment under the post",
+        staking: "Place the required amount of coins on the DIVOsit",
     },
     check : "Check",
     friends: "Friends",
@@ -112,4 +115,9 @@ export const en = {
     not_enough_coins: "Not enough coins",
     until: "until",
     per_day_total: "$$$ per day / $$$$ total",
+    join_our_channel: "Join our channel to stay tuned",
+    header_divosit: {
+        good: "You have $$$ coins on DIVOsit",
+        bad: "DIVOsit your coins on your profile page",
+    },
 };

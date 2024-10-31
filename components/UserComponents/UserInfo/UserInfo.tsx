@@ -15,9 +15,9 @@ import { DivositBlock } from '../DivositBlock/DivositBlock';
 
 
 export const UserInfo = (): JSX.Element => {
-    const { webApp, tgUser, user } = useSetup();
+    const { router, webApp, tgUser, user } = useSetup();
 
-    const [type, setType] = useState<'coins' | 'divosit'>('coins');
+    const [type, setType] = useState<'coins' | 'divosit'>(router.query.type as 'coins' || 'coins');
 
     const setName = () => {
         if (tgUser?.username) {

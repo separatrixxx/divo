@@ -29,7 +29,7 @@ export const StartScreen = (): JSX.Element => {
             <div className={styles.videoWrapper}>
                 <div className={styles.overlayTop}></div>
                 <video className={styles.video} autoPlay playsInline loop muted no-controls >
-                    <source src="/StartVideo.mp4" type="video/mp4"></source>
+                    <source src="/StartVideo.MP4" type="video/mp4"></source>
                 </video>
                 <div className={styles.overlayBottom}></div>
             </div>

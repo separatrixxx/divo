@@ -3,11 +3,12 @@
 
 	display: grid;
 	overflow: hidden;
-	align-items: center;
+	align-items: end;
 
 	width: 100%;
 	height: 100vh;
 	justify-items: center;
+	background: var(--start-bg);
 }
 
 .startTextDiv,
@@ -22,12 +23,12 @@
 }
 
 .startTextDiv {
-	top: 10%;
-	gap: 10px;
+	top: 3%;
+	gap: 5px;
 }
 
 .joinChannelLink {
-	bottom: 17% !important;
+	bottom: 10% !important;
 
 	cursor: pointer;
 }
@@ -42,53 +43,19 @@
 .startScreenTitle {
 	color: var(--primary) !important;
 
-	font-weight: 400;
+	font-weight: 400 !important;
 }
 
 .startScreenText {
 	transition-duration: 300ms;
 	text-align: center;
+	font-weight: 400 !important;
 
 	color: var(--white) !important;
-}
-
-.videoWrapper {
-	position: relative;
-
-	display: flex;
-	overflow: hidden;
-	align-items: center;
-	justify-content: center;
-
-	width: 100%;
-	height: fit-content;
 }
 
 .video {
 	width: 100%;
 	height: auto;
-}
-
-.overlayTop,
-.overlayBottom {
-	position: absolute;
-	z-index: 1;
-	right: 0;
-	left: 0;
-
-	height: 10%;
-
-	pointer-events: none;
-}
-
-.overlayTop {
-	top: 0;
-
-	background: linear-gradient(to bottom, rgba(26, 26, 26, 1), rgba(26, 26, 26, 0));
-}
-
-.overlayBottom {
-	bottom: 0;
-
-	background: linear-gradient(to top, rgba(26, 26, 26, 1), rgba(26, 26, 26, 0));
+	filter: brightness(0.6);
 }

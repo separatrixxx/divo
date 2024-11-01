@@ -3,12 +3,35 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
-import { ByBlock } from '../../Common/ByBlock/ByBlock';
 
 
 export const StartScreen = (): JSX.Element => {
     const { webApp, tgUser } = useSetup();
+    const [progress, setProgress] = useState<number>(0);
+
+    useEffect(() => {
+        const interval = 100;
+        let currentStep = 0;
+
+        const weightedSteps = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5];
+        const getRandomStep = () => weightedSteps[Math.floor(Math.random() * weightedSteps.length)];
+
+        const intervalId = setInterval(() => {
+            currentStep += 1;
+            const randomIncrement = getRandomStep();
+
+            setProgress(prevProgress => {
+                const newProgress = Math.min(prevProgress + randomIncrement, 100);
+                return newProgress;
+            });
+        }, interval);
+
+        setTimeout(() => setProgress(100), 4400);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <div className={styles.startScreen}>
@@ -30,6 +53,12 @@ export const StartScreen = (): JSX.Element => {
             <video className={styles.video} autoPlay playsInline loop muted no-controls >
                 <source src="/StartVideo.MP4" type="video/mp4"></source>
             </video>
+            <div className={styles.progressBar}
+                style={{
+                    background: `linear-gradient(to right,
+                    var(--primary) ${Math.min(progress, 100)}%, 
+                    rgba(255, 255, 255, 0.07) ${Math.min(progress, 100)}%)`
+                }} />
         </div>
     );
 };

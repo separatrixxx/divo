@@ -61,3 +61,13 @@
 	height: auto;
 	filter: brightness(0.6);
 }
+
+.progressBar {
+	position: absolute;
+	z-index: 12;
+
+	width: 100%;
+	height: 5px;
+
+	background: rgba(255, 255, 255, 0.07);
+}

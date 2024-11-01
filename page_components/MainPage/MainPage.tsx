@@ -20,20 +20,20 @@ export const MainPage = (): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                    : firstVisit ?
-                        <>
-                            <Toaster
-                                position="top-center"
-                                reverseOrder={true}
-                                toastOptions={{
-                                    duration: 2000,
-                                }}
-                            />
-                            <Header />
-                            <ModelsList type='all' />
-                            <Navbar />
-                        </>
-                        : <StartScreen />
+                : firstVisit ?
+                    <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
+                        <Header />
+                        <ModelsList type='all' />
+                        <Navbar />
+                    </>
+                : <StartScreen />
             }
         </div>
     );

@@ -28,7 +28,7 @@ export const StartScreen = (): JSX.Element => {
             });
         }, interval);
 
-        setTimeout(() => setProgress(100), 4400);
+        setTimeout(() => setProgress(100), 5400);
 
         return () => clearInterval(intervalId);
     }, []);

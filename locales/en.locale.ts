@@ -61,6 +61,7 @@ export const en = {
         referral: "Friend bonus",
         tasks: "Task completion",
         stake: "Interest on DIVOsit",
+        venom: "Venom community award",
     },
     task_tags: {
         referral: "Friends",

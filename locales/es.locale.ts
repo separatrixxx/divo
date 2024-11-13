@@ -61,6 +61,7 @@ export const es = {
         referral: "Bono de amistad",
         tasks: "Finalización de tareas",
         stake: "Interés sobre DIVOsit",
+        venom: "Premio de la comunidad Venom",
     },
     task_tags: {
         referral: "Amigos",

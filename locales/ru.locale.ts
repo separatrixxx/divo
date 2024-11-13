@@ -61,6 +61,7 @@ export const ru = {
         referral: "Бонус за друга",
         tasks: "Выполнение задания",
         stake: "Проценты по DIVOзиту",
+        venom: "Награда от сообщества Venom",
     },
     task_tags: {
         referral: "Друзья",

@@ -22,7 +22,7 @@ export const FriendsInfo = (): JSX.Element => {
             <div className={styles.friendsButtonsDiv}>
                 <Button text={setLocale(tgUser?.language_code).share_link}
                     onClick={() =>
-                        shareLink(refs.result.referral_link, setLocale(tgUser?.language_code).share_text, webApp)} />
+                        shareLink(refs.result.referral_link, setLocale('en').share_text, webApp)} />
                 <Button isCopy={true}
                     onClick={() => copyToClipboard(refs.result.referral_link)} />
             </div>

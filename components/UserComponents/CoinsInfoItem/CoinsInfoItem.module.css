@@ -13,12 +13,8 @@
 
 .event {
 	height: fit-content;
-	padding: 7px 12px;
 
 	color: var(--white);
-	border-radius: 5px;
-	outline: 1px solid var(--primary);
-	outline-offset: -1px;
 }
 
 .coinsAmount {

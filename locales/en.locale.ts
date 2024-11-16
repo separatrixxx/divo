@@ -121,4 +121,5 @@ export const en = {
         good: "You have $$$ coins on DIVOsit",
         bad: "DIVOsit your coins on your profile page",
     },
+    balance: "Balance",
 };

@@ -121,4 +121,5 @@ export const es = {
         good: "Tienes $$$ monedas en DIVOsit",
         bad: "DIVOsit tus monedas en tu página de perfil",
     },
+    balance: "Balance",
 };

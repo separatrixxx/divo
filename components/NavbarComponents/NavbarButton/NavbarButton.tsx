@@ -1,10 +1,9 @@
 import { NavbarButtonProps } from './NavbarButton.props';
 import styles from './NavbarButton.module.css';
 import MainIcon from './main.svg';
-import CollectionIcon from './collection.svg';
+import BurnIcon from './burn.svg';
 import FriendsIcon from './friends.svg';
 import TasksIcon from './tasks.svg';
-import ProfileIcon from './profile.svg';
 import Link from 'next/link';
 import { Htag } from '../../Common/Htag/Htag';
 import { useSetup } from '../../../hooks/useSetup';
@@ -16,7 +15,7 @@ export const NavbarButton = ({ type, text, link }: NavbarButtonProps): JSX.Eleme
 
     return (
         <Link href={link} className={cn(styles.navbarButton, {
-            [styles.active]: router.asPath === link,
+            [styles.active]: router.asPath === link || (router.asPath.slice(0, 4) === '/#tg' && link === '/'),
             [styles.weba]: webApp?.platform === 'weba',
         })} aria-label={`navbar ${type} link`}>
             <span className={styles.navbarButtonIcon}>
@@ -24,12 +23,11 @@ export const NavbarButton = ({ type, text, link }: NavbarButtonProps): JSX.Eleme
                     type === 'main' ?
                         <MainIcon />
                     : type === 'collection' ?
-                        <CollectionIcon />
+                        <BurnIcon />
                     : type === 'friends' ?
                         <FriendsIcon />
-                    : type === 'tasks' ?
+                    :
                         <TasksIcon />
-                    : <ProfileIcon />
                 }
             </span>
             <Htag tag='xs' className={styles.navbarButtonText}>

@@ -33,31 +33,36 @@ export const TaskItem = ({ taskId, tag, task_metadata, current, target, isComple
                 {
                     !isCompleted && current !== undefined && target ?
                         <ProgressBar current={current} target={target} />
-                    : <></>
+                        : <></>
                 }
                 <Htag tag='s' className={styles.name}>
                     {setLocale(tgUser?.language_code).task_texts[task_metadata?.task as 'referral'] +
                         (task_metadata && task_metadata.require ? ': ' + task_metadata.require : '')}
                 </Htag>
-                <Htag tag='xs' className={styles.award}>
-                    {'+1'}
-                    <BurnIcon className={styles.burnIcon} />
-                </Htag>
             </div>
-            <TaskButton text={setLocale(tgUser?.language_code)[isCompleted ? 'completed' : 'check']}
-                isLoading={isLoading} isCompleted={isCompleted} onClick={() => {
-                    if (!isCompleted && taskId) {
-                        checkTasks({
-                            router: router,
-                            webApp: webApp,
-                            dispatch: dispatch,
-                            tgUser: tgUser,
-                            taskId: taskId,
-                            taskUrl: task_metadata?.task_url,
-                            setIsLoading: setIsLoading,
-                        });
-                    }
-                }} />
+            <div className={styles.taskButtonDiv}>
+                <TaskButton text={setLocale(tgUser?.language_code)[isCompleted ? 'completed' : 'check']}
+                    isLoading={isLoading} isCompleted={isCompleted} onClick={() => {
+                        if (!isCompleted && taskId) {
+                            checkTasks({
+                                router: router,
+                                webApp: webApp,
+                                dispatch: dispatch,
+                                tgUser: tgUser,
+                                taskId: taskId,
+                                taskUrl: task_metadata?.task_url,
+                                setIsLoading: setIsLoading,
+                            });
+                        }
+                    }} />
+                {
+                    !isCompleted &&
+                        <Htag tag='s' className={styles.award}>
+                            {'+1'}
+                            <BurnIcon className={styles.burnIcon} />
+                        </Htag>
+                }
+            </div>
         </div>
     );
 };

@@ -3,7 +3,6 @@ import { ModelItem } from '../../../interfaces/models.interface';
 import { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import BurnIcon from './burn.svg';
 import { useSetup } from '../../../hooks/useSetup';
 import { useInView } from 'react-intersection-observer';
 import cn from 'classnames';
@@ -21,7 +20,6 @@ export const ModelsItem = memo(({ id, random_photo, photo_index, user_voted }: M
         <Link href={`/model/${tgUser?.id}/${photo_index}/${id}`} className={cn(styles.modelsItem, {
             [styles.weba]: webApp?.platform === 'weba',
         })} aria-label='model link'>
-            {user_voted ? <BurnIcon className={styles.burnIcon} /> : null}
             <div ref={ref} className={styles.imageContainer}>
                 {
                     inView ?

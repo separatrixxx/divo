@@ -47,9 +47,9 @@ export const UserInfo = (): JSX.Element => {
             <Htag tag='m' className={styles.username}>
                 {setName()}
             </Htag>
-            <Image className={styles.logo} draggable='false'
-                loader={() => '/logo.svg'}
-                src='/logo.svg'
+            <Image className={styles.userImage} draggable='false'
+                loader={() => tgUser?.photo_url || '/logo.svg'}
+                src={tgUser?.photo_url || '/logo.svg'}
                 alt='logo image'
                 width={1}
                 height={1}

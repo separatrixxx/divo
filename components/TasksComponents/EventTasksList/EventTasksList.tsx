@@ -18,7 +18,7 @@ export const EventTasksList = (): JSX.Element => {
             <Htag tag='xl' className={styles.tasksTitle}>
                 {setLocale(tgUser?.language_code).event_tasks}
             </Htag>
-            <Htag tag='m' className={styles.tasksDescription}>
+            <Htag tag='s' className={styles.tasksDescription}>
                 {setLocale(tgUser?.language_code).tasks_description}
             </Htag>
             {

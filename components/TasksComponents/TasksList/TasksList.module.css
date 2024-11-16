@@ -1,9 +1,9 @@
 .tasksList {
 	display: grid;
 
-	width: calc(100% - 40px);
+	width: calc(100% - 30px);
 	margin-bottom: 110px;
-	padding: 10px 20px;
+	padding: 10px 15px;
 	gap: 30px;
 	justify-items: center;
 }

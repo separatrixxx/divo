@@ -2,11 +2,11 @@
 	display: grid;
 	overflow-y: auto;
 
-	width: calc(100% - 20px);
+	width: calc(100% - 25px);
 	margin-bottom: 110px;
-	padding: 0 10px;
+	padding: 0 5px 0 10px;
 	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-	gap: 10px;
+	gap: 5px;
 	justify-items: center;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;

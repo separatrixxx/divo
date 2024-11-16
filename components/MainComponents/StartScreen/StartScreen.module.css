@@ -12,50 +12,6 @@
 	background: var(--start-bg);
 }
 
-.startTextDiv,
-.joinChannelLink {
-	position: absolute;
-	z-index: 10;
-
-	display: grid;
-
-	width: 90%;
-	justify-items: center !important;
-}
-
-.startTextDiv {
-	top: 3%;
-	gap: 5px;
-}
-
-.joinChannelLink {
-	bottom: 10% !important;
-
-	cursor: pointer;
-}
-
-.joinChannelLink:active > h1,
-.weba:hover > h1 {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	color: var(--primary) !important;
-}
-
-.startScreenTitle {
-	color: var(--primary) !important;
-
-	font-weight: 400 !important;
-}
-
-.startScreenText {
-	transition-duration: 300ms;
-	text-align: center;
-
-	color: var(--white) !important;
-
-	font-weight: 400 !important;
-}
-
 .video {
 	width: 100%;
 	height: auto;
@@ -63,9 +19,10 @@
 }
 
 .progressBar {
-	align-self: end;
 	position: absolute;
 	z-index: 12;
+
+	align-self: end;
 
 	width: 100%;
 	height: 5px;

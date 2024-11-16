@@ -3,9 +3,9 @@
 
 	display: grid;
 
-	width: calc(95% - 20px);
+	width: calc(95% - 30px);
 	margin: 10px 0 110px 0;
-	padding: 10px;
+	padding: 10px 15px;
 	gap: 20px;
 	justify-items: center;
 }
@@ -32,7 +32,7 @@
 	fill: var(--primary);
 }
 
-.logo {
+.userImage {
 	display: grid;
 	align-items: center;
 
@@ -40,16 +40,12 @@
 	height: 120px;
 
 	justify-items: center;
+
+	border-radius: 9999px;
 }
 
 .username {
-	padding: 10px 20px;
-
 	color: var(--white) !important;
-
-	border-radius: 7px;
-	outline: 1px solid var(--primary);
-	outline-offset: -1px;
 }
 
 .coins {

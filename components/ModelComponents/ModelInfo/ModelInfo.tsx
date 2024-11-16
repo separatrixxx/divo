@@ -47,12 +47,6 @@ export const ModelInfo = ({ status, modelInfo }: ModelInfoProps): JSX.Element =>
                     : <></>
                 }
             </div>
-            {/* <ModelPhoto id={modelInfo.id} photo={photo} />
-            {
-                isVoted ?
-                    <ModelOtherPhotos photos={modelInfo.photo_urls} setPhoto={setPhoto} />
-                : <></>
-            } */}
             <Slider id={modelInfo.id} picked_photo={modelInfo.picked_photo}
                 photo_urls={modelInfo.photo_urls} isVoted={isVoted} />
         </div>

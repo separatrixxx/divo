@@ -1,9 +1,9 @@
 .friendsInfo {
 	display: grid;
 
-	width: calc(100% - 40px);
+	width: calc(100% - 30px);
 	margin-bottom: 110px;
-	padding: 10px 20px;
+	padding: 10px 15px;
 	gap: 20px;
 	justify-items: center;
 }
@@ -19,8 +19,8 @@
 	padding: 15px 10px;
 
 	border-radius: 7px;
-	outline: 1px solid var(--darkLight);
-	outline-offset: -1px;
+	background: rgba(0, 0, 0, 0.4);
+	filter: blur(0.4);
 	justify-items: center;
 
 	grid-template-columns: auto auto auto;

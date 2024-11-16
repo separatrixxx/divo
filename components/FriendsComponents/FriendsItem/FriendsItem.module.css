@@ -30,12 +30,8 @@
 	align-items: center;
 
 	height: fit-content;
-	padding: 7px 12px;
 
 	color: var(--white);
-	border-radius: 5px;
-	outline: 1px solid var(--primary);
-	outline-offset: -1px;
 	grid-template-columns: auto 1fr;
 	gap: 10px;
 }

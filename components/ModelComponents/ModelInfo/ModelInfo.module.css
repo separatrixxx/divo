@@ -17,8 +17,6 @@
 }
 
 .statsDiv {
-	position: relative;
-
 	display: grid;
 
 	width: 100%;
@@ -30,4 +28,5 @@
 	backdrop-filter: blur(3px);
 	justify-items: center;
 	grid-template-columns: auto auto;
+	z-index: 50;
 }

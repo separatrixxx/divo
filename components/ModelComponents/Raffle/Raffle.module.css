@@ -1,6 +1,6 @@
 .raffle {
 	position: absolute;
-	z-index: 10;
+	z-index: 25;
 	top: -70%;
 
 	display: grid;
@@ -51,7 +51,7 @@
 
 .winIcon {
 	position: absolute;
-	z-index: 20;
+	z-index: 40;
 	top: 500%;
 	left: 50%;
 

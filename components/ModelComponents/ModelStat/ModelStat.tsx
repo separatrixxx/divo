@@ -32,6 +32,18 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
         };
     }, []);
 
+    let StatIcon = EyeIcon;
+
+    if (type === 'burn') {
+        StatIcon = BurnIcon;
+    } else if (type === 'coin') {
+        StatIcon = CoinIcon;
+    } else if (type === 'refs') {
+        StatIcon = RefsIcon;
+    } else {
+        StatIcon = EyeIcon;
+    }
+
     return (
         <div className={cn(styles.modelStat, {
             [styles.active]: isActive,
@@ -39,25 +51,9 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
             [styles.noIcon]: !type,
             [styles.weba]: webApp?.platform === 'weba',
         })} onClick={toggleTooltip} onMouseEnter={toggleTooltip} onMouseLeave={() => setTooltipVisible(false)}>
-            {
-                type === 'eye' ?
-                    <EyeIcon className={cn(styles.eyeIcon, {
-                        [styles.eyeIconS]: tag === 's',
-                    })} />
-                : type === 'burn' ?
-                    <BurnIcon className={cn(styles.burnIcon, {
-                        [styles.burnIconS]: tag === 's',
-                    })} />
-                : type === 'coin' ?
-                    <CoinIcon className={cn(styles.eyeIcon, {
-                        [styles.eyeIconS]: tag === 's',
-                    })} />
-                : type === 'refs' ?
-                    <RefsIcon className={cn(styles.burnIcon, {
-                        [styles.burnIconS]: tag === 's',
-                    })} />
-                : <></>
-            }
+            <StatIcon className={cn(styles.statIcon, {
+                [styles.statIconS]: tag === 's',
+            })} />
             <Htag tag={tag ? tag : 'm'} className={styles.statText}>
                 {stat}
             </Htag>
@@ -68,7 +64,7 @@ export const ModelStat = ({ type, stat, tooltip, isActive, tag }: ModelStatProps
                             {tooltip}
                         </Htag>
                     </div>
-                : <></>
+                    : <></>
             }
         </div>
     );

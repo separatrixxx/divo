@@ -50,6 +50,24 @@
 	border-radius: 50%;
 }
 
+.popupButton {
+	outline: none;
+	background: var(--primary);
+}
+
+.popupButton .text {
+	color: var(--white);
+
+	font-weight: 500;
+}
+
+.popupButton:active,
+.webaPopup:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }

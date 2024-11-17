@@ -27,9 +27,10 @@
 	filter: brightness(0.9);
 }
 
-.eyeIcon,
-.burnIcon {
+.statIcon {
 	fill: var(--white);
+
+	height: 16px;
 }
 
 .active > svg {
@@ -38,14 +39,6 @@
 
 .active > h1 {
 	font-weight: 400;
-}
-
-.eyeIcon {
-	height: 16px;
-}
-
-.burnIcon {
-	width: 15px;
 }
 
 .statText,
@@ -68,10 +61,6 @@
 	background: var(--dark);
 }
 
-.eyeIconS {
+.statIconS {
 	height: 14px;
-}
-
-.burnIconS {
-	width: 13px;
 }

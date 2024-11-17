@@ -6,15 +6,17 @@ import CopyIcon from './copy.svg';
 import cn from 'classnames';
 
 
-export const Button = ({ text, isCopy, isActive, isLoading, isDisabled, onClick }: ButtonProps): JSX.Element => {
+export const Button = ({ text, isCopy, isActive, isLoading, isDisabled, isPopup, className, onClick }: ButtonProps): JSX.Element => {
     const { webApp } = useSetup();
 
     return (
-        <div className={cn(styles.button, {
+        <div className={cn(styles.button, className, {
             [styles.copyIcon]: isCopy,
             [styles.active]: isActive,
-            [styles.weba]: webApp?.platform === 'weba',
+            [styles.weba]: !isPopup && webApp?.platform === 'weba',
             [styles.disableButton]: isDisabled,
+            [styles.popupButton]: isPopup,
+            [styles.webaPopup]: isPopup && webApp?.platform === 'weba',
         })} onClick={onClick}>
             {
                 !isCopy && !isLoading ?

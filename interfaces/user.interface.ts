@@ -16,6 +16,7 @@ export interface UserInterface {
         money_friends: number,
         register_date: string,
         last_vote_datetime: string,
+        last_signed: string,
         blocked_in_stake: number,
         daily_stake_income: number,
     }

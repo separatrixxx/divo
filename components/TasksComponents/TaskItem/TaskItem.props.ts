@@ -4,7 +4,7 @@ import { TaskMetadataInterface } from '../../../interfaces/tasks.interface';
 
 export interface TaskItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     taskId?: string,
-    tag: string,
+    name: string,
     task_metadata?: TaskMetadataInterface,
     current?: number,
     target?: number,

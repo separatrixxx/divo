@@ -8,13 +8,35 @@ import { useState } from 'react';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { checkTasks } from '../../../helpers/tasks.helper';
 import BurnIcon from './burn.svg';
+import FriendIcon from './friend.svg';
+import InstagramIcon from './instagram.svg';
+import TelegramIcon from './telegram.svg';
+import TwitterIcon from './twitter.svg';
+import YoutubeIcon from './youtube.svg';
+import CoinIcon from './coin.svg';
 import cn from 'classnames';
 
 
-export const TaskItem = ({ taskId, tag, task_metadata, current, target, isCompleted }: TaskItemProps): JSX.Element => {
+export const TaskItem = ({ taskId, name, task_metadata, current, target, isCompleted }: TaskItemProps): JSX.Element => {
     const { router, dispatch, webApp, tgUser } = useSetup();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    let TagIcon = FriendIcon;
+
+    if (task_metadata?.task === 'twitter') {
+        TagIcon = TwitterIcon;
+    } else if (task_metadata?.task === 'telegram' || task_metadata?.task === 'comment') {
+        TagIcon = TelegramIcon;
+    } else if (task_metadata?.task === 'instagram') {
+        TagIcon = InstagramIcon;
+    } else if (task_metadata?.task === 'youtube') {
+        TagIcon = YoutubeIcon;
+    } else if (task_metadata?.task === 'staking') {
+        TagIcon = CoinIcon;
+    } else {
+        TagIcon = FriendIcon;
+    }
 
     return (
         <div className={cn(styles.taskItem, {
@@ -27,18 +49,19 @@ export const TaskItem = ({ taskId, tag, task_metadata, current, target, isComple
                     webApp?.openLink(task_metadata.task_url);
                 }
             }}>
-                <Htag tag='xs' className={styles.tag}>
-                    {setLocale(tgUser?.language_code).task_tags[tag as 'referral']}
-                </Htag>
+                <div className={styles.tagDiv}>
+                    <TagIcon className={styles.tag} />
+                    <Htag tag='s' className={styles.name}>
+                        {setLocale(tgUser?.language_code).task_texts[task_metadata?.task as 'referral']
+                            .replace('$$$', name) +
+                            (task_metadata && task_metadata.require ? ': ' + task_metadata.require : '')}
+                    </Htag>
+                </div>
                 {
                     !isCompleted && current !== undefined && target ?
                         <ProgressBar current={current} target={target} />
                         : <></>
                 }
-                <Htag tag='s' className={styles.name}>
-                    {setLocale(tgUser?.language_code).task_texts[task_metadata?.task as 'referral'] +
-                        (task_metadata && task_metadata.require ? ': ' + task_metadata.require : '')}
-                </Htag>
             </div>
             <div className={styles.taskButtonDiv}>
                 <TaskButton text={setLocale(tgUser?.language_code)[isCompleted ? 'completed' : 'check']}
@@ -57,10 +80,10 @@ export const TaskItem = ({ taskId, tag, task_metadata, current, target, isComple
                     }} />
                 {
                     !isCompleted &&
-                        <Htag tag='s' className={styles.award}>
-                            {'+1'}
-                            <BurnIcon className={styles.burnIcon} />
-                        </Htag>
+                    <Htag tag='s' className={styles.award}>
+                        {'+1'}
+                        <BurnIcon className={styles.burnIcon} />
+                    </Htag>
                 }
             </div>
         </div>

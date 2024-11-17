@@ -60,9 +60,9 @@ export const ModelsList = ({ type }: ModelsListProps): JSX.Element => {
 
     return (
         <div className={styles.modelsList}>
-            {displayedModels.map((m) => (
+            {displayedModels.map((m, i) => (
                 <ModelsItem key={m.id} id={m.id} random_photo={m.random_photo}
-                    photo_index={m.photo_index} user_voted={m.user_voted} />
+                    photo_index={m.photo_index} />
             ))}
             {
                 filterModels(type, models.result.models).length !== displayedModels.length ?

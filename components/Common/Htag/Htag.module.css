@@ -1,3 +1,4 @@
+.xxxxl,
 .xxxl,
 .xxl,
 .xl,
@@ -11,6 +12,12 @@
 	color: var(--tg-theme-text-color);
 
 	font-weight: 300;
+}
+
+.xxxxl {
+	font-size: 100px;
+	font-style: normal;
+	line-height: normal;
 }
 
 .xxxl {
@@ -52,7 +59,7 @@
 
 @media (max-width: 580px) {
 	.xxxl {
-		font-size: 50px;
+		font-size: 40px;
 	}
 
 	.xxl {

@@ -1,9 +1,16 @@
 .coinsInfoItem {
 	display: grid;
-	gap: 20px;
-	grid-template-columns: 1fr auto;
+	gap: 15px;
+	grid-template-columns: auto 1fr auto;
 
 	align-items: top;
+}
+
+.arrow {
+	width: 22px;
+	fill: var(--primary);
+
+	margin-top: 5px;
 }
 
 .coinsInfoDiv {

@@ -6,7 +6,7 @@
 }
 
 .divider {
-	width: calc(100% - 40px);
+	width: calc(100% - 30px);
 	height: 0.5px;
 	margin: 20px 0;
 

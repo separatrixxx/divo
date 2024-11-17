@@ -15,23 +15,27 @@
 	justify-items: left;
 }
 
+.tagDiv {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
+
+	align-items: start;
+}
+
+.tag {
+	width: 15px !important;
+	fill: var(--primary);
+
+	margin-top: 2px;
+}
+
 .channelLink {
 	cursor: pointer;
 }
 
 .completed {
 	filter: brightness(0.5);
-}
-
-.tag {
-	padding: 5px 10px;
-
-	color: var(--primary);
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.8);
-	filter: blur(0.4);
-
-	font-weight: 400;
 }
 
 .name {
@@ -58,5 +62,5 @@
 
 .burnIcon {
 	width: 10px;
-	fill: var(--darkLight);
+	fill: var(--primary);
 }

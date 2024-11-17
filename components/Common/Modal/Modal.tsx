@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import cn from 'classnames';
 
 
-export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element => {
+export const Modal = ({ isActive, setIsActive, children }: ModalProps): JSX.Element => {
     const variants = {
         visible: {
             opacity: 1,
@@ -25,32 +25,26 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
     };
 
     useEffect(() => {
-        const handleEsc = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                setActive(false);
-            }
-        };
-
-        document.addEventListener('keydown', handleEsc);
-
-        return () => {
-            document.removeEventListener('keydown', handleEsc);
-        };
-    }, [setActive]);
+        if (isActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }, [isActive]);
 
     return (
         <motion.div className={cn(styles.modal, {
-            [styles.active]: active,
-        })} onClick={() => setActive(false)}
+            [styles.active]: isActive,
+        })} onClick={() => setIsActive(false)}
             variants={variants}
-            initial={active ? 'visible' : 'hidden'}
+            initial={isActive ? 'visible' : 'hidden'}
             transition={{ duration: 0.15 }}
-            animate={active ? 'visible' : 'hidden'}>
+            animate={isActive ? 'visible' : 'hidden'}>
             <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}
                 variants={variantsModal}
-                initial={active ? 'visible' : 'hidden'}
+                initial={isActive ? 'visible' : 'hidden'}
                 transition={{ duration: 0.15 }}
-                animate={active ? 'visible' : 'hidden'}>
+                animate={isActive ? 'visible' : 'hidden'}>
                 {children}
             </motion.div>
         </motion.div>

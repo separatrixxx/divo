@@ -30,7 +30,7 @@ export const DivositBlock = (): JSX.Element => {
                 {setLocale(tgUser?.language_code).coins_on_divosit + ':'}
             </Htag>
             <Htag tag='xl' className={styles.coinsTitle}>
-                {stakeCoins.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token}
+                {stakeCoins.toLocaleString('ru-RU') + ' ' + setLocale(tgUser?.language_code).token}
             </Htag>
             <Htag tag='m' className={styles.text}>
                 {setLocale(tgUser?.language_code).divosit_calculator + ':'}

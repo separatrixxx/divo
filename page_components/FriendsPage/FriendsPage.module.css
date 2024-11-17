@@ -6,7 +6,7 @@
 }
 
 .friedsTitle {
-	margin: 20px 0 0 20px !important;
+	margin: 20px 0 0 15px !important;
 
 	color: var(--white) !important;
 
@@ -16,7 +16,7 @@
 
 .friedsDescription {
 	max-width: 80%;
-	margin: 5px 0 20px 20px !important;
+	margin: 5px 0 20px 15px !important;
 
 	color: var(--darkLight) !important;
 

@@ -16,8 +16,8 @@
 }
 
 .divositInput {
-	width: calc(100% - 20px);
-	padding: 13.8px 10px;
+	width: calc(100% - 30px);
+	padding: 13.8px 15px;
 
 	transition-duration: 500ms;
 

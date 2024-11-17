@@ -1,0 +1,64 @@
+.startPopup {
+	display: grid;
+	justify-items: center;
+	gap: 10px;
+}
+
+.sparks {
+	fill: var(--white);
+
+	width: 90px;
+	margin-bottom: 10px;
+}
+
+.welcomeBackText,
+.popupText {
+	text-align: center;
+
+	color: var(--white);
+}
+
+.welcomeBackText {
+	font-weight: 600;
+}
+
+.gridTextS,
+.gridTextM {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+
+	align-items: center;
+	justify-items: center;
+}
+
+.gridTextS {
+	gap: 5px;
+}
+
+.gridTextM {
+	gap: 10px;
+}
+
+.popupText > span {
+	font-weight: 500;
+}
+
+.popupDiv {
+	display: grid;
+
+	margin: 10px 0;
+	justify-items: center;
+	gap: 5px;
+}
+
+.logoS {
+	width: 16px;
+}
+
+.logoM {
+	width: 28px;
+}
+
+.popupButton {
+	margin-top: 10px;
+}

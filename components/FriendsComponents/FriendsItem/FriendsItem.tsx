@@ -10,6 +10,10 @@ import { numFormat } from '../../../helpers/format.helper';
 export const FriendsItem = ({ id, isVote }: FriendsItemProps): JSX.Element => {
     return (
         <div className={styles.friendsItem}>
+            <Htag tag='s' className={styles.friendsItemId}>
+                <FriendIcon className={styles.friendIcon} />
+                {id}
+            </Htag>
             <Htag tag='m' className={styles.friendsItemBalance}>
                 {'+' + (isVote ? 1 : numFormat(1000))}
                 {
@@ -18,10 +22,6 @@ export const FriendsItem = ({ id, isVote }: FriendsItemProps): JSX.Element => {
                     :
                         <CoinIcon />
                 }
-            </Htag>
-            <Htag tag='s' className={styles.friendsItemId}>
-                <FriendIcon className={styles.friendIcon} />
-                {id}
             </Htag>
         </div>
     );

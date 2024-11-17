@@ -76,7 +76,7 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
                         [styles.target]: !isAnimating && number === target,
                         [styles.blink]: isBlinking && number === target,
                     })}>
-                        {number.toLocaleString('en-US')}
+                        {number.toLocaleString('ru-RU')}
                     </div>
                 ))}
             </div>

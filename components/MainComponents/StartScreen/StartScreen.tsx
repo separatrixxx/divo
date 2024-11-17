@@ -2,13 +2,11 @@ import styles from './StartScreen.module.css';
 import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import cn from 'classnames';
 
 
 export const StartScreen = (): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { tgUser } = useSetup();
     const [progress, setProgress] = useState<number>(0);
 
     useEffect(() => {
@@ -35,6 +33,14 @@ export const StartScreen = (): JSX.Element => {
 
     return (
         <div className={styles.startScreen}>
+            <div className={styles.startScreenDiv}>
+                <Htag tag='xxxxl' className={styles.startScreenTitle}>
+                    {setLocale(tgUser?.language_code).divo}
+                </Htag>
+                <Htag tag='s' className={styles.startScreenText}>
+                    {setLocale(tgUser?.language_code).slogan}
+                </Htag>
+            </div>
             <video className={styles.video} autoPlay playsInline loop muted no-controls >
                 <source src="/StartVideo.MP4" type="video/mp4"></source>
             </video>

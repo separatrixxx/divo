@@ -12,12 +12,12 @@ export const DivositItem = ({ amount, dateEnd, dailyReward, totalReward }: Divos
     return (
         <div className={styles.divositItem}>
             <Htag tag='s' className={styles.title}>
-                {`${amount.toLocaleString('en-US')} ${setLocale(tgUser?.language_code).token}  ${setLocale(tgUser?.language_code).until} ${formatTimestamp(dateEnd || 0)}`}
+                {`${amount.toLocaleString('ru-RU')} ${setLocale(tgUser?.language_code).token}  ${setLocale(tgUser?.language_code).until} ${formatTimestamp(dateEnd || 0)}`}
             </Htag>
             <Htag tag='xs' className={styles.text}>
                 {setLocale(tgUser?.language_code).per_day_total
-                    .replace('$$$', dailyReward.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token)
-                    .replace('$$$$', totalReward.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token)
+                    .replace('$$$', dailyReward.toLocaleString('ru-RU') + ' ' + setLocale(tgUser?.language_code).token)
+                    .replace('$$$$', totalReward.toLocaleString('ru-RU') + ' ' + setLocale(tgUser?.language_code).token)
                 }
             </Htag>
         </div>

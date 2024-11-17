@@ -27,7 +27,7 @@ export const EventTasksList = (): JSX.Element => {
                         <>
                             {
                                 tasks.result.tasks.event_task.map(t => (
-                                    <TaskItem key={t.id} taskId={t.id} tag={t.tag}
+                                    <TaskItem key={t.id} taskId={t.id} name={t.name}
                                         task_metadata={t.task_metadata}
                                         current={t.progress.current}
                                         target={t.progress.target}

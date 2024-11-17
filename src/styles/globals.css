@@ -36,7 +36,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 30px;
-	background-color: var(--white);
+	background-color: var(--primary);
 }
 
 .modelsList::-webkit-scrollbar {
@@ -83,6 +83,7 @@ input[type="number"]:focus {
 	--start-bg: #0A0909;
 	--light: #DDD;
 	--darkLight: #A3A3A3;
+	--popup: #2C2F35;
 	--good: #23C924;
 	--error: #FF1500;
 	--fire: #FF7401;

@@ -3,21 +3,34 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import Image from 'next/image';
-import { ModelStat } from '../../ModelComponents/ModelStat/ModelStat';
 import { CoinsInfoList } from '../CoinsInfoList/CoinsInfoList';
 import { Spinner } from '../../Common/Spinner/Spinner';
-import LeaderboardIcon from './leaderboard.svg';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../../Common/Button/Button';
-import cn from 'classnames';
 import { DivositBlock } from '../DivositBlock/DivositBlock';
+import { numFormat } from '../../../helpers/format.helper';
+import InfoIcon from './info.svg';
+import { Coin } from '../../Common/Coin/Coin';
+import cn from 'classnames';
 
 
 export const UserInfo = (): JSX.Element => {
     const { router, webApp, tgUser, user } = useSetup();
 
     const [type, setType] = useState<'coins' | 'divosit'>(router.query.type as 'coins' || 'coins');
+
+    const [showCoin, setShowCoin] = useState<boolean>(false);
+    const animationInterval  = 20;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setShowCoin(true);
+            setTimeout(() => setShowCoin(false), 3000);
+        }, animationInterval * 1000);
+
+        return () => clearInterval(interval);
+    }, [animationInterval]);
 
     const setName = () => {
         if (tgUser?.username) {
@@ -35,29 +48,35 @@ export const UserInfo = (): JSX.Element => {
 
     return (
         <div className={styles.userInfo}>
-            {
-                user.result.user_status !== 'user' ?
-                    <Link href='/leaderboard' className={cn(styles.leaderboardLink, {
-                        [styles.weba]: webApp?.platform === 'weba',
-                    })} aria-label='leaderboard link'>
-                        <LeaderboardIcon />
-                    </Link>
-                : <></>
-            }
-            <Htag tag='m' className={styles.username}>
-                {setName()}
-            </Htag>
-            <Image className={styles.userImage} draggable='false'
-                loader={() => tgUser?.photo_url || '/logo.svg'}
-                src={tgUser?.photo_url || '/logo.svg'}
-                alt='logo image'
-                width={1}
-                height={1}
-                unoptimized={true}
-            />
-            <Htag tag='xl' className={styles.coins}>
-                {user.result.coins.toLocaleString('en-US') + ' ' + setLocale(tgUser?.language_code).token}
-            </Htag>
+            <div className={styles.usernameDiv}>
+                <Image className={styles.userImage} draggable='false'
+                    loader={() => tgUser?.photo_url || '/logo.svg'}
+                    src={tgUser?.photo_url || '/logo.svg'}
+                    alt='logo image'
+                    width={1}
+                    height={1}
+                    unoptimized={true}
+                />
+                <Htag tag='m' className={styles.username}>
+                    {setName()}
+                </Htag>
+                <Link href='/info' className={cn(styles.infoLink, {
+                    [styles.weba]: webApp?.platform === 'weba',
+                })} aria-label='info link'>
+                    <InfoIcon />
+                </Link>
+            </div>
+            <div className={styles.coinsDiv}>
+                <Htag tag={user.result.coins > 1000000 ? 'xxl' : 'xxxl'} className={styles.coins}>
+                    <span>{user.result.coins.toLocaleString('ru-RU') + ' '}</span>
+                    {setLocale(tgUser?.language_code).token}
+                </Htag>
+                <Htag tag='s' className={styles.coinsPerDay}>
+                    <span>{numFormat(user.result.daily_stake_income) + ' '}</span>
+                    {setLocale(tgUser?.language_code).token + ' / ' + (setLocale(tgUser?.language_code).day).toLowerCase()}
+                </Htag>
+                {showCoin && user.result.daily_stake_income > 0 && <Coin />}
+            </div>
             <div className={styles.changeTypeDiv}>
                 <Button text={setLocale(tgUser?.language_code).transactions} isActive={type === 'coins'}
                     onClick={() => setType('coins')} />
@@ -72,7 +91,7 @@ export const UserInfo = (): JSX.Element => {
                     <Htag tag='m' className={styles.divositInfo}>
                         {setLocale(tgUser?.language_code).divosit_info}
                     </Htag>
-                : <></>
+                    : <></>
             }
             {
                 type === 'coins' ?

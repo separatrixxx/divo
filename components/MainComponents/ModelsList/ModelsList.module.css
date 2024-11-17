@@ -2,9 +2,9 @@
 	display: grid;
 	overflow-y: auto;
 
-	width: calc(100% - 25px);
+	width: calc(100% - 15px);
 	margin-bottom: 110px;
-	padding: 0 5px 0 10px;
+	padding: 0 0 0 5px;
 	grid-template-columns: calc(50% - 5px) calc(50% - 5px);
 	gap: 5px;
 	justify-items: center;

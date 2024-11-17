@@ -13,10 +13,12 @@
 	background: rgba(0, 0, 0, 0.8);
 	grid-template-columns: auto 1fr auto;
 	gap: 15px;
-	filter: blur(0.4);
+	backdrop-filter: blur(3px);
 }
 
 .headerDiv {
+	position: relative;
+
 	display: grid;
 	gap: 5px;
 	justify-items: left;

@@ -20,6 +20,7 @@ const userData: UserInterface = {
     money_friends: 0,
     register_date: '',
     last_vote_datetime: '',
+    last_signed: '',
     blocked_in_stake: 0,
     daily_stake_income: 0,
   }

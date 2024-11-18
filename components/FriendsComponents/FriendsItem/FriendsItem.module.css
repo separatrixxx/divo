@@ -25,11 +25,16 @@
 	height: 15px;
 }
 
-.friendsItemId {
+.friendName {
 	display: grid;
 	align-items: center;
 
+	max-width: 85%;
 	height: fit-content;
+
+	text-overflow: ellipsis;
+	word-break: break-word;
+	hyphens: auto;
 
 	color: var(--white);
 	grid-template-columns: auto 1fr;

@@ -4,7 +4,7 @@ import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
 import { getModels } from "../../helpers/models.helper";
 import { useEffect } from "react";
-import { getUser } from "../../helpers/user.helper";
+import { getRefs, getUser } from "../../helpers/user.helper";
 
 
 function Main(): JSX.Element {
@@ -25,6 +25,13 @@ function Main(): JSX.Element {
         webApp: webApp,
         tgUser: tgUser,
       });
+
+      getRefs({
+        router: router,
+        webApp: webApp,
+        dispatch: dispatch,
+        tgUser: tgUser,
+    });
     }
   }, [router, tgUser, webApp, dispatch]);
 

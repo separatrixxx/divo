@@ -2,23 +2,10 @@ import { FriendsPage } from '../../page_components/FriendsPage/FriendsPage';
 import Head from 'next/head';
 import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
-import { useEffect } from 'react';
-import { getRefs } from '../../helpers/user.helper';
 
 
 function Friends(): JSX.Element {
-    const { router, dispatch, webApp, tgUser } = useSetup();
-
-    useEffect(() => {
-        if (tgUser) {
-            getRefs({
-                router: router,
-                webApp: webApp,
-                dispatch: dispatch,
-                tgUser: tgUser,
-            });
-        }
-    }, [router, tgUser, webApp, dispatch]);
+    const { router } = useSetup();
 
     return (
         <>

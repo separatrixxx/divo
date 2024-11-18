@@ -10,7 +10,7 @@ import { numFormat } from '../../../helpers/format.helper';
 export const FriendsItem = ({ name, isVote }: FriendsItemProps): JSX.Element => {
     return (
         <div className={styles.friendsItem}>
-            <Htag tag='s' className={styles.friendsItemId}>
+            <Htag tag='s' className={styles.friendName}>
                 <FriendIcon className={styles.friendIcon} />
                 {name}
             </Htag>

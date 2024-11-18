@@ -25,16 +25,19 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
                 {setLocale(tgUser?.language_code).your_deposit_earned_you.replace('$$$', String(depositEarned))
                     + ' ' + setLocale(tgUser?.language_code).token}
             </Htag>
-            <div className={styles.popupDiv}>
-                <Htag tag='xs' className={styles.popupText}>
-                    {setLocale(tgUser?.language_code).profit_per_day}
-                </Htag>
-                <Htag tag='s' className={cn(styles.popupText, styles.gridTextS)}>
-                    <Logo className={styles.logoS} />
-                    <span>{'+' + numFormat(user.result.daily_stake_income)}</span>
-                    {setLocale(tgUser?.language_code).token}
-                </Htag>
-            </div>
+            {
+                user.result.daily_stake_income &&
+                <div className={styles.popupDiv}>
+                    <Htag tag='xs' className={styles.popupText}>
+                        {setLocale(tgUser?.language_code).profit_per_day}
+                    </Htag>
+                    <Htag tag='s' className={cn(styles.popupText, styles.gridTextS)}>
+                        <Logo className={styles.logoS} />
+                        <span>{'+' + numFormat(user.result.daily_stake_income)}</span>
+                        {setLocale(tgUser?.language_code).token}
+                    </Htag>
+                </div>
+            }
             <Htag tag='xl' className={cn(styles.popupText, styles.gridTextM)}>
                 <Logo className={styles.logoM} />
                 <span>{numFormat(user.result.coins)}</span>

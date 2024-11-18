@@ -9,7 +9,7 @@ export const Slide = ({ photo, alt }: SlideProps): JSX.Element => {
 	return (
 		<div className={styles.modelPhoto}>
 			{
-				ext === 'webp' ?
+				ext !== '.mp4' ?
 					<Image className={styles.photo}
 						draggable='false'
 						loader={() => photo}

@@ -27,7 +27,7 @@ export const ModelsItem = memo(({ id, random_photo, photo_index }: ModelsItemPro
                     inView ?
                         <>
                             {
-                                ext === 'webp' ?
+                                ext !== '.mp4' ?
                                     <Image className={styles.modelsItemPhoto}
                                         loader={() => random_photo}
                                         src={random_photo}
@@ -38,7 +38,7 @@ export const ModelsItem = memo(({ id, random_photo, photo_index }: ModelsItemPro
                                         priority={false}
                                         quality={10}
                                     />
-                                    :
+                                :
                                     <video className={styles.modelsItemPhoto} autoPlay playsInline loop muted no-controls >
                                         <source src={random_photo} type="video/mp4"></source>
                                     </video>

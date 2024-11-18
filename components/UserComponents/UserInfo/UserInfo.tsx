@@ -21,12 +21,12 @@ export const UserInfo = (): JSX.Element => {
     const [type, setType] = useState<'coins' | 'divosit'>(router.query.type as 'coins' || 'coins');
 
     const [showCoin, setShowCoin] = useState<boolean>(false);
-    const animationInterval  = 20;
+    const animationInterval  = 10;
 
     useEffect(() => {
         const interval = setInterval(() => {
             setShowCoin(true);
-            setTimeout(() => setShowCoin(false), 3000);
+            setTimeout(() => setShowCoin(false), 5000);
         }, animationInterval * 1000);
 
         return () => clearInterval(interval);

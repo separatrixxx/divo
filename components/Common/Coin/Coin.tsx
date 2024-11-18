@@ -10,7 +10,8 @@ import cn from 'classnames';
 export const Coin = ({ isSmall }: CoinProps): JSX.Element => {
     const { tgUser, user } = useSetup();
 
-    const coins = (user.result.daily_stake_income / 4320).toFixed(5);
+    const seconds = 24 * 60 * 6;
+    const coins = (user.result.daily_stake_income / seconds).toFixed(5);
 
     return (
         <div className={cn(styles.coin, {

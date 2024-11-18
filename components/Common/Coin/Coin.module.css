@@ -4,21 +4,26 @@
 
 	display: grid;
 
-	animation: coinAnimation 3s ease-in-out;
+	animation: coinAnimation 5s ease-in-out;
 	gap: 5px;
 	justify-items: center;
 }
 
 .coin > svg {
-	width: 25px;
+	width: 35px;
+
+	border-radius: 50%;
+	box-shadow: 0 0 15px 10px var(--primary);
 }
 
 .coin > h1 {
-	color: var(--darkLight);
+	color: var(--primary);
+
+	font-weight: 500;
 }
 
 .smallCoin > svg {
-	width: 15px;
+	width: 25px;
 }
 
 @keyframes coinAnimation {

@@ -7,12 +7,12 @@ import CoinIcon from './coin.svg';
 import { numFormat } from '../../../helpers/format.helper';
 
 
-export const FriendsItem = ({ id, isVote }: FriendsItemProps): JSX.Element => {
+export const FriendsItem = ({ name, isVote }: FriendsItemProps): JSX.Element => {
     return (
         <div className={styles.friendsItem}>
             <Htag tag='s' className={styles.friendsItemId}>
                 <FriendIcon className={styles.friendIcon} />
-                {id}
+                {name}
             </Htag>
             <Htag tag='m' className={styles.friendsItemBalance}>
                 {'+' + (isVote ? 1 : numFormat(1000))}

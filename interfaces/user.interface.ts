@@ -35,6 +35,7 @@ export interface RefsInterface {
 
 export interface RefItem {
     id: string,
+    display_name: string,
 }
 
 export interface CoinsInfoInterface {

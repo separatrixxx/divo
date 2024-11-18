@@ -14,10 +14,10 @@ export const FriendsList = (): JSX.Element => {
     return (
         <div className={styles.friendsList}>
             {firstFriends.map(r => (
-                <FriendsItem key={r.id} id={r.id} />
+                <FriendsItem key={r.id} name={r.display_name} />
             ))}
             {otherFriends.map(r => (
-                <FriendsItem key={r.id} id={r.id} isVote={true} />
+                <FriendsItem key={r.id} name={r.display_name} isVote={true} />
             ))}
         </div>
     );

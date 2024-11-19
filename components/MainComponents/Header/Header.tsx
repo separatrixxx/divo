@@ -10,7 +10,7 @@ import cn from 'classnames';
 
 
 export const Header = (): JSX.Element => {
-    const { tgUser, user } = useSetup();
+    const { router, tgUser, user } = useSetup();
 
     const [showCoin, setShowCoin] = useState<boolean>(false);
     const animationInterval  = 10;
@@ -39,7 +39,7 @@ export const Header = (): JSX.Element => {
                 {numFormat(user.result.remaining_votes) + '/' + numFormat(user.result.total_available_votes)}
                 <BurnIcon />
             </Htag>
-            <div className={cn(styles.headerDiv, styles.rightHeaderDiv)}>
+            <div className={cn(styles.headerDiv, styles.rightHeaderDiv)} onClick={() => router.push('/profile?type=divosit')}>
                 <Htag tag='xs' className={styles.title}>
                     {setLocale(tgUser?.language_code).per_day}
                 </Htag>

@@ -17,6 +17,7 @@
 }
 
 .statsDiv {
+	position: relative;
 	z-index: 50;
 
 	display: grid;
@@ -27,7 +28,6 @@
 
 	border-radius: 7px;
 	background: rgba(0, 0, 0, 0.25);
-	backdrop-filter: blur(3px);
 	justify-items: center;
 	grid-template-columns: auto auto;
 }

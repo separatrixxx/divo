@@ -11,6 +11,7 @@ import { Button } from '../../Common/Button/Button';
 import { DivositBlock } from '../DivositBlock/DivositBlock';
 import { numFormat } from '../../../helpers/format.helper';
 import InfoIcon from './info.svg';
+import Marat from './marat.svg';
 import { Coin } from '../../Common/Coin/Coin';
 import cn from 'classnames';
 
@@ -22,6 +23,9 @@ export const UserInfo = (): JSX.Element => {
 
     const [showCoin, setShowCoin] = useState<boolean>(false);
     const animationInterval  = 10;
+
+    const [isMarat, setIsMarat] = useState<boolean>(false);
+    const [maratCount, setMaratCount] = useState<number>(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -48,6 +52,25 @@ export const UserInfo = (): JSX.Element => {
 
     return (
         <div className={styles.userInfo}>
+            {
+                (tgUser?.username === 'separatrix' || tgUser?.username === 'elanoide_ss') &&
+                    <>
+                        <div className={styles.easterEgg} onClick={() => {
+                            if (isMarat) {
+                                setIsMarat(false);
+                                setMaratCount(0);
+                            } else if (maratCount < 4) {
+                                setMaratCount(maratCount + 1);
+                            } else {
+                                setIsMarat(true);
+                            }
+                        }} />
+                        {
+                            isMarat &&
+                                <Marat />
+                        }
+                    </>
+            }
             <div className={styles.usernameDiv}>
                 <Image className={styles.userImage} draggable='false'
                     loader={() => tgUser?.photo_url || '/logo.svg'}

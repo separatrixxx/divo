@@ -99,8 +99,8 @@ export const TasksList = ({ type, list }: TaskListProps): JSX.Element => {
                                         {groupedTasks[Number(day)]
                                             .sort((a, b) => (a.tag === 'referral' ? 1 : b.tag === 'referral' ? -1 : 0))
                                             .map(t => (
-                                            <TaskItem key={t.id} taskId={t.id}
-                                                name={t.name} task_metadata={t.task_metadata}
+                                            <TaskItem key={t.id} taskId={t.id} name={t.name}
+                                                description={t.description} task_metadata={t.task_metadata}
                                                 current={type === 'active' ? t.progress.current : undefined}
                                                 target={type === 'active' ? t.progress.target : undefined}
                                                 isCompleted={type !== 'active'} />

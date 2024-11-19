@@ -15,9 +15,10 @@ import TwitterIcon from './twitter.svg';
 import YoutubeIcon from './youtube.svg';
 import CoinIcon from './coin.svg';
 import cn from 'classnames';
+import { copyToClipboard } from '../../../helpers/clipboard.helper';
 
 
-export const TaskItem = ({ taskId, name, task_metadata, current, target, isCompleted }: TaskItemProps): JSX.Element => {
+export const TaskItem = ({ taskId, name, description, task_metadata, current, target, isCompleted }: TaskItemProps): JSX.Element => {
     const { router, dispatch, webApp, tgUser } = useSetup();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -67,6 +68,10 @@ export const TaskItem = ({ taskId, name, task_metadata, current, target, isCompl
                 <TaskButton text={setLocale(tgUser?.language_code)[isCompleted ? 'completed' : 'check']}
                     isLoading={isLoading} isCompleted={isCompleted} onClick={() => {
                         if (!isCompleted && taskId) {
+                            if (description.trim()) {
+                                copyToClipboard(description);
+                            }
+
                             checkTasks({
                                 router: router,
                                 webApp: webApp,

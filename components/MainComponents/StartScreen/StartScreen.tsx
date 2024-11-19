@@ -9,8 +9,9 @@ export const StartScreen = (): JSX.Element => {
     const { tgUser } = useSetup();
     const [progress, setProgress] = useState<number>(0);
 
+    const interval = 130;
+
     useEffect(() => {
-        const interval = 100;
         let currentStep = 0;
 
         const weightedSteps = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5];
@@ -21,12 +22,12 @@ export const StartScreen = (): JSX.Element => {
             const randomIncrement = getRandomStep();
 
             setProgress(prevProgress => {
-                const newProgress = Math.min(prevProgress + randomIncrement, 100);
+                const newProgress = Math.min(prevProgress + randomIncrement, interval);
                 return newProgress;
             });
         }, interval);
 
-        setTimeout(() => setProgress(100), 5400);
+        setTimeout(() => setProgress(interval), 5400);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -47,8 +48,8 @@ export const StartScreen = (): JSX.Element => {
             <div className={styles.progressBar}
                 style={{
                     background: `linear-gradient(to right,
-                    var(--primary) ${Math.min(progress, 100)}%, 
-                    rgba(255, 255, 255, 0.07) ${Math.min(progress, 100)}%)`
+                    var(--primary) ${Math.min(progress, interval)}%, 
+                    rgba(255, 255, 255, 0.07) ${Math.min(progress, interval)}%)`
                 }} />
         </div>
     );

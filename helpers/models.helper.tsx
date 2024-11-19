@@ -24,7 +24,7 @@ export async function getModels(args: BaseArguments) {
 }
 
 export async function voteForModel(args: VotingArguments) {
-    const { webApp, tgUser, modelId, setIsLoading, setIsVoted, setAward, setRaffleVisible, handleClick } = args;
+    const { webApp, tgUser, modelId, setIsLoading, setIsVoted, setAward, setRaffleVisible } = args;
 
     setIsLoading(true);
 
@@ -39,7 +39,6 @@ export async function voteForModel(args: VotingArguments) {
         setIsLoading(false);
         setIsVoted(true);
         setRaffleVisible(true);
-        handleClick();
         setAward(response.result.coins_awarded);
     } catch (err: any) {
         setIsLoading(false);

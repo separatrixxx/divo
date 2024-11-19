@@ -7,6 +7,7 @@ import BigWin from './big_win.svg';
 import EpicWin from './epic_win.svg';
 import { gsap } from 'gsap';
 import cn from 'classnames';
+import { CoinsRain } from '../CoinsRain/CoinsRain';
 
 
 export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: RaffleProps): JSX.Element => {
@@ -68,7 +69,11 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
 
     return (
         <>
-            <FireworksComponents />
+            {/* <FireworksComponents /> */}
+            {
+                isBlinking &&
+                    <CoinsRain amount={30} />
+            }
             <div className={styles.raffle}>
                 {potentionalReward?.map((number, index) => (
                     <div key={index} className={cn(styles.cell, {
@@ -80,7 +85,9 @@ export const Raffle = ({ target, potentionalReward, isVisible, setIsVisible }: R
                     </div>
                 ))}
             </div>
-            <div ref={svgRef} className={styles.winIcon}>
+            <div ref={svgRef} className={cn(styles.winIcon, {
+                [styles.blinking]: isBlinking,
+            })}>
                 {
                     potentionalReward && target ? potentionalReward.indexOf(target) === 0 ?
                         <GoodWin />

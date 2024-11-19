@@ -23,7 +23,7 @@ export const es = {
         check_task_error: "Se produjo un error al verificar la tarea",
         have_not_completed_task_error: "Aún no has completado esta tarea",
         do_not_have_access_to_page_error: "No tienes acceso a esta página",
-        add_staking_error: "Se produjo un error al agregar el staking",
+        add_staking_error: "No tienes suficientes monedas, actualiza la página",
     },
     model_id_copied: "ID del modelo copiado al portapapeles",
     vote: "Elige modelo",

@@ -23,7 +23,7 @@ export const ru = {
         check_task_error: "Произошла ошибка при проверке задания",
         have_not_completed_task_error: "Вы ещё не выполнили это задание",
         do_not_have_access_to_page_error: "У вас нет доступа к этой странице",
-        add_staking_error: "Произошла ошибка при добавлении стейкинга",
+        add_staking_error: "У вас недостаточно монет, обновите страницу",
     },
     model_id_copied: "ID модели скопирован",
     vote: "Выбрать модель",

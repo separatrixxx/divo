@@ -23,7 +23,7 @@ export const en = {
         check_task_error: "An error occurred while checking task",
         have_not_completed_task_error: "You haven't completed this task yet",
         do_not_have_access_to_page_error: "You don't have access to this page",
-        add_staking_error: "An error occurred while adding staking",
+        add_staking_error: "You don't have enough coins, refresh the page",
     },
     model_id_copied: "Model ID copied to clipboard",
     vote: "Pick model",

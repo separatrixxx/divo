@@ -27,7 +27,7 @@ export const TaskItem = ({ taskId, name, description, task_metadata, current, ta
 
     if (task_metadata?.task === 'twitter') {
         TagIcon = TwitterIcon;
-    } else if (task_metadata?.task === 'telegram' || task_metadata?.task === 'comment') {
+    } else if (task_metadata?.task === 'telegram' || task_metadata?.task === 'comment' || task_metadata?.task === 'reaction') {
         TagIcon = TelegramIcon;
     } else if (task_metadata?.task === 'instagram') {
         TagIcon = InstagramIcon;

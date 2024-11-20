@@ -72,6 +72,7 @@ export const en = {
         comment: "Comment",
         event: "Event",
         staking: "DIVO Boost",
+        reaction: "Reaction",
     },
     task_texts: {
         referral: "Invite the required number of friends",
@@ -82,6 +83,7 @@ export const en = {
         youtube: "Subscribe to the $$$ YouTube channel",
         comment: "Leave a comment under the post on the $$$ channel",
         staking: "Place the required amount of coins on the DIVO Boost",
+        reaction: "React to a post in the $$$ channel",
     },
     check : "Check",
     friends: "Friends",

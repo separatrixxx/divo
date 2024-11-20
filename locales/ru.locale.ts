@@ -72,6 +72,7 @@ export const ru = {
         comment: "Комментарий",
         event: "Событие",
         staking: "DIVO Boost",
+        reaction: "Реакция",
     },
     task_texts: {
         referral: "Пригласите необходимое количество друзей",
@@ -82,6 +83,7 @@ export const ru = {
         instagram: "Подпишитесь на $$$ BananaCodes",
         comment: "Оставьте комментарий под постом на канале $$$",
         staking: "Разместите необходимое количество монет на DIVO Boost",
+        reaction: "Поставьте реакцию на пост в канале $$$"
     },
     check: "Проверить",
     friends: "Друзья",

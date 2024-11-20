@@ -72,6 +72,7 @@ export const es = {
         comment: "Comentario",
         event: "Evento",
         staking: "DIVO Boost",
+        reaction: "Reacción",
     },
     task_texts: {
         referral: "Invita el número requerido de amigos",
@@ -82,6 +83,7 @@ export const es = {
         instagram: "Sigue a $$$ en Instagram",
         comment: "Deja un comentario debajo de la publicación en el canal $$$",
         staking: "Coloque la cantidad requerida de monedas en el DIVO Boost",
+        reaction: "Reaccionar a una publicación en el canal $$$",
     },    
     check: "Controlar",
     friends: "Amigos",

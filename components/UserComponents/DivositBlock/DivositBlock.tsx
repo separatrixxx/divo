@@ -57,10 +57,12 @@ export const DivositBlock = (): JSX.Element => {
                     (daysDivosit === 1 ? '0.5% ' : daysDivosit === 7 ? '0.7% ' : '1% ') +
                     setLocale(tgUser?.language_code).per_day}
             </Htag>
-            <Htag tag='m' className={styles.text}>
-                {setLocale(tgUser?.language_code).your_profit + ': ' +
-                    (user.result.coins - user.result.blocked_in_stake >= 5000 ? calculateProfit(coinsDivosit, daysDivosit) : 0)}
-            </Htag>
+            {   
+                user.result.coins - user.result.blocked_in_stake >= 5000 &&
+                    <Htag tag='m' className={styles.text}>
+                        {setLocale(tgUser?.language_code).your_profit + ': ' + calculateProfit(coinsDivosit, daysDivosit)}
+                    </Htag>
+            }
             <Button text={setLocale(tgUser?.language_code)[user.result.coins - user.result.blocked_in_stake >= 5000 ? 'put_coins_on_divosit' : 'not_enough_coins']}
                 isLoading={isLoading} isDisabled={user.result.coins - user.result.blocked_in_stake < 5000} onClick={() => {
                     if (user.result.coins - user.result.blocked_in_stake >= 5000) {

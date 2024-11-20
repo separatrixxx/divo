@@ -14,6 +14,7 @@
 
 	border-radius: 50%;
 	box-shadow: 0 0 15px 10px var(--primary);
+	animation: blink 1s ease-in-out infinite;
 }
 
 .coin > h1 {
@@ -41,5 +42,19 @@
 		transform: translateY(0) scale(1);
 
 		opacity: 0;
+	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1; 
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+	
+	100% {
+		opacity: 1;
 	}
 }

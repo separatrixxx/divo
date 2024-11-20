@@ -18,7 +18,7 @@
 	backdrop-filter: blur(3px);
 }
 
-.navbarLogoButtonDiv {
+.navbarLogoLink {
 	position: relative;
 
 	display: grid;
@@ -31,7 +31,7 @@
 	transition-duration: 300ms;
 }
 
-.navbarLogoButtonDiv:active,
+.navbarLogoLink:active,
 .weba:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -46,9 +46,10 @@
 	width: 70px;
 
 	border-radius: 9999px;
+	animation: coinBlink 3s ease-in-out infinite;
 }
 
-.navbarLogoButtonDiv::before {
+.navbarLogoLink::before {
 	position: absolute;
 	z-index: 0;
 	top: -75%;
@@ -65,7 +66,21 @@
 	clip-path: ellipse(200% 28% at 50% 0%);
 }
 
-.navbarLogoButtonDiv:hover .navbarLogoButton,
-.navbarLogoButtonDiv:active .navbarLogoButton {
+.navbarLogoLink:hover .navbarLogoButton,
+.navbarLogoLink:active .navbarLogoButton {
 	filter: none;
+}
+
+@keyframes coinBlink {
+	0% {
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
+
+	50% {
+		box-shadow: 0 0 1px 1px var(--primary);
+	}
+	
+	100% {
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
 }

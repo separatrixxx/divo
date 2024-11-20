@@ -14,7 +14,7 @@ export const Navbar = (): JSX.Element => {
         <nav className={styles.navbar}>
             <NavbarButton type='main' text={setLocale(tgUser?.language_code).main} link='/' />
             <NavbarButton type='collection' text={setLocale(tgUser?.language_code).collection} link='/collection' />
-            <Link href='/profile' className={cn(styles.navbarLogoButtonDiv, {
+            <Link href='/profile' className={cn(styles.navbarLogoLink, {
                 [styles.weba]: webApp?.platform === 'weba',
             })} aria-label='navbar profile link'>
                 <Logo className={styles.navbarLogoButton} />

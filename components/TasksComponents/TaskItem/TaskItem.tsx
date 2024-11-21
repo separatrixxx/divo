@@ -14,8 +14,8 @@ import TelegramIcon from './telegram.svg';
 import TwitterIcon from './twitter.svg';
 import YoutubeIcon from './youtube.svg';
 import CoinIcon from './coin.svg';
-import cn from 'classnames';
 import { copyToClipboard } from '../../../helpers/clipboard.helper';
+import cn from 'classnames';
 
 
 export const TaskItem = ({ taskId, name, description, task_metadata, current, target, isCompleted }: TaskItemProps): JSX.Element => {

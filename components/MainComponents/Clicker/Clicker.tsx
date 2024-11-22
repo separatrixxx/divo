@@ -54,7 +54,7 @@ export const Clicker = (): JSX.Element => {
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const y = e.clientY - rect.top + 60;
         handleEvent(x, y);
     };
 

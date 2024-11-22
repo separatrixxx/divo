@@ -128,4 +128,5 @@ export const ru = {
     your_deposit_earned_you: "Пока вас не было, ваш DIVO Boost принёс вам $$$",
     great: "Здорово",
     profit_per_day: "Прибыль в день",
+    tap_coins_while_loading: "Тапайте и получайте монеты, пока идёт загрузка",
 };

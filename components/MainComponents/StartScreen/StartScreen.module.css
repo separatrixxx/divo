@@ -16,14 +16,19 @@
 	position: absolute;
 	z-index: 102;
 	top: 0;
-	left: 10px;
+	left: 50%;
 
 	display: grid;
-	justify-items: left;
+
+	transform: translateX(-50%);
+	justify-items: center;
 }
 
 .startScreenTitle,
 .startScreenText {
+	user-select: none;
+	text-align: center;
+
 	color: var(--white) !important;
 }
 

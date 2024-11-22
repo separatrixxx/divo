@@ -1,0 +1,103 @@
+.clicker {
+	position: absolute;
+	z-index: 50;
+	bottom: 40px;
+
+	display: grid;
+	justify-items: center;
+}
+
+.clickerTextDiv {
+	position: fixed;
+	bottom: 170px;
+	left: 50%;
+
+	display: grid;
+
+	width: 100%;
+
+	transform: translateX(-50%);
+	justify-items: center;
+	gap: 5px;
+}
+
+.countText,
+.clickerText {
+	user-select: none;
+
+	color: var(--white);
+}
+
+.countText {
+	font-weight: 600 !important;
+}
+
+.clickerButton {
+	position: relative;
+
+	width: 100px;
+
+	cursor: pointer;
+	animation: coinBlink 2s ease-in-out infinite;
+
+	border-radius: 9999px;
+	box-shadow: 0 0 10px 5px var(--primary);
+}
+
+.isClicked {
+	transform: scale(1.05);
+}
+
+@keyframes coinBlink {
+	0% {
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
+
+	50% {
+		box-shadow: 0 0 1px 1px var(--primary);
+	}
+
+	100% {
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
+}
+
+.flyingCoin {
+	position: absolute;
+
+	width: 30px;
+	height: 30px;
+
+	animation: flyUp 1.5s ease-in forwards, fadeOut 1.5s ease-in forwards;
+	pointer-events: none;
+
+	border-radius: 9999px;
+}
+
+@keyframes flyUp {
+	0% {
+		transform: translateY(0);
+
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
+
+	50% {
+		box-shadow: 0 0 1px 1px var(--primary);
+	}
+
+	100% {
+		transform: translateY(-150px);
+
+		box-shadow: 0 0 10px 5px var(--primary);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

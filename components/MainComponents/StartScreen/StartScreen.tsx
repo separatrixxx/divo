@@ -3,6 +3,7 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { useEffect, useState } from 'react';
+import { Clicker } from '../Clicker/Clicker';
 
 
 export const StartScreen = (): JSX.Element => {
@@ -34,12 +35,10 @@ export const StartScreen = (): JSX.Element => {
 
     return (
         <div className={styles.startScreen}>
+            <Clicker />
             <div className={styles.startScreenDiv}>
                 <Htag tag='xxxxl' className={styles.startScreenTitle}>
                     {setLocale(tgUser?.language_code).divo}
-                </Htag>
-                <Htag tag='s' className={styles.startScreenText}>
-                    {setLocale(tgUser?.language_code).slogan}
                 </Htag>
             </div>
             <video className={styles.video} autoPlay playsInline loop muted no-controls >

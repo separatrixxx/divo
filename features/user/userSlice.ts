@@ -23,6 +23,7 @@ const userData: UserInterface = {
     last_signed: '',
     blocked_in_stake: 0,
     daily_stake_income: 0,
+    tapping_award_status: null,
   }
 };
 

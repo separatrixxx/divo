@@ -8,11 +8,11 @@ import { getDivosit } from '../../helpers/divosit.helper';
 
 
 function Profile(): JSX.Element {
-    const { router, dispatch, webApp, tgUser, user } = useSetup();
+    const { router, dispatch, webApp, tgUser, firstVisit, clicker } = useSetup();
 
     useEffect(() => {
         if (tgUser) {
-            getUser({
+            getUser(firstVisit, clicker, {
                 router: router,
                 webApp: webApp,
                 dispatch: dispatch,
@@ -33,7 +33,7 @@ function Profile(): JSX.Element {
                 tgUser: tgUser,
             });
         }
-    }, [router, tgUser, webApp, dispatch]);
+    }, [router, tgUser, webApp, firstVisit, dispatch]);
 
     return (
         <>

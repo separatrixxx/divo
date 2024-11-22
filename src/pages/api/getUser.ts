@@ -4,13 +4,25 @@ import axios from 'axios';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const { user_id } = req.query;
+        const { firstVisit, clicker, user_id } = req.query;
+
+        const params: any = { user_id };
+
+        if (firstVisit && clicker) {
+            const taps_count = +clicker;
+
+            if (taps_count > 0) {
+                params.taps_count = taps_count;
+            }
+        }
+
         const response = await axios.get(`${process.env.API_DOMAIN}/api/users/user_data`, {
             headers: {
                 'X-API-Key': process.env.API_KEY,
             },
-            params: { user_id }
+            params,
         });
+        
         res.status(200).json(response.data);
     } catch (err: any) {
         if (err.response && err.response.data.error_message === 'User not found') {

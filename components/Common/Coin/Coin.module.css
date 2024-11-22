@@ -12,8 +12,9 @@
 .coin > svg {
 	width: 35px;
 
-	border-radius: 50%;
 	animation: coinBlink 2s ease-in-out infinite;
+
+	border-radius: 9999px;
 }
 
 .coin > h1 {
@@ -52,7 +53,7 @@
 	50% {
 		box-shadow: 0 0 1px 1px var(--primary);
 	}
-	
+
 	100% {
 		box-shadow: 0 0 10px 5px var(--primary);
 	}

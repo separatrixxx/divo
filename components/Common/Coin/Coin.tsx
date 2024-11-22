@@ -1,6 +1,6 @@
 import { CoinProps } from './Coin.props';
-import { Htag } from '../Htag/Htag';
 import styles from './Coin.module.css';
+import { Htag } from '../Htag/Htag';
 import CoinIcon from './logo.svg';
 import { useSetup } from '../../../hooks/useSetup';
 import { setLocale } from '../../../helpers/locale.helper';

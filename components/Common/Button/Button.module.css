@@ -47,7 +47,7 @@
 
 	border: 1px solid var(--dark);
 	border-top: 1px solid var(--white);
-	border-radius: 50%;
+	border-radius: 9999px;
 }
 
 .popupButton {

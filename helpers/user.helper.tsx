@@ -4,9 +4,10 @@ import { setUser, setUserDefault } from "../features/user/userSlice";
 import { BaseArguments } from "../interfaces/refactor.interface";
 import { setRefs, setRefsDefault } from "../features/refs/refsSlice";
 import { setCoinsInfo, setCoinsInfoDefault } from "../features/coinsInfo/coinsInfoSlice";
+import { setClickerDefault } from "../features/clicker/clickerSlice";
 
 
-export async function getUser(args: BaseArguments) {
+export async function getUser(firstVisit: boolean, clicker: number, args: BaseArguments) {
     const { router, dispatch, webApp, tgUser } = args;
 
     try {
@@ -14,10 +15,13 @@ export async function getUser(args: BaseArguments) {
 
         const { data: response } = await axios.get('/api/getUser', {
             params: {
+                firstVisit: firstVisit,
+                clicker: clicker,
                 user_id: tgUser?.id,
             },
         });
 
+        dispatch(setClickerDefault());
         dispatch(setUser(response));
     } catch (err: any) {
         if (err.response && err.response.status === 404) {

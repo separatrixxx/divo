@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { ITelegramUser, IWebApp } from "../types/telegram";
 import { useSetup } from "../hooks/useSetup";
 import { toggleFirstVisit } from "../features/firstVisit/firstVisitSlice";
+import { setClickerDefault } from "../features/clicker/clickerSlice";
 
 
 export interface ITelegramContext {

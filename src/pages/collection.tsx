@@ -8,11 +8,11 @@ import { getUser } from "../../helpers/user.helper";
 
 
 function Collection(): JSX.Element {
-    const { router, dispatch, webApp, tgUser } = useSetup();
+    const { router, dispatch, webApp, tgUser, firstVisit, clicker } = useSetup();
 
     useEffect(() => {
         if (tgUser) {
-            getUser({
+            getUser(firstVisit, clicker, {
                 router: router,
                 webApp: webApp,
                 dispatch: dispatch,
@@ -26,7 +26,7 @@ function Collection(): JSX.Element {
                 tgUser: tgUser,
             });
         }
-    }, [router, tgUser, webApp, dispatch]);
+    }, [router, tgUser, webApp, firstVisit, dispatch]);
 
     return (
         <>

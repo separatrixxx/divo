@@ -19,6 +19,7 @@ export interface UserInterface {
         last_signed: string,
         blocked_in_stake: number,
         daily_stake_income: number,
+        tapping_award_status: string | null,
     }
 }
 

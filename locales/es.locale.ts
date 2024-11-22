@@ -128,4 +128,5 @@ export const es = {
     your_deposit_earned_you: "Mientras estabas fuera, tu DIVO Boost te hizo ganar $$$",
     great: "¡Genial",
     profit_per_day: "Ganancia por día",
+    tap_coins_while_loading: "Toca para obtener monedas mientras cargas",
 };

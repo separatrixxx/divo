@@ -18,6 +18,7 @@ export const useSetup = () => {
     const tasks = useSelector((state: AppState) => state.tasks.tasks);
     const divosit = useSelector((state: AppState) => state.divosit.divosit);
     const firstVisit = useSelector((state: AppState) => state.firstVisit.firstVisit);
+    const clicker = useSelector((state: AppState) => state.clicker.clicker);
 
     return {
         router,
@@ -33,5 +34,6 @@ export const useSetup = () => {
         tasks,
         divosit,
         firstVisit,
+        clicker,
     };
 };

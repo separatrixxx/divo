@@ -45,8 +45,9 @@
 
 	width: 70px;
 
-	border-radius: 9999px;
 	animation: coinBlink 3s ease-in-out infinite;
+
+	border-radius: 9999px;
 }
 
 .navbarLogoLink::before {
@@ -79,7 +80,7 @@
 	50% {
 		box-shadow: 0 0 1px 1px var(--primary);
 	}
-	
+
 	100% {
 		box-shadow: 0 0 10px 5px var(--primary);
 	}

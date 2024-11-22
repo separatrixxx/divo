@@ -14,7 +14,7 @@
 
 	border: 2px solid var(--dark);
 	border-top: 2px solid var(--white);
-	border-radius: 50%;
+	border-radius: 9999px;
 }
 
 @keyframes spin {

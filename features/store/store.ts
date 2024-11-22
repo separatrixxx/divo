@@ -9,6 +9,7 @@ import coinsInfoSlice from "../coinsInfo/coinsInfoSlice";
 import tasksSlice from "../tasks/tasksSlice";
 import divositSlice from "../divosit/divositSlice";
 import firstVisitSlice from "../firstVisit/firstVisitSlice";
+import clickerSlice from "../clicker/clickerSlice";
 
 
 const makeStore = () =>
@@ -23,6 +24,7 @@ const makeStore = () =>
       tasks: tasksSlice,
       divosit: divositSlice,
       firstVisit: firstVisitSlice,
+      clicker: clickerSlice,
     },
     devTools: true,
   });

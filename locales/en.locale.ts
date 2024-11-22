@@ -129,4 +129,5 @@ export const en = {
     great: "Great",
     profit_per_day: "Profit per day",
     tap_coins_while_loading: "Tap for coins while loading",
+    you_have_tapped: "You have tapped ",
 };

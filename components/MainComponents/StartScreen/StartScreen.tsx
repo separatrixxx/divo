@@ -7,7 +7,7 @@ import { Clicker } from '../Clicker/Clicker';
 
 
 export const StartScreen = (): JSX.Element => {
-    const { tgUser } = useSetup();
+    const { tgUser, clicker } = useSetup();
     const [progress, setProgress] = useState<number>(0);
 
     const interval = 130;

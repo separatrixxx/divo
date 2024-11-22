@@ -12,7 +12,7 @@ function Profile(): JSX.Element {
 
     useEffect(() => {
         if (tgUser) {
-            getUser(firstVisit, clicker, {
+            getUser(firstVisit, clicker.clicker, {
                 router: router,
                 webApp: webApp,
                 dispatch: dispatch,

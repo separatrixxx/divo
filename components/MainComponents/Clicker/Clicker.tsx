@@ -76,7 +76,7 @@ export const Clicker = (): JSX.Element => {
                 {
                     count > 0 &&
                         <Htag tag='xxxl' className={styles.countText}>
-                            {count}
+                            {count * 2 + ' ' + setLocale(tgUser?.language_code).token}
                         </Htag>
                 }
             </div>

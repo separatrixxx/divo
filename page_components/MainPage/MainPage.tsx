@@ -12,7 +12,7 @@ import { StartPopup } from '../../components/MainComponents/StartPopup/StartPopu
 
 
 export const MainPage = (): JSX.Element => {
-    const { webApp, tgUser, firstVisit, user } = useSetup();
+    const { webApp, tgUser, firstVisit, user, clicker } = useSetup();
 
     if (webApp) {
         webApp?.BackButton.hide();
@@ -44,7 +44,7 @@ export const MainPage = (): JSX.Element => {
                         <Header />
                         <ModelsList type='all' />
                         <Navbar />
-                        <Modal isActive={isActive && minutesPassed >= 15} setIsActive={setIsActive}>
+                        <Modal isActive={isActive && clicker.clicker2 > -1} setIsActive={setIsActive}>
                             <StartPopup minutesPassed={minutesPassed} setIsActive={setIsActive} />
                         </Modal>
                     </>

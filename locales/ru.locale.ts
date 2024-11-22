@@ -129,4 +129,5 @@ export const ru = {
     great: "Здорово",
     profit_per_day: "Прибыль в день",
     tap_coins_while_loading: "Тапайте и получайте монеты, пока идёт загрузка",
+    you_have_tapped: "Вы натапали",
 };

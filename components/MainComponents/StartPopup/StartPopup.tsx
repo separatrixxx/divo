@@ -8,10 +8,11 @@ import Logo from './logo.svg';
 import { numFormat } from '../../../helpers/format.helper';
 import { Button } from '../../Common/Button/Button';
 import cn from 'classnames';
+import { setClicker2Default } from '../../../features/clicker/clickerSlice';
 
 
 export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX.Element => {
-    const { tgUser, user } = useSetup();
+    const { dispatch, tgUser, user, clicker } = useSetup();
 
     const depositEarned = (user.result.daily_stake_income / 1440 * minutesPassed).toFixed(5);
 
@@ -21,10 +22,17 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
             <Htag tag='xxl' className={styles.welcomeBackText}>
                 {setLocale(tgUser?.language_code).welcome_back + '!'}
             </Htag>
-            <Htag tag='s' className={styles.popupText}>
-                {setLocale(tgUser?.language_code).your_deposit_earned_you.replace('$$$', String(depositEarned))
+            <Htag tag='xs' className={styles.popupText}>
+                {setLocale(tgUser?.language_code).you_have_tapped + ' ' + 2 * clicker.clicker2
                     + ' ' + setLocale(tgUser?.language_code).token}
             </Htag>
+            {
+                +depositEarned > 0 &&
+                    <Htag tag='s' className={styles.popupText}>
+                        {setLocale(tgUser?.language_code).your_deposit_earned_you.replace('$$$', String(depositEarned))
+                            + ' ' + setLocale(tgUser?.language_code).token}
+                    </Htag>
+            }
             {
                 user.result.daily_stake_income &&
                 <div className={styles.popupDiv}>
@@ -44,7 +52,10 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
                 {setLocale(tgUser?.language_code).token}
             </Htag>
             <Button className={styles.popupButton} text={setLocale(tgUser?.language_code).great + '!'}
-                isPopup={true} onClick={() => setIsActive(false)} />
+                isPopup={true} onClick={() => {
+                    setIsActive(false);
+                    dispatch(setClicker2Default());
+                }} />
         </div>
     );
 };

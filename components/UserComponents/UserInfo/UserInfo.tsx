@@ -52,25 +52,6 @@ export const UserInfo = (): JSX.Element => {
 
     return (
         <div className={styles.userInfo}>
-            {
-                (tgUser?.username === 'separatrix' || tgUser?.username === 'elanoide_ss') &&
-                    <>
-                        <div className={styles.easterEgg} onClick={() => {
-                            if (isMarat) {
-                                setIsMarat(false);
-                                setMaratCount(0);
-                            } else if (maratCount < 4) {
-                                setMaratCount(maratCount + 1);
-                            } else {
-                                setIsMarat(true);
-                            }
-                        }} />
-                        {
-                            isMarat &&
-                                <Marat />
-                        }
-                    </>
-            }
             <div className={styles.usernameDiv}>
                 <Image className={styles.userImage} draggable='false'
                     loader={() => tgUser?.photo_url || '/logo.svg'}

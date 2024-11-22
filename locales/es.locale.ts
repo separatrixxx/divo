@@ -130,4 +130,5 @@ export const es = {
     profit_per_day: "Ganancia por día",
     tap_coins_while_loading: "Toca para obtener monedas mientras cargas",
     you_have_tapped: "Has hecho tapping",
+    you_put_coins_on_divo_boost: "Pones $$$ monedas en DIVO Boost, tu ganancia por día: $$$$",
 };

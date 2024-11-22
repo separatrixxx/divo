@@ -130,4 +130,5 @@ export const en = {
     profit_per_day: "Profit per day",
     tap_coins_while_loading: "Tap for coins while loading",
     you_have_tapped: "You have tapped ",
+    you_put_coins_on_divo_boost: "You put $$$ coins on DIVO Boost, your profit per day: $$$$",
 };

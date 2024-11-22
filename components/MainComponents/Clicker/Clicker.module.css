@@ -23,6 +23,8 @@
 
 .countText,
 .clickerText {
+	max-width: 90%;
+	text-align: center;
 	user-select: none;
 
 	color: var(--white);

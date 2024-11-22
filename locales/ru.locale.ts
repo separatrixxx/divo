@@ -130,4 +130,5 @@ export const ru = {
     profit_per_day: "Прибыль в день",
     tap_coins_while_loading: "Тапайте и получайте монеты, пока идёт загрузка",
     you_have_tapped: "Вы натапали",
+    you_put_coins_on_divo_boost: "Вы положили $$$ монет на DIVO Boost, ваша прибыль в день: $$$$",
 };

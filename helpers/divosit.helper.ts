@@ -2,6 +2,7 @@ import axios from "axios";
 import { BaseArguments, StakingArguments } from "../interfaces/refactor.interface";
 import { setLocale } from "./locale.helper";
 import { setDivositActive, setDivositCompleted, setDivositDefault } from "../features/divosit/divositSlice";
+import { ToastSuccess } from "../components/Common/Toast/Toast";
 
 
 export function calculateProfit(coins: number, days: number): string {
@@ -46,6 +47,11 @@ export async function addStaking(args: StakingArguments) {
                 dispatch: dispatch,
                 tgUser: tgUser,
             });
+
+            ToastSuccess(setLocale(tgUser?.language_code).you_put_coins_on_divo_boost
+                .replace('$$$', String(amount))
+                .replace('$$$$', calculateProfit(amount, duration))
+            );
         });
     } catch (err: any) {
         setIsLoading(false);

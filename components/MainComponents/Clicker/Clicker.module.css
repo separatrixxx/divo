@@ -9,7 +9,7 @@
 
 .clickerTextDiv {
 	position: fixed;
-	bottom: 170px;
+	bottom: 230px;
 	left: 50%;
 
 	display: grid;
@@ -44,6 +44,7 @@
 
 	border-radius: 9999px;
 	box-shadow: 0 0 10px 5px var(--primary);
+	bottom: 60px;
 }
 
 .isClicked {

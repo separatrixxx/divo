@@ -53,8 +53,8 @@ export const Clicker = (): JSX.Element => {
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top + 60;
+        const x = e.clientX - rect.left - 10;
+        const y = e.clientY - rect.top - 80;
         handleEvent(x, y);
     };
 
@@ -62,8 +62,8 @@ export const Clicker = (): JSX.Element => {
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
         const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
+        const x = touch.clientX - rect.left - 10;
+        const y = touch.clientY - rect.top - 80;
         handleEvent(x, y);
     };
 

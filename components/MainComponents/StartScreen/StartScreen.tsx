@@ -9,6 +9,7 @@ import { Clicker } from '../Clicker/Clicker';
 export const StartScreen = (): JSX.Element => {
     const { tgUser, clicker } = useSetup();
     const [progress, setProgress] = useState<number>(0);
+    const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
 
     const interval = 130;
 
@@ -30,6 +31,8 @@ export const StartScreen = (): JSX.Element => {
 
         setTimeout(() => setProgress(interval), 5400);
 
+        setTimeout(() => setIsVideoLoaded(true), 100);
+
         return () => clearInterval(intervalId);
     }, []);
 
@@ -41,9 +44,12 @@ export const StartScreen = (): JSX.Element => {
                     {setLocale(tgUser?.language_code).divo}
                 </Htag>
             </div>
-            <video className={styles.video} autoPlay playsInline loop muted no-controls >
-                <source src="/StartVideo.MP4" type="video/mp4"></source>
-            </video>
+            {
+                isVideoLoaded &&
+                    <video className={styles.video} autoPlay playsInline loop muted no-controls >
+                        <source src="/StartVideo.MP4" type="video/mp4"></source>
+                    </video>
+            }
             <div className={styles.progressBar}
                 style={{
                     background: `linear-gradient(to right,

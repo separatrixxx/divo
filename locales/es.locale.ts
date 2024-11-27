@@ -1,4 +1,9 @@
 export const es = {
+    // Текст на главной
+    main_text1: "DIVO",
+    main_text2: "",
+    main_text3: "Toca para obtener monedas mientras cargas",
+
     locale: "es",
     language: "Español",
     lang: "ES",
@@ -128,7 +133,6 @@ export const es = {
     your_deposit_earned_you: "Mientras estabas fuera, tu DIVO Boost te hizo ganar $$$",
     great: "¡Genial",
     profit_per_day: "Ganancia por día",
-    tap_coins_while_loading: "Toca para obtener monedas mientras cargas",
     you_have_tapped: "Has hecho tapping",
     you_put_coins_on_divo_boost: "Pones $$$ monedas en DIVO Boost, tu ganancia por día: $$$$",
 };

@@ -12,8 +12,6 @@ export const VoteButton = ({ modelId, isLoading, isVoted, remainingVotes, setIsL
     setAward, setRaffleVisible }: VoteButtonProps): JSX.Element => {
     const { router, webApp, tgUser } = useSetup();
     
-    const flightDuration = 1.5;
-
     return (
         <div className={cn(styles.voteButton, {
             [styles.isVotedButton]: isVoted,

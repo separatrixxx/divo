@@ -46,6 +46,7 @@ export interface IWebApp {
   isClosingConfirmationEnabled: boolean,
   headerColor: string,
   backgroundColor: string,
+  isFullscreen: boolean,
   setHeaderColor: (color: string) => void,
   BackButton: {
     isVisible: boolean,
@@ -66,6 +67,18 @@ export interface IWebApp {
     show: () => void,
     hide: () => void,
   },
+  safeAreaInset: {
+    top: number,
+    bottom: number,
+    left: number,
+    right: number,
+  },
+  contentSafeAreaInset: {
+    top: number,
+    bottom: number,
+    left: number,
+    right: number,
+  }
   setHeaderColor: (color: string) => void,
   onEvent: (eventType: string, eventHandler: () => void) => void,
   expand: () => void,
@@ -74,4 +87,6 @@ export interface IWebApp {
   showAlert: (message: string, callback?: () => void) => void,
   showConfirm: (message: string, callback?: (confirmed: boolean) => void) => void,
   openLink: (url: string) => void,
+  requestFullscreen: () => void,
+  exitFullscreen: () => void,
 }

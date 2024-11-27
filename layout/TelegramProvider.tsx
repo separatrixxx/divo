@@ -3,7 +3,6 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { ITelegramUser, IWebApp } from "../types/telegram";
 import { useSetup } from "../hooks/useSetup";
 import { toggleFirstVisit } from "../features/firstVisit/firstVisitSlice";
-import { setClickerDefault } from "../features/clicker/clickerSlice";
 
 
 export interface ITelegramContext {
@@ -25,6 +24,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
       app.ready();
       setWebApp(app);
       app.expand();
+
       app.setHeaderColor('#1A1A1A');
     }
 
@@ -48,7 +48,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
   return (
     <TelegramContext.Provider value={value}>
       <Script
-        src="https://telegram.org/js/telegram-web-app.js"
+        src="https://telegram.org/js/telegram-web-app.js?56"
         strategy="beforeInteractive"
       />
       {children}

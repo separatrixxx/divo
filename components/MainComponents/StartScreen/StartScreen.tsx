@@ -41,9 +41,12 @@ export const StartScreen = (): JSX.Element => {
             <Clicker />
             <div className={styles.startScreenDiv}>
                 <Htag tag='xxxxl' className={styles.startScreenTitle}>
-                    {setLocale(tgUser?.language_code).divo}
+                    {setLocale(tgUser?.language_code).main_text1}
                 </Htag>
             </div>
+            <Htag tag='xxl' className={styles.startScreenTitle2}>
+                {setLocale(tgUser?.language_code).main_text2}
+            </Htag>
             {
                 isVideoLoaded &&
                     <video className={styles.video} autoPlay playsInline loop muted no-controls >

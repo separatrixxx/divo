@@ -71,7 +71,7 @@ export const Clicker = (): JSX.Element => {
         <div className={styles.clicker}>
             <div className={styles.clickerTextDiv}>
                 <Htag tag='l' className={styles.clickerText}>
-                    {setLocale(tgUser?.language_code).tap_coins_while_loading}
+                    {setLocale(tgUser?.language_code).main_text3}
                 </Htag>
                 {
                     count > 0 &&

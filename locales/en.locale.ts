@@ -1,4 +1,9 @@
 export const en = {
+    // Текст на главной
+    main_text1: "DIVO",
+    main_text2: "",
+    main_text3: "Tap for coins while loading",
+
     locale: "en",
     language: "English",
     lang: "EN",
@@ -128,7 +133,6 @@ export const en = {
     your_deposit_earned_you: "While you were away, your DIVO Boost earned you $$$",
     great: "Great",
     profit_per_day: "Profit per day",
-    tap_coins_while_loading: "Tap for coins while loading",
     you_have_tapped: "You have tapped ",
     you_put_coins_on_divo_boost: "You put $$$ coins on DIVO Boost, your profit per day: $$$$",
 };

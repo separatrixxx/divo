@@ -80,13 +80,11 @@ export const Clicker = (): JSX.Element => {
                         </Htag>
                 }
             </div>
-            <CoinIcon 
-                className={cn(styles.clickerButton, {
+            <CoinIcon className={cn(styles.clickerButton, {
                     [styles.isClicked]: isClicked,
                 })} 
                 onClick={handleClick} 
-                onTouchStart={handleTouch} 
-            />
+                onTouchStart={handleTouch}  />
             {coins.map((coin) => (
                 <CoinIcon key={coin.id} className={styles.flyingCoin}
                     style={{

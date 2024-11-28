@@ -1,6 +1,6 @@
 .clicker {
 	position: absolute;
-	z-index: 50;
+	z-index: 150;
 	bottom: 40px;
 
 	display: grid;

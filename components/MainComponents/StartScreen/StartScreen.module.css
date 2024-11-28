@@ -14,7 +14,7 @@
 
 .startScreenDiv {
 	position: absolute;
-	z-index: 102;
+	z-index: 49;
 	top: 0;
 	left: 50%;
 
@@ -28,7 +28,7 @@
 	position: absolute;
 	top: 40% !important;
 	transform: translateY(-50%);
-	z-index: 102 !important;
+	z-index: 49 !important;
 }
 
 .startScreenTitle,
@@ -54,6 +54,7 @@
 	width: 100%;
 	height: auto;
 	filter: brightness(0.6);
+	z-index: 20;
 }
 
 .progressBar {

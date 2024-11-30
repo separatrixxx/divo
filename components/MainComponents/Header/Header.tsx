@@ -33,7 +33,10 @@ export const Header = (): JSX.Element => {
                 <Htag tag='m' className={styles.text}>
                     {numFormat(user.result.coins) + ' ' + setLocale(tgUser?.language_code).token}
                 </Htag>
-                {showCoin && user.result.daily_stake_income > 0 && <Coin isSmall={true} />}
+                {
+                    showCoin && user.result.daily_stake_income > 0 &&
+                        <Coin isSmall={true} />
+                }
             </div>
             <Htag tag='m' className={cn(styles.text, styles.burnText)}>
                 {numFormat(user.result.remaining_votes) + '/' + numFormat(user.result.total_available_votes)}

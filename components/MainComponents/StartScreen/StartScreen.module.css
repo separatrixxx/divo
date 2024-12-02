@@ -54,7 +54,7 @@
 	width: 100%;
 	height: auto;
 	filter: brightness(0.6);
-	z-index: 20;
+	z-index: 2 !important;
 }
 
 .progressBar {

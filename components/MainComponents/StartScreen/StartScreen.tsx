@@ -4,12 +4,13 @@ import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { useEffect, useState } from 'react';
 import { Clicker } from '../Clicker/Clicker';
+import Image from 'next/image';
 
 
 export const StartScreen = (): JSX.Element => {
     const { tgUser, clicker } = useSetup();
     const [progress, setProgress] = useState<number>(0);
-    const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
+    // const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
 
     const interval = 130;
 
@@ -31,7 +32,7 @@ export const StartScreen = (): JSX.Element => {
 
         setTimeout(() => setProgress(interval), 5400);
 
-        setTimeout(() => setIsVideoLoaded(true), 100);
+        // setTimeout(() => setIsVideoLoaded(true), 100);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -47,12 +48,23 @@ export const StartScreen = (): JSX.Element => {
             <Htag tag='xxl' className={styles.startScreenTitle2}>
                 {setLocale(tgUser?.language_code).main_text2}
             </Htag>
-            {
+            {/* {
                 isVideoLoaded &&
                     <video className={styles.video} autoPlay playsInline loop muted no-controls >
-                        <source src="/StartVideo.MP4" type="video/mp4"></source>
+                        <source src="/StartVideo.mp4" type="video/mp4"></source>
                     </video>
-            }
+            } */}
+            <Image className={styles.image}
+                draggable='false'
+                loader={() => '/StartImage.webp'}
+                src={'/StartImage.webp'}
+                alt={'start image'}
+                width={1}
+                height={1}
+                unoptimized={true}
+                priority
+                quality={20}
+            />
             <div className={styles.progressBar}
                 style={{
                     background: `linear-gradient(to right,

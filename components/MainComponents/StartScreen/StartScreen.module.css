@@ -25,11 +25,13 @@
 }
 
 .startScreenTitle2 {
-	max-width: 90%;
 	position: absolute;
-	top: 40% !important;
-	transform: translateY(-50%);
 	z-index: 49 !important;
+	top: 40% !important;
+
+	max-width: 90%;
+
+	transform: translateY(-50%);
 }
 
 .startScreenTitle,
@@ -52,10 +54,11 @@
 }
 
 .video {
+	z-index: 2 !important;
+
 	width: 100%;
 	height: auto;
 	filter: brightness(0.6);
-	z-index: 2 !important;
 }
 
 .image {
@@ -65,8 +68,11 @@
 
 	width: 100%;
 	height: 100vh;
-	object-fit: cover;
+
+	user-select: none;
+
 	background: var(--start-bg);
+	object-fit: cover;
 }
 
 .progressBar {

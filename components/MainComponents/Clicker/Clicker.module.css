@@ -24,8 +24,9 @@
 .countText,
 .clickerText {
 	max-width: 90%;
-	text-align: center;
+
 	user-select: none;
+	text-align: center;
 
 	color: var(--white);
 }
@@ -36,6 +37,7 @@
 
 .clickerButton {
 	position: relative;
+	bottom: 60px;
 
 	width: 100px;
 
@@ -44,7 +46,6 @@
 
 	border-radius: 9999px;
 	box-shadow: 0 0 10px 5px var(--primary);
-	bottom: 60px;
 }
 
 .isClicked {

@@ -25,6 +25,7 @@
 }
 
 .startScreenTitle2 {
+	max-width: 90%;
 	position: absolute;
 	top: 40% !important;
 	transform: translateY(-50%);

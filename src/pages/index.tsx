@@ -33,7 +33,7 @@ function Main(): JSX.Element {
         tgUser: tgUser,
     });
     }
-  }, [router, tgUser, webApp, firstVisit,  dispatch]);
+  }, [router, tgUser, webApp, firstVisit, dispatch]);
 
   return (
     <>

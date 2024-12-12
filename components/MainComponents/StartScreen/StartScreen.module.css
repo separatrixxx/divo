@@ -27,7 +27,7 @@
 .startScreenTitle2 {
 	position: absolute;
 	z-index: 49 !important;
-	top: 40% !important;
+	top: 30% !important;
 
 	max-width: 90%;
 
@@ -73,6 +73,7 @@
 
 	background: var(--start-bg);
 	object-fit: cover;
+	filter: brightness(0.6);
 }
 
 .progressBar {

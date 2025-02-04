@@ -1,7 +1,7 @@
 export const es = {
     // Текст на главной
     main_text1: "DIVO",
-    main_text2: "¡Nueva tarea de evento – corre por esas monedas!",
+    main_text2: "¡Finalizó la temporada! ¡Pronto habrá nuevas actualizaciones! ¡Estén atentos!",
 
     locale: "es",
     language: "Español",

@@ -1,7 +1,7 @@
 export const en = {
     // Текст на главной
     main_text1: "DIVO",
-    main_text2: "New Event Task – grab the COINS now!",
+    main_text2: "Season ended – new updates coming soon! Stay tuned!",
 
     locale: "en",
     language: "English",

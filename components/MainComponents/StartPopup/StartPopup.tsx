@@ -8,11 +8,10 @@ import Logo from './logo.svg';
 import { numFormat } from '../../../helpers/format.helper';
 import { Button } from '../../Common/Button/Button';
 import cn from 'classnames';
-import { setClicker2Default } from '../../../features/clicker/clickerSlice';
 
 
 export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX.Element => {
-    const { dispatch, tgUser, user, clicker } = useSetup();
+    const { dispatch, tgUser, user } = useSetup();
 
     const depositEarned = (user.result.daily_stake_income / 1440 * minutesPassed).toFixed(5);
 
@@ -22,10 +21,6 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
             <Htag tag='xxl' className={styles.welcomeBackText}>
                 {setLocale(tgUser?.language_code).welcome_back + '!'}
             </Htag>
-            <Htag tag='xs' className={styles.popupText}>
-                {setLocale(tgUser?.language_code).you_have_tapped + ' ' + 2 * clicker.clicker2
-                    + ' ' + setLocale(tgUser?.language_code).token}
-            </Htag>
             {
                 +depositEarned > 0 &&
                     <Htag tag='s' className={styles.popupText}>
@@ -34,17 +29,18 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
                     </Htag>
             }
             {
-                user.result.daily_stake_income &&
-                <div className={styles.popupDiv}>
-                    <Htag tag='xs' className={styles.popupText}>
-                        {setLocale(tgUser?.language_code).profit_per_day}
-                    </Htag>
-                    <Htag tag='s' className={cn(styles.popupText, styles.gridTextS)}>
-                        <Logo className={styles.logoS} />
-                        <span>{'+' + numFormat(user.result.daily_stake_income)}</span>
-                        {setLocale(tgUser?.language_code).token}
-                    </Htag>
-                </div>
+                user.result.daily_stake_income ?
+                    <div className={styles.popupDiv}>
+                        <Htag tag='xs' className={styles.popupText}>
+                            {setLocale(tgUser?.language_code).profit_per_day}
+                        </Htag>
+                        <Htag tag='s' className={cn(styles.popupText, styles.gridTextS)}>
+                            <Logo className={styles.logoS} />
+                            <span>{'+' + numFormat(user.result.daily_stake_income)}</span>
+                            {setLocale(tgUser?.language_code).token}
+                        </Htag>
+                    </div>
+                : <></>
             }
             <Htag tag='xl' className={cn(styles.popupText, styles.gridTextM)}>
                 <Logo className={styles.logoM} />
@@ -54,7 +50,6 @@ export const StartPopup = ({ minutesPassed, setIsActive }: StartPopupProps): JSX
             <Button className={styles.popupButton} text={setLocale(tgUser?.language_code).great + '!'}
                 isPopup={true} onClick={() => {
                     setIsActive(false);
-                    dispatch(setClicker2Default());
                 }} />
         </div>
     );

@@ -8,11 +8,11 @@ import { getRefs, getUser } from "../../helpers/user.helper";
 
 
 function Main(): JSX.Element {
-  const { router, dispatch, webApp, tgUser, firstVisit, clicker } = useSetup();
+  const { router, dispatch, webApp, tgUser, firstVisit } = useSetup();
 
   useEffect(() => {
     if (tgUser) {
-      getUser(firstVisit, clicker.clicker, {
+      getUser({
         router: router,
         webApp: webApp,
         dispatch: dispatch,

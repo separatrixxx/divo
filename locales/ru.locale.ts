@@ -1,8 +1,7 @@
 export const ru = {
     // Текст на главной
     main_text1: "DIVO",
-    main_text2: "",
-    main_text3: "Тапайте и получайте монеты, пока идёт загрузка",
+    main_text2: "Новое Event-задание - скорей за МОНЕТАМИ!",
 
     locale: "ru",
     language: "Русский",

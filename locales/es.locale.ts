@@ -1,8 +1,7 @@
 export const es = {
     // Текст на главной
     main_text1: "DIVO",
-    main_text2: "",
-    main_text3: "Toca para obtener monedas mientras cargas",
+    main_text2: "¡Nueva tarea de evento – corre por esas monedas!",
 
     locale: "es",
     language: "Español",

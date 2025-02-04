@@ -15,7 +15,7 @@
 .popupText {
 	text-align: center;
 
-	color: var(--white);
+	color: var(--white) !important;
 }
 
 .welcomeBackText {

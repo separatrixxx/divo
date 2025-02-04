@@ -4,17 +4,9 @@ import axios from 'axios';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const { firstVisit, clicker, user_id } = req.query;
+        const { user_id } = req.query;
 
         const params: any = { user_id };
-
-        if (firstVisit && clicker) {
-            const taps_count = +clicker;
-
-            if (taps_count > 0) {
-                params.taps_count = taps_count;
-            }
-        }
 
         const response = await axios.get(`${process.env.API_DOMAIN}/api/users/user_data`, {
             headers: {

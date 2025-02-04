@@ -31,7 +31,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
     if (!firstVisit) {
       setTimeout(() => {
         dispatch(toggleFirstVisit());
-      }, 5500);
+      }, 3000);
     }
   }, [firstVisit, router, dispatch]);
 

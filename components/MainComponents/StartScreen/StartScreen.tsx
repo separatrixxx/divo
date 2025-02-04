@@ -15,7 +15,7 @@ export const StartScreen = (): JSX.Element => {
     useEffect(() => {
         let currentStep = 0;
 
-        const weightedSteps = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5];
+        const weightedSteps = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5];
         const getRandomStep = () => weightedSteps[Math.floor(Math.random() * weightedSteps.length)];
 
         const intervalId = setInterval(() => {
@@ -24,11 +24,12 @@ export const StartScreen = (): JSX.Element => {
 
             setProgress(prevProgress => {
                 const newProgress = Math.min(prevProgress + randomIncrement, interval);
+                
                 return newProgress;
             });
         }, interval);
 
-        setTimeout(() => setProgress(interval), 5400);
+        setTimeout(() => setProgress(interval), 2900);
 
         return () => clearInterval(intervalId);
     }, []);
